@@ -1,0 +1,82 @@
+:root {
+  /* --- Colores de marca (tomados del logo) --- */
+  --color-amarillo: #F7B32B;        /* Amarillo Moneda: botones principales, destacados */
+  --color-amarillo-hover: #FFC84D;  /* Hover del botón principal */
+  --color-naranja: #E8892B;         /* Naranja Joystick: banners y etiquetas (NO texto) */
+  --color-cafe: #4D352B;            /* Café Cabina: bordes de botones, hero, pie de página */
+  --color-cafe-oscuro: #3E2A22;     /* Variante para hover/fondos sobre café */
+  --color-nocturno: #1F140F;        /* Texto sobre botones amarillos */
+
+  /* --- Fondos --- */
+  --color-fondo: #FFFBF4;           /* Crema Nube: fondo general de la página */
+  --color-fondo-seccion: #FFF6E8;   /* Crema Sección: bandas alternas */
+  --color-superficie: #FFFFFF;      /* Tarjetas, formularios, barra de navegación */
+  --color-relleno: #F3E4CD;         /* Espacios de imagen, chips inactivos */
+
+  /* --- Textos --- */
+  --color-texto: #2A1A14;           /* Texto principal y títulos (16.2:1) */
+  --color-texto-suave: #6B4F3F;     /* Descripciones, texto secundario (7.2:1) */
+  --color-acento-texto: #A34F0E;    /* Enlaces, precios, frases de acento (5.5:1) */
+  --color-texto-claro: #FFF3E0;     /* Texto sobre fondos café u oscuros */
+  --color-texto-claro-suave: #E9D6BF; /* Texto secundario sobre café */
+
+  /* --- Bordes --- */
+  --color-borde: #EAD7BD;           /* Bordes y divisores en fondo claro */
+  --color-borde-fuerte: #D9C1A3;
+
+  /* --- Estados (texto e íconos) --- */
+  --color-exito: #2F7D3A;           /* En stock, solicitud enviada */
+  --color-error: #C0392B;           /* Errores, agotado */
+  --color-info: #1F6FA8;            /* Información, envíos */
+  --color-advertencia: #A34F0E;     /* Últimas unidades */
+
+  /* --- Estados (fondos de etiquetas, siempre con texto --color-nocturno) --- */
+  --color-exito-fondo: #6CC46A;
+  --color-error-fondo: #F0604A;
+  --color-info-fondo: #5BB0E8;
+  --color-advertencia-fondo: #E8892B;
+
+  /* --- Tipografías --- */
+  --fuente-titulos: 'Bungee', 'Arial Black', sans-serif;   /* H1–H3, precios, números */
+  --fuente-acento: 'Yellowtail', cursive;                 /* Frases cortas: "¡Insert coin!" */
+  --fuente-texto: 'Nunito Sans', 'Segoe UI', sans-serif;  /* Todo lo demás */
+
+  /* --- Tamaños de letra (escritorio) --- */
+  --texto-h1: 3.5rem;      /* 56px */
+  --texto-h2: 2.25rem;     /* 36px */
+  --texto-h3: 1.5rem;      /* 24px */
+  --texto-h4: 1.25rem;     /* 20px */
+  --texto-acento: 1.875rem;/* 30px */
+  --texto-grande: 1.125rem;/* 18px: párrafos destacados */
+  --texto-base: 1rem;      /* 16px: texto normal (mínimo para leer) */
+  --texto-pequeno: 0.875rem; /* 14px */
+  --texto-mini: 0.8125rem; /* 13px: etiquetas, notas */
+
+  /* --- Espaciados (múltiplos de 4 y 8) --- */
+  --esp-1: 4px;
+  --esp-2: 8px;
+  --esp-3: 12px;
+  --esp-4: 16px;
+  --esp-5: 24px;
+  --esp-6: 32px;
+  --esp-7: 48px;
+  --esp-8: 64px;
+  --esp-9: 96px;
+
+  /* --- Bordes redondeados --- */
+  --radio-sm: 8px;    /* Inputs pequeños */
+  --radio-md: 12px;   /* Botones, campos */
+  --radio-lg: 20px;   /* Tarjetas */
+  --radio-xl: 28px;   /* Banner principal, bloques grandes */
+  --radio-pill: 999px;/* Etiquetas y chips */
+
+  /* --- Sombras (sutiles, con tono café) --- */
+  --sombra-sm: 0 2px 6px rgba(77, 53, 43, 0.08);
+  --sombra-md: 0 8px 24px rgba(77, 53, 43, 0.12);
+
+  /* --- Otros --- */
+  --ancho-max: 1296px;          /* Ancho máximo del contenido */
+  --altura-boton: 48px;         /* Mínimo 44px para que sea fácil de tocar */
+  --borde-boton: 2px solid var(--color-cafe);
+  --transicion: 0.2s ease;
+}
