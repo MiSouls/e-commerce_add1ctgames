@@ -1,0 +1,70 @@
+body {
+  background-color: var(--color-fondo);
+  margin: 0px;
+}
+
+.franja {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-cafe);
+  color: var(--color-texto-claro);
+  font-size: var(--texto-pequeno);
+  font-family: var(--fuente-texto);
+  padding: 8px;
+  margin: 0px;
+  gap: 50px;
+}
+
+.top_navegation {
+  background-color: var(--color-superficie);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-base);
+  font-weight: bold;
+}
+
+.logo img {
+  width: 70px;
+}
+
+.menu_navegacion {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.menu_navegacion a {
+  text-decoration: none;
+  color: var(--color-texto);
+  transition: color 0.3s;
+}
+
+.menu_navegacion a:hover {
+  text-decoration: underline;
+  color: var(--color-amarillo-hover);
+}
+
+.menu_navegacion a.pagina_actual {
+  color: var(--color-amarillo);
+  text-decoration: underline;
+}
+
+.boton_cotizar {
+  border: 1px solid var(--color-texto);
+  background-color: var(--color-amarillo);
+  border-radius: 12px;
+  color: var(--color-texto);
+  padding: 12px;
+  transition: background-color 0.3s;
+  font-family: var(--fuente-texto);
+  font-weight: bold;
+  font-size: var(--texto-base);
+}
+
+.boton_cotizar:hover {
+  cursor: pointer;
+  background-color: var(--color-amarillo-hover);
+}
