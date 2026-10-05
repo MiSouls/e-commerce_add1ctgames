@@ -1,82 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add1ctGames - Inicio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Nunito+Sans:wght@400;600;700;800&display=swap">
-    
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Nunito+Sans:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="src/variables.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<section class="seccion">
-    <div class="contenedor">
-        
-        <div class="seccion__encabezado">
-            <div>
-                <p class="acento">Los favoritos</p>
-                <h2>MÁQUINAS DESTACADAS</h2>
+    <section class="seccion">
+        <div class="contenedor">
+
+            <div class="seccion__encabezado">
+                <div>
+                    <p class="acento">Los favoritos</p>
+                    <h2>MÁQUINAS DESTACADAS</h2>
+                </div>
+                <a href="catalogo.html" class="boton boton--secundario">Ver todo el catálogo →</a>
             </div>
-            <a href="catalogo.html" class="boton boton--secundario">Ver todo el catálogo →</a>
+
+            <div class="grilla grilla--4">
+
+                <article class="tarjeta tarjeta-producto">
+                    <div class="tarjeta-producto__imagen">
+                        <img src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp"
+                            alt="Arcade vertical clásica">
+                        <span class="etiqueta etiqueta--destacado">Más vendida</span>
+                    </div>
+                    <div class="tarjeta__cuerpo">
+                        <h4>Arcade vertical clásica</h4>
+                        <p class="texto-suave">Gabinete de pie con controles para dos jugadores.</p>
+                        <span class="precio">$ [PRECIO]</span>
+                        <a href="detalle-producto.html" class="boton boton--primario boton--bloque">Ver detalle</a>
+                    </div>
+                </article>
+
+                <article class="tarjeta tarjeta-producto">
+                    <div class="tarjeta-producto__imagen">
+                        <img src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg"
+                            alt="Bartop">
+                        <span class="etiqueta etiqueta--exito">Nueva</span>
+                    </div>
+                    <div class="tarjeta__cuerpo">
+                        <h4>Bartop</h4>
+                        <p class="texto-suave">Versión compacta de mesa, ideal para espacios pequeños.</p>
+                        <span class="precio">$ [PRECIO]</span>
+                        <a href="detalle-producto.html" class="boton boton--primario boton--bloque">Ver detalle</a>
+                    </div>
+                </article>
+
+                <article class="tarjeta tarjeta-producto">
+                    <div class="tarjeta-producto__imagen">
+                        <img src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp"
+                            alt="Mesa arcade">
+                        <span class="etiqueta etiqueta--advertencia">Personalizable</span>
+                    </div>
+                    <div class="tarjeta__cuerpo">
+                        <h4>Mesa arcade</h4>
+                        <p class="texto-suave">Modelo horizontal para jugar frente a frente.</p>
+                        <span class="precio">$ [PRECIO]</span>
+                        <a href="detalle-producto.html" class="boton boton--primario boton--bloque">Ver detalle</a>
+                    </div>
+                </article>
+
+                <article class="tarjeta tarjeta-producto">
+                    <div class="tarjeta-producto__imagen">
+                        <img src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg"
+                            alt="Arcade para eventos">
+                        <span class="etiqueta etiqueta--info">B2B</span>
+                    </div>
+                    <div class="tarjeta__cuerpo">
+                        <h4>Arcade para eventos</h4>
+                        <p class="texto-suave">Carcasa adaptable de tu marca para activaciones.</p>
+                        <span class="precio">$ [PRECIO]</span>
+                        <a href="detalle-producto.html" class="boton boton--primario boton--bloque">Ver detalle</a>
+                    </div>
+                </article>
+
+            </div>
         </div>
-
-        <div class="grilla grilla--4">
-            
-            <article class="tarjeta tarjeta-producto">
-                <div class="tarjeta-producto__imagen">
-                    <img src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp" alt="Arcade vertical clásica">
-                    <span class="etiqueta etiqueta--destacado">Más vendida</span>
-                </div>
-                <div class="tarjeta__cuerpo">
-                    <h4>Arcade vertical clásica</h4>
-                    <p class="texto-suave">Gabinete de pie con controles para dos jugadores.</p>
-                    <span class="precio">$ [PRECIO]</span>
-                    <a href="detalle-producto.html" class="boton boton--primario boton--bloque">Ver detalle</a>
-                </div>
-            </article>
-
-            <article class="tarjeta tarjeta-producto">
-                <div class="tarjeta-producto__imagen">
-                    <img src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg" alt="Bartop">
-                    <span class="etiqueta etiqueta--exito">Nueva</span>
-                </div>
-                <div class="tarjeta__cuerpo">
-                    <h4>Bartop</h4>
-                    <p class="texto-suave">Versión compacta de mesa, ideal para espacios pequeños.</p>
-                    <span class="precio">$ [PRECIO]</span>
-                    <a href="detalle-producto.html" class="boton boton--primario boton--bloque">Ver detalle</a>
-                </div>
-            </article>
-
-            <article class="tarjeta tarjeta-producto">
-                <div class="tarjeta-producto__imagen">
-                    <img src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp" alt="Mesa arcade">
-                    <span class="etiqueta etiqueta--advertencia">Personalizable</span>
-                </div>
-                <div class="tarjeta__cuerpo">
-                    <h4>Mesa arcade</h4>
-                    <p class="texto-suave">Modelo horizontal para jugar frente a frente.</p>
-                    <span class="precio">$ [PRECIO]</span>
-                    <a href="detalle-producto.html" class="boton boton--primario boton--bloque">Ver detalle</a>
-                </div>
-            </article>
-
-            <article class="tarjeta tarjeta-producto">
-                <div class="tarjeta-producto__imagen">
-                    <img src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg" alt="Arcade para eventos">
-                    <span class="etiqueta etiqueta--info">B2B</span>
-                </div>
-                <div class="tarjeta__cuerpo">
-                    <h4>Arcade para eventos</h4>
-                    <p class="texto-suave">Carcasa adaptable de tu marca para activaciones.</p>
-                    <span class="precio">$ [PRECIO]</span>
-                    <a href="detalle-producto.html" class="boton boton--primario boton--bloque">Ver detalle</a>
-                </div>
-            </article>
-
-        </div>
-    </div>
-</section>
+    </section>
 </body>
+
 </html>
