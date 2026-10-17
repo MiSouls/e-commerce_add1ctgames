@@ -7,6 +7,42 @@
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--esp-4);
+  color: var(--color-texto);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+}
+
+h1 {
+  font-size: var(--texto-h1);
+}
+
+h2 {
+  font-size: var(--texto-h2);
+}
+
+h3 {
+  font-size: var(--texto-h3);
+}
+
+h4 {
+  font-size: var(--texto-h4);
+  font-weight: 800;
+}
+
+p {
+  margin: 0 0 var(--esp-4);
+  font-size: var(--texto-base);
+}
+
 body {
   background-color: var(--color-fondo);
   margin: 0px;
@@ -167,26 +203,6 @@ header {
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
 }
 
-h2,
-h4 {
-  margin: 0 0 var(--esp-4);
-  color: var(--color-texto);
-}
-
-h2 {
-  font-family: var(--fuente-titulos);
-  font-size: 2.25rem;
-}
-
-h4 {
-  font-size: 1.25rem;
-  font-weight: 800;
-}
-
-p {
-  margin: 0 0 var(--esp-4);
-}
-
 .acento {
   font-family: var(--fuente-acento);
   font-size: 1.875rem;
@@ -333,4 +349,23 @@ p {
     align-items: flex-start;
     gap: 12px;
   }
+}
+
+/* PANEL ADMINISTRADOR */
+.actualizacion_banner {
+  display: flex;
+  border: 3px solid var(--color-borde);
+  border-radius: 20px;
+  max-width: 400px;
+  margin: 50px auto;
+  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: var(--color-superficie);
+  text-align: center;
+}
+
+#boton_banner {
+  font-family: inherit;
 }
