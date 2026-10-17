@@ -269,6 +269,7 @@ header {
 .tarjeta-producto__imagen {
   position: relative;
   aspect-ratio: 1/1;
+  overflow: hidden;
   background-color: var(--color-relleno);
 }
 
