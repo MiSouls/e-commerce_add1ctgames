@@ -433,3 +433,15 @@ header {
   margin: 0;
   color: var(--color-texto-suave);
 }
+
+.resumen_seleccion {
+  border: 1px solid var(--color-borde);
+  border-radius: 20px;
+  padding: 15px;
+  margin-top: 20px;
+  background-color: var(--color-superficie);
+}
+
+.boton_seleccion {
+  margin-top: 15px;
+}
