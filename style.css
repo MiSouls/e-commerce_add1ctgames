@@ -384,3 +384,43 @@ header {
   object-fit: cover;
   display: block;
 }
+
+.especificaciones-producto {
+  margin-top: var(--esp-7);
+  padding: var(--esp-5);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: 20px;
+}
+
+.especificaciones-producto__titulo {
+  margin: 0 0 var(--esp-4);
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  color: var(--color-texto);
+}
+
+.especificaciones-producto__lista {
+  margin: 0;
+}
+
+.especificaciones-producto__fila {
+  display: flex;
+  gap: var(--esp-4);
+  padding: var(--esp-3) 0;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.especificaciones-producto__fila:last-child {
+  border-bottom: none;
+}
+
+.especificaciones-producto__nombre {
+  flex: 0 0 160px;
+  font-weight: 800;
+}
+
+.especificaciones-producto__valor {
+  margin: 0;
+  color: var(--color-texto-suave);
+}
