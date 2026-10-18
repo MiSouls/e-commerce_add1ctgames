@@ -43,7 +43,7 @@
                 <div class="seccion__encabezado">
                     <div>
                         <p class="acento">Detalle del producto</p>
-                        <h2>ARCADE VERTICAL CLÁSICA</h2>
+                        <h2 id="nombre_detalle">ARCADE VERTICAL CLÁSICA</h2>
                     </div>
                 </div>
 
@@ -91,9 +91,16 @@
                         </div>
                     </dl>
                 </div>
+                <div class="boton_seleccion">
+                    <button class="boton--primario boton" id="boton_seleccion" type="button">Agregar a mi selección</button>
+                    <div class="resumen_seleccion">
+                        <h3>Mi selección</h3>
+                        <ul id="lista_seleccion"></ul>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+    <script src="src/js/detalle.js"></script>
 </body>
-
 </html>
