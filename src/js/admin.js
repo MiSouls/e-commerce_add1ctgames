@@ -30,3 +30,21 @@ botonPrecio.addEventListener("click", function () {
       "Precio actualizado: " + formatoPesos.format(valor);
   }
 });
+
+const nombreProducto = document.querySelector("#nombre_producto");
+const precioProducto = document.querySelector("#precio_producto");
+const imagenProducto = document.querySelector("#imagen_producto");
+const botonProducto = document.querySelector("#boton_producto");
+const parrafoProducto = document.querySelector("#mensaje_producto");
+
+botonProducto.addEventListener("click", function () {
+  if (nombreProducto.value === "") {
+    parrafoProducto.textContent = "Escribe el nombre de la máquina";
+  } else if (precioProducto.value === "" || Number(precioProducto.value) <= 0) {
+    parrafoProducto.textContent = "Escribe un precio mayor a 0";
+  } else if (imagenProducto.files.length === 0) {
+    parrafoProducto.textContent = "Elige una imagen primero";
+  } else {
+    parrafoProducto.textContent = "Producto agregado";
+  }
+});
