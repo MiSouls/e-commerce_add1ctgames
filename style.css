@@ -352,7 +352,8 @@ header {
 }
 
 /* PANEL ADMINISTRADOR */
-.actualizacion_banner {
+.actualizacion_banner,
+.actualizacion-precio {
   display: flex;
   border: 3px solid var(--color-borde);
   border-radius: 20px;
@@ -366,6 +367,7 @@ header {
   text-align: center;
 }
 
-#boton_banner {
+#boton_banner,
+#boton-precio {
   font-family: inherit;
 }
