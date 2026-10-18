@@ -31,29 +31,44 @@
       </nav>
     </header>
     <main>
-      <div class="actualizacion_banner">
-        <h2 class="titulo_actualizacion">Actualizar banner</h2>
-        <label for="foto_banner">Elige la imagen del banner</label>
-        <input id="foto_banner" type="file" accept="image/*" />
-        <button class="boton--primario boton" id="boton_banner" type="button">
-          Guardar
-        </button>
-        <p id="mensaje_banner"></p>
-      </div>
-            <div class="actualizacion-precio">
-        <h2>Actualizar precio</h2>
-        <label for="campo-precio">Precio de la Arcade vertical clásica</label>
-        <input
-          id="campo-precio"
-          type="text"
-          inputmode="numeric"
-          placeholder="Ej: 2500000"
-        />
-        <button class="boton boton--primario" id="boton-precio" type="button">
-          Guardar
-        </button>
-        <p id="mensaje-precio"></p>
-      </div>
+      <section class="panel_tarjetas">
+        <div class="actualizacion_banner">
+          <h2 class="titulo_actualizacion">Actualizar banner</h2>
+          <label for="foto_banner">Elige la imagen del banner</label>
+          <input id="foto_banner" type="file" accept="image/*" />
+          <button class="boton--primario boton" id="boton_banner" type="button">
+            Guardar
+          </button>
+          <p id="mensaje_banner"></p>
+        </div>
+        <div class="actualizacion-precio">
+          <h2>Actualizar precio</h2>
+          <label for="campo-precio">Precio de la Arcade vertical clásica</label>
+          <input
+            id="campo-precio"
+            type="text"
+            inputmode="numeric"
+            placeholder="Ej: 2500000"
+          />
+          <button class="boton boton--primario" id="boton-precio" type="button">
+            Guardar
+          </button>
+          <p id="mensaje-precio"></p>
+        </div>
+        <div class="agregar_producto">
+          <h2 class="titulo_actualizacion">Agregar producto</h2>
+          <label for="nombre_producto">Nombre</label>
+          <input id="nombre_producto" type="text" placeholder="Ej: Arcade Bartop"/>
+          <label for="precio_producto">Precio</label>
+          <input id="precio_producto" type="number"/>
+          <label for="imagen_producto">Imagen</label>
+          <input id="imagen_producto" type="file" accept="image/*" />
+          <button class="boton--primario boton" id="boton_producto" type="button">
+            Guardar
+          </button>
+          <p id="mensaje_producto"></p>
+        </div>
+      </section>
     </main>
     <script src="src/js/admin.js"></script>
   </body>

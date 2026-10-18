@@ -352,8 +352,15 @@ header {
 }
 
 /* PANEL ADMINISTRADOR */
+.panel_tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
 .actualizacion_banner,
-.actualizacion-precio {
+.actualizacion-precio,
+.agregar_producto {
   display: flex;
   border: 3px solid var(--color-borde);
   border-radius: 20px;
