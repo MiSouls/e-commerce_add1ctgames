@@ -68,6 +68,105 @@
           </button>
           <p id="mensaje_producto"></p>
         </div>
+        <form class="actualizacion-stock" id="form-stock" aria-labelledby="titulo-stock">
+          <div class="actualizacion-stock__encabezado">
+            <h2 id="titulo-stock">Actualizar stock</h2>
+            <span class="actualizacion-stock__aviso"> Stock </span>
+          </div>
+          <p class="texto-suave">
+            Modifica las unidades disponibles. El estado que ve el cliente en la tienda cambia según la cantidad.
+          </p>
+ 
+          <table class="stock-tabla">
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Estado en tienda</th>
+                <th scope="col">Unidades</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="stock-producto">
+                    <img src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp" alt="" />
+                    <strong>Arcade vertical clásica</strong>
+                  </div>
+                </td>
+                <td><span class="estado estado--disponible">Disponible</span></td>
+                <td>
+                  <div class="cantidad">
+                    <button type="button" class="cantidad__boton" data-accion="restar" aria-label="Restar una unidad de Arcade vertical clásica">−</button>
+                    <label class="solo-lector" for="stock-1">Unidades de Arcade vertical clásica</label>
+                    <input class="cantidad__campo" id="stock-1" type="number" min="0" max="99" value="8" />
+                    <button type="button" class="cantidad__boton" data-accion="sumar" aria-label="Sumar una unidad de Arcade vertical clásica">+</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="stock-producto">
+                    <img src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg" alt="" />
+                    <strong>Bartop</strong>
+                  </div>
+                </td>
+                <td><span class="estado estado--pocas">Últimas unidades</span></td>
+                <td>
+                  <div class="cantidad">
+                    <button type="button" class="cantidad__boton" data-accion="restar" aria-label="Restar una unidad de Bartop">−</button>
+                    <label class="solo-lector" for="stock-2">Unidades de Bartop</label>
+                    <input class="cantidad__campo" id="stock-2" type="number" min="0" max="99" value="2" />
+                    <button type="button" class="cantidad__boton" data-accion="sumar" aria-label="Sumar una unidad de Bartop">+</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="stock-producto">
+                    <img src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp" alt="" />
+                    <strong>Mesa arcade</strong>
+                  </div>
+                </td>
+                <td><span class="estado estado--agotado">Agotado</span></td>
+                <td>
+                  <div class="cantidad">
+                    <button type="button" class="cantidad__boton" data-accion="restar" aria-label="Restar una unidad de Mesa arcade">−</button>
+                    <label class="solo-lector" for="stock-3">Unidades de Mesa arcade</label>
+                    <input class="cantidad__campo" id="stock-3" type="number" min="0" max="99" value="0" />
+                    <button type="button" class="cantidad__boton" data-accion="sumar" aria-label="Sumar una unidad de Mesa arcade">+</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="stock-producto">
+                    <img src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg" alt="" />
+                    <strong>Arcade para eventos</strong>
+                  </div>
+                </td>
+                <td><span class="estado estado--disponible">Disponible</span></td>
+                <td>
+                  <div class="cantidad">
+                    <button type="button" class="cantidad__boton" data-accion="restar" aria-label="Restar una unidad de Arcade para eventos">−</button>
+                    <label class="solo-lector" for="stock-4">Unidades de Arcade para eventos</label>
+                    <input class="cantidad__campo" id="stock-4" type="number" min="0" max="99" value="5" />
+                    <button type="button" class="cantidad__boton" data-accion="sumar" aria-label="Sumar una unidad de Arcade para eventos">+</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+ 
+          <p class="texto-suave stock-leyenda">
+            <strong>Estados:</strong> 0 = Agotado · 1 a 3 = Últimas unidades · 4 o más = Disponible
+          </p>
+ 
+          <div class="stock-acciones">
+            <button type="reset" class="boton boton--secundario">Deshacer</button>
+            <button type="submit" class="boton boton--primario" id="boton_stock">Guardar</button>
+          </div>
+          <p id="mensaje_stock" role="status"></p>
+        </form>
       </section>
     </main>
     <script src="src/js/admin.js"></script>
