@@ -537,3 +537,237 @@ header {
 .boton_seleccion {
   margin-top: 15px;
 }
+
+.actualizacion-stock {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  padding: 40px;
+  border: 3px solid var(--color-borde);
+  border-radius: 20px;
+  background-color: var(--color-superficie);
+}
+ 
+.actualizacion-stock__encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+ 
+.actualizacion-stock__encabezado h2 {
+  margin: 0;
+}
+ 
+.actualizacion-stock__aviso {
+  padding: 4px 12px;
+  border: 1px dashed var(--color-acento-texto);
+  border-radius: 999px;
+  color: var(--color-acento-texto);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+ 
+.stock-tabla {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+}
+ 
+.stock-tabla th {
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--color-borde);
+  color: var(--color-texto-suave);
+  font-size: 0.8125rem;
+  letter-spacing: 1px;
+  text-align: left;
+  text-transform: uppercase;
+}
+ 
+.stock-tabla td {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-borde);
+  vertical-align: middle;
+}
+ 
+.stock-tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+ 
+.fila--modificada td {
+  background-color: #FFF6E8;
+}
+ 
+.fila--modificada td:first-child {
+  box-shadow: inset 4px 0 0 var(--color-amarillo);
+}
+ 
+.stock-producto {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
+.stock-producto img {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: var(--color-relleno);
+  object-fit: cover;
+}
+ 
+.estado {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  color: var(--color-nocturno);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+ 
+.estado--disponible { background-color: var(--color-exito-fondo); }
+.estado--pocas      { background-color: var(--color-advertencia-fondo); }
+.estado--agotado    { background-color: #F0604A; }
+ 
+.cantidad {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+}
+ 
+.cantidad__boton {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: #FFF6E8;
+  color: var(--color-acento-texto);
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+ 
+.cantidad__boton:hover {
+  background-color: var(--color-amarillo);
+  color: var(--color-nocturno);
+}
+ 
+.cantidad__campo {
+  width: 60px;
+  height: 44px;
+  border: none;
+  border-left: 1px solid var(--color-borde);
+  border-right: 1px solid var(--color-borde);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+ 
+.cantidad__campo::-webkit-outer-spin-button,
+.cantidad__campo::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+ 
+.cantidad__boton:focus-visible,
+.cantidad__campo:focus-visible {
+  outline: 3px solid var(--color-acento-texto);
+  outline-offset: -3px;
+}
+ 
+.stock-leyenda {
+  margin: 12px 0 0;
+}
+ 
+.stock-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+ 
+.stock-acciones .boton {
+  font-family: inherit;
+  font-size: 1rem;
+}
+ 
+.stock-acciones .boton--secundario {
+  background-color: transparent;
+}
+ 
+#mensaje_stock {
+  margin: 12px 0 0;
+  color: #2F7D3A;
+  font-weight: 700;
+  text-align: right;
+}
+ 
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .actualizacion-stock {
+    padding: 20px;
+  }
+ 
+  .stock-tabla thead {
+    display: none;
+  }
+ 
+  .stock-tabla tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 4px;
+    border-bottom: 1px solid var(--color-borde);
+  }
+ 
+  .stock-tabla tbody tr:last-child {
+    border-bottom: none;
+  }
+ 
+  .stock-tabla td {
+    padding: 0;
+    border: none;
+  }
+ 
+  .stock-tabla td:first-child {
+    grid-column: 1 / -1;
+  }
+ 
+  .fila--modificada td:first-child {
+    box-shadow: none;
+  }
+ 
+  .stock-acciones {
+    flex-direction: column-reverse;
+  }
+ 
+  .stock-acciones .boton {
+    width: 100%;
+  }
+ 
+  #mensaje_stock {
+    text-align: left;
+  }
+}
