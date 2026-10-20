@@ -167,6 +167,58 @@
           </div>
           <p id="mensaje_stock" role="status"></p>
         </form>
+        <form class="seleccion-destacados" id="form-destacados" aria-labelledby="titulo-destacados">
+          <div class="seleccion-destacados__encabezado">
+            <h2 id="titulo-destacados">Productos destacados</h2>
+            <span class="seleccion-destacados__aviso">Stock</span>
+          </div>
+          <p class="texto-suave">
+            Marca las máquinas que quieres promocionar en la página de inicio (máximo 4).
+          </p>
+ 
+          
+          <fieldset class="destacados-lista">
+            <legend class="solo-lector">Máquinas disponibles para destacar</legend>
+ 
+            
+            <label class="destacado-opcion">
+              <input type="checkbox" name="destacado" value="arcade-vertical" checked />
+              <img src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp" alt="" />
+              <span class="destacado-opcion__nombre">Arcade vertical clásica</span>
+              <span class="destacado-opcion__marca">★ Destacado</span>
+            </label>
+ 
+            <label class="destacado-opcion">
+              <input type="checkbox" name="destacado" value="bartop" checked />
+              <img src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg" alt="" />
+              <span class="destacado-opcion__nombre">Bartop</span>
+              <span class="destacado-opcion__marca">★ Destacado</span>
+            </label>
+ 
+            <label class="destacado-opcion">
+              <input type="checkbox" name="destacado" value="mesa-arcade" checked />
+              <img src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp" alt="" />
+              <span class="destacado-opcion__nombre">Mesa arcade</span>
+              <span class="destacado-opcion__marca">★ Destacado</span>
+            </label>
+ 
+            <label class="destacado-opcion">
+              <input type="checkbox" name="destacado" value="arcade-eventos" />
+              <img src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg" alt="" />
+              <span class="destacado-opcion__nombre">Arcade para eventos</span>
+              <span class="destacado-opcion__marca">★ Destacado</span>
+            </label>
+ 
+          </fieldset>
+ 
+          <p class="destacados-contador" id="contador_destacados">3 de 4 seleccionados</p>
+ 
+          <div class="destacados-acciones">
+            <button type="reset" class="boton boton--secundario">Deshacer</button>
+            <button type="submit" class="boton boton--primario" id="boton_destacados">Guardar</button>
+          </div>
+          <p id="mensaje_destacados" role="status"></p>
+        </form>
       </section>
     </main>
     <script src="src/js/admin.js"></script>

@@ -59,7 +59,6 @@ botonProducto.addEventListener("click", function () {
     const estado = fila.querySelector('.estado');
     let cantidad = parseInt(campo.value, 10);
  
-    // Corrige valores inválidos o fuera de rango
     if (isNaN(cantidad) || cantidad < 0) cantidad = 0;
     if (cantidad > 99) cantidad = 99;
     campo.value = cantidad;
@@ -80,7 +79,6 @@ botonProducto.addEventListener("click", function () {
     mensajeStock.textContent = '';
   }
  
-  // Botones − y +
   formStock.addEventListener('click', function (evento) {
     const boton = evento.target.closest('.cantidad__boton');
     if (!boton) return;
@@ -90,7 +88,7 @@ botonProducto.addEventListener("click", function () {
     actualizarEstado(campo);
   });
  
-  // Cuando escriben la cantidad en el campo
+
   formStock.addEventListener('change', function (evento) {
     if (evento.target.classList.contains('cantidad__campo')) {
       actualizarEstado(evento.target);
@@ -99,7 +97,7 @@ botonProducto.addEventListener("click", function () {
  
 
   formStock.addEventListener('submit', function (evento) {
-    evento.preventDefault(); // evita que la página se recargue
+    evento.preventDefault(); 
     const modificadas = formStock.querySelectorAll('.fila--modificada').length;
  
     if (modificadas === 0) {
@@ -122,4 +120,64 @@ botonProducto.addEventListener("click", function () {
       formStock.querySelectorAll('.cantidad__campo').forEach(actualizarEstado);
     }, 0);
   });
+}
+{
+  const MAXIMO_DESTACADOS = 4;
+  const formDestacados = document.getElementById('form-destacados');
+  const contadorDestacados = document.getElementById('contador_destacados');
+  const mensajeDestacados = document.getElementById('mensaje_destacados');
+  const casillas = formDestacados.querySelectorAll('input[name="destacado"]');
+ 
+
+  function actualizarSeleccion() {
+    const marcadas = formDestacados.querySelectorAll('input[name="destacado"]:checked').length;
+ 
+    casillas.forEach(function (casilla) {
+      const opcion = casilla.closest('.destacado-opcion');
+  
+      opcion.classList.toggle('destacado-opcion--marcada', casilla.checked);
+
+      const bloquear = !casilla.checked && marcadas >= MAXIMO_DESTACADOS;
+      casilla.disabled = bloquear;
+      opcion.classList.toggle('destacado-opcion--bloqueada', bloquear);
+    });
+ 
+    contadorDestacados.textContent = marcadas + ' de ' + MAXIMO_DESTACADOS + ' seleccionados';
+    mensajeDestacados.textContent = '';
+    mensajeDestacados.className = '';
+  }
+ 
+
+  formDestacados.addEventListener('change', actualizarSeleccion);
+ 
+
+  formDestacados.addEventListener('submit', function (evento) {
+    evento.preventDefault(); 
+    const nombres = [];
+    formDestacados.querySelectorAll('input[name="destacado"]:checked').forEach(function (casilla) {
+      nombres.push(casilla.closest('.destacado-opcion').querySelector('.destacado-opcion__nombre').textContent);
+    });
+ 
+    if (nombres.length === 0) {
+      mensajeDestacados.textContent = 'Selecciona al menos un producto para destacar.';
+      mensajeDestacados.className = 'mensaje--error';
+      return;
+    }
+ 
+    mensajeDestacados.textContent = '✔ Destacados actualizados (simulación): ' + nombres.join(', ') + '.';
+    mensajeDestacados.className = 'mensaje--exito';
+ 
+    
+    casillas.forEach(function (casilla) {
+      casilla.defaultChecked = casilla.checked;
+    });
+  });
+ 
+
+  formDestacados.addEventListener('reset', function () {
+    setTimeout(actualizarSeleccion, 0);
+  });
+ 
+ 
+  actualizarSeleccion();
 }
