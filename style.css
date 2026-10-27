@@ -1049,3 +1049,10 @@ header {
 #form_cotizacion .boton {
   width: 100%;
 }
+
+.carrito__acciones {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-4);
+  margin-top: var(--esp-6);
+}
