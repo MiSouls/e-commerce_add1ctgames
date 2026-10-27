@@ -1056,3 +1056,30 @@ header {
   gap: var(--esp-4);
   margin-top: var(--esp-6);
 }
+
+.diseno-medida {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--esp-3);
+  padding: var(--esp-7);
+  background-color: var(--color-fondo-seccion);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-xl);
+}
+
+.diseno-medida .acento,
+.diseno-medida h2 {
+  margin: 0;
+}
+
+.diseno-medida__texto {
+  max-width: 560px;
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: var(--texto-grande);
+}
+
+.diseno-medida .boton {
+  margin-top: var(--esp-2);
+}
