@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add1ctGames - Cotización</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Nunito+Sans:wght@400;600;700;800&display=swap"
+    />
+    <link rel="stylesheet" href="src/variables.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <p class="franja">
+        <span>Fabricamos y personalizamos máquinas arcade en Colombia</span>
+        <span
+          ><a
+            href="https://wa.me/573126060313"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Cotiza por WhatsApp: 312 606 0313</a
+          ></span
+        >
+      </p>
+      <nav class="top_navegation">
+        <div class="logo">
+          <img
+            src="src/files/assets/logo-addict.png"
+            alt="Logo de la empresa Add1ctGames"
+          />
+        </div>
+        <ul class="menu_navegacion">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="personalizacion.html">Personalización</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="empresas.html">Empresas</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="carrito.html">Carrito</a></li>
+        </ul>
+        <div>
+          <button class="boton_cotizar">Cotizar</button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="seccion">
+        <div class="contenedor">
+            <div>
+          <p class="acento">Cuéntanos qué necesitas</p>
+       <h2>Solicitar cotización</h2>
+        </div>
+          <form id="form_cotizacion">
+            <!-- HU-10.01: datos de contacto (Miguel) -->
+            <fieldset>
+              <legend>Datos de contacto</legend>
+              <label for="nombre_contacto">Nombre completo</label>
+              <input
+                id="nombre_contacto"
+                name="nombre"
+                type="text"
+                required
+                placeholder="Ej: Juan Pérez"
+              />
+              <label for="email_contacto">Dirección de correo</label>
+              <input
+                id="email_contacto"
+                name="email"
+                type="tel"
+                required
+                placeholder="Ej: juanperes@gmail.com"
+              />
+              <label for="telefono_contacto">Teléfono</label>
+              <input
+                id="telefono_contacto"
+                name="telefono"
+                type="number"
+                required
+                placeholder="Ej: 3126908588"
+              />
+            </fieldset>
+
+            <!-- HU-10.02: tipo de cliente (Caterine) -->
+
+            <!-- HU-10.03: requerimientos (Alexander) -->
+
+            <button class="boton boton--primario" type="submit">
+              Enviar solicitud
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

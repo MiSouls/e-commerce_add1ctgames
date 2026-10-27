@@ -995,3 +995,57 @@ header {
 .carrito__acciones {
   margin-top: var(--esp-6);
 }
+
+#form_cotizacion {
+  max-width: 600px;
+  /* margin: 0 auto; */
+}
+
+#form_cotizacion fieldset {
+  margin: 0 0 var(--esp-5);
+  padding: var(--esp-5);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+}
+
+#form_cotizacion legend {
+  padding: 0 var(--esp-2);
+  font-family: var(--fuente-titulos);
+  font-size: var(--texto-h4);
+  color: var(--color-texto);
+}
+
+#form_cotizacion label {
+  display: block;
+  margin: var(--esp-4) 0 var(--esp-1);
+  font-weight: 700;
+  color: var(--color-texto);
+}
+
+#form_cotizacion legend + label {
+  margin-top: 0;
+}
+
+#form_cotizacion input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--esp-3);
+  background-color: var(--color-superficie);
+  border: 1px solid var(--color-borde-fuerte);
+  border-radius: var(--radio-sm);
+  color: var(--color-texto);
+  font-family: inherit;
+  font-size: var(--texto-base);
+}
+
+#form_cotizacion input:focus {
+  outline: 2px solid var(--color-amarillo);
+  outline-offset: 2px;
+  border-color: var(--color-cafe);
+}
+
+#form_cotizacion .boton {
+  width: 100%;
+}
