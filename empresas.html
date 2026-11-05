@@ -1,43 +1,105 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add1ctgames - Empresas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Nunito+Sans:wght@400;600;700;800&display=swap"
-    />
-    <link rel="stylesheet" href="src/variables.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <p class="franja">
-        <span>Fabricamos y personalizamos máquinas arcade en Colombia</span>
-        <span><a href="https://wa.me/573126060313" target="_blank" rel="noopener noreferrer">Cotiza por WhatsApp: 312 606 0313</a></span>
-      </p>
-      <nav class="top_navegation">
-        <div class="logo">
-          <img
-            src="src/files/assets/logo-addict.png"
-            alt="Logo de la empresa Add1ctGames"
-          />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add1ctgames - Empresas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Nunito+Sans:wght@400;600;700;800&display=swap" />
+  <link rel="stylesheet" href="src/variables.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <header>
+    <p class="franja">
+      <span>Fabricamos y personalizamos máquinas arcade en Colombia</span>
+      <span><a href="https://wa.me/573126060313" target="_blank" rel="noopener noreferrer">Cotiza por WhatsApp: 312 606
+          0313</a></span>
+    </p>
+    <nav class="top_navegation">
+      <div class="logo">
+        <img src="src/files/assets/logo-addict.png" alt="Logo de la empresa Add1ctGames" />
+      </div>
+      <ul class="menu_navegacion">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="personalizacion.html">Personalización</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a class="pagina_actual" href="empresas.html">Empresas</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+      </ul>
+      <div>
+        <button class="boton_cotizar">Cotizar</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="seccion" id="branding_corporativo">
+      <div class="contenedor">
+        <div class="mb-4">
+          <span class="acento">Para empresas</span>
+          <h2>Branding corporativo</h2>
         </div>
-        <ul class="menu_navegacion">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="catalogo.html">Catálogo</a></li>
-          <li><a href="personalizacion.html">Personalización</a></li>
-          <li><a href="galeria.html">Galería</a></li>
-          <li><a class="pagina_actual" href="empresas.html">Empresas</a></li>
-          <li><a    href="nosotros.html">Nosotros</a></li><li><a href="carrito.html">Carrito</a></li>
+        <p class="texto-suave">
+          Personalizamos tu máquina arcade con la identidad visual de tu empresa para tus activaciones de marca.
+        </p>
+
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <li class="tarjeta p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none">
+            <h3 class="mb-2">Ploteo con tu logo</h3>
+            <p>Vinilos con el logo y los colores de tu marca en el gabinete.</p>
+          </li>
+          <li class="tarjeta p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none">
+            <h3 class="mb-2">Diseño a tu medida</h3>
+            <p>Arte personalizado para campañas, lanzamientos o espacios comerciales.</p>
+          </li>
+          <li class="tarjeta p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none">
+            <h3 class="mb-2">Juegos con tu marca</h3>
+            <!-- FALTA CONFIRMAR con el cliente si se ofrece -->
+            <p>Pantalla de inicio y mensajes con la identidad de tu empresa.</p>
+          </li>
         </ul>
-        <div>
-          <button class="boton_cotizar">Cotizar</button>
+      </div>
+    </section>
+
+    <section class="seccion" id="alquiler_eventos">
+      <div class="contenedor">
+        <div class="mb-4">
+          <span class="acento">Eventos</span>
+          <h2>Alquiler para eventos</h2>
         </div>
-      </nav>
-    </header>
-  </body>
+        <p class="texto-suave">
+          También tenemos modalidad de alquiler para ferias, activaciones y celebraciones corporativas.
+        </p>
+
+        <!-- FALTA CONFIRMAR con el cliente: condiciones reales de alquiler -->
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <li class="tarjeta p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none">
+            <h3 class="mb-2">Por horas o por día</h3>
+            <p>Elige la duración que necesita tu evento.</p>
+          </li>
+          <li class="tarjeta p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none">
+            <h3 class="mb-2">Entrega e instalación</h3>
+            <p>Llevamos y dejamos lista la máquina en tu espacio.</p>
+          </li>
+          <li class="tarjeta p-6 transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none">
+            <h3 class="mb-2">Soporte durante el evento</h3>
+            <p>Acompañamiento para que todo funcione sin problemas.</p>
+          </li>
+        </ul>
+
+        <div class="mt-8">
+          <a class="boton boton--primario boton_cotizar" href="cotizacion.html">Solicita una cotización para tu empresa</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
 </html>
