@@ -1109,3 +1109,7 @@ header {
 .diseno-medida .boton {
   margin-top: var(--esp-2);
 }
+
+.tarjeta-producto__imagen--arriba img {
+  object-position: top;
+}
