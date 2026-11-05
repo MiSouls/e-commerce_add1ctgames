@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="src/variables.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <header>
       <p class="franja">
@@ -64,7 +65,13 @@
             class="carrito__mensaje texto-suave"
             aria-live="polite"
           ></p>
-
+          <div class="carrito__total">
+            <p class="carrito__total-texto">Valor estimado de tu selección</p>
+            <span id="valor_total" class="precio">$ 0</span>
+            <p class="carrito__nota texto-suave">
+              Valor aproximado, sujeto a confirmación en la cotización.
+            </p>
+          </div>
           <div class="carrito__acciones">
             <a class="boton boton--secundario" href="catalogo.html"
               >Volver al catálogo</a
