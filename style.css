@@ -635,9 +635,11 @@ header {
 .estado--disponible {
   background-color: var(--color-exito-fondo);
 }
+
 .estado--pocas {
   background-color: var(--color-advertencia-fondo);
 }
+
 .estado--agotado {
   background-color: #f0604a;
 }
@@ -779,6 +781,7 @@ header {
     text-align: left;
   }
 }
+
 .seleccion-destacados {
   grid-column: 1 / -1;
   width: 100%;
@@ -933,6 +936,7 @@ header {
 #mensaje_destacados.mensaje--exito {
   color: #2f7d3a;
 }
+
 #mensaje_destacados.mensaje--error {
   color: #c0392b;
 }
@@ -1049,7 +1053,7 @@ header {
   color: var(--color-texto);
 }
 
-#form_cotizacion legend + label {
+#form_cotizacion legend+label {
   margin-top: 0;
 }
 
