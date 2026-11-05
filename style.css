@@ -1053,11 +1053,12 @@ header {
   color: var(--color-texto);
 }
 
-#form_cotizacion legend+label {
+#form_cotizacion legend + label {
   margin-top: 0;
 }
 
-#form_cotizacion input {
+#form_cotizacion input,
+#form_cotizacion textarea {
   box-sizing: border-box;
   width: 100%;
   min-height: 44px;
@@ -1070,10 +1071,17 @@ header {
   font-size: var(--texto-base);
 }
 
-#form_cotizacion input:focus {
+#form_cotizacion input:focus,
+#form_cotizacion textarea:focus {
   outline: 2px solid var(--color-amarillo);
   outline-offset: 2px;
   border-color: var(--color-cafe);
+}
+
+#form_cotizacion textarea {
+  min-height: 160px;
+  padding: var(--esp-3);
+  resize: vertical;
 }
 
 #form_cotizacion .boton {
