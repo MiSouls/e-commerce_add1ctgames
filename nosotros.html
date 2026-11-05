@@ -1,43 +1,75 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add1ctgames - Nosotros</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Nunito+Sans:wght@400;600;700;800&display=swap"
-    />
-    <link rel="stylesheet" href="src/variables.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <p class="franja">
-        <span>Fabricamos y personalizamos máquinas arcade en Colombia</span>
-        <span><a href="https://wa.me/573126060313" target="_blank" rel="noopener noreferrer">Cotiza por WhatsApp: 312 606 0313</a></span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add1ctgames - Nosotros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Nunito+Sans:wght@400;600;700;800&display=swap" />
+  <link rel="stylesheet" href="src/variables.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <header>
+    <p class="franja">
+      <span>Fabricamos y personalizamos máquinas arcade en Colombia</span>
+      <span><a href="https://wa.me/573126060313" target="_blank" rel="noopener noreferrer">Cotiza por WhatsApp: 312 606
+          0313</a></span>
+    </p>
+    <nav class="top_navegation">
+      <div class="logo">
+        <img src="src/files/assets/logo-addict.png" alt="Logo de la empresa Add1ctGames" />
+      </div>
+      <ul class="menu_navegacion">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="personalizacion.html">Personalización</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="empresas.html">Empresas</a></li>
+        <li><a class="pagina_actual" href="nosotros.html">Nosotros</a></li>
+        <li><a href="carrito.html">Carrito</a></li>
+      </ul>
+      <div>
+        <button class="boton_cotizar">Cotizar</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="canales_contacto" class="max-w-5xl mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold text-center mb-2">
+        Canales de comunicación
+      </h2>
+      <p class="text-center mb-8">
+        Escríbenos o llámanos, te respondemos lo antes posible.
       </p>
-      <nav class="top_navegation">
-        <div class="logo">
-          <img
-            src="src/files/assets/logo-addict.png"
-            alt="Logo de la empresa Add1ctGames"
-          />
-        </div>
-        <ul class="menu_navegacion">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="catalogo.html">Catálogo</a></li>
-          <li><a href="personalizacion.html">Personalización</a></li>
-          <li><a href="galeria.html">Galería</a></li>
-          <li><a href="empresas.html">Empresas</a></li>
-          <li><a class="pagina_actual" href="nosotros.html">Nosotros</a></li>
-        </ul>
-        <div>
-          <button class="boton_cotizar">Cotizar</button>
-        </div>
-      </nav>
-    </header>
-  </body>
+
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <li class="rounded-xl border-2 border-amber-300 bg-white p-6 text-center">
+          <h3 class="font-bold text-lg mb-2">Teléfono y WhatsApp</h3>
+          <a class="font-semibold underline" href="tel:+573126060313">312 606 0313</a>
+        </li>
+
+        <li class="rounded-xl border-2 border-amber-300 bg-white p-6 text-center">
+          <h3 class="font-bold text-lg mb-2">Correo electrónico</h3>
+          <!-- FALTA CONFIRMAR el correo real -->
+          <a class="font-semibold underline" href="mailto:correo@dominio.com">correo@dominio.com</a>
+        </li>
+
+        <li class="rounded-xl border-2 border-amber-300 bg-white p-6 text-center">
+          <h3 class="font-bold text-lg mb-2">Redes sociales</h3>
+          <!-- FALTA CONFIRMAR los enlaces reales -->
+          <a class="font-semibold underline" href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <span aria-hidden="true"> · </span>
+          <a class="font-semibold underline" href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+
 </html>
