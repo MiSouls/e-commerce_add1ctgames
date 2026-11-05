@@ -31,6 +31,21 @@ botonPrecio.addEventListener("click", function () {
   }
 });
 
+const fotoAccesorio = document.querySelector("#foto_accesorio");
+const descripcionAccesorio = document.querySelector("#descripcion_accesorio");
+const botonAccesorio = document.querySelector("#boton_accesorio");
+const parrafoAccesorio = document.querySelector("#mensaje_accesorio");
+
+botonAccesorio.addEventListener("click", function () {
+  if (fotoAccesorio.files.length === 0) {
+    parrafoAccesorio.textContent = "Elige una foto del accesorio";
+  } else if (descripcionAccesorio.value.trim() === "") {
+    parrafoAccesorio.textContent = "Escribe la descripción del accesorio";
+  } else {
+    parrafoAccesorio.textContent = "Accesorio agregado";
+  }
+});
+
 const nombreProducto = document.querySelector("#nombre_producto");
 const precioProducto = document.querySelector("#precio_producto");
 const imagenProducto = document.querySelector("#imagen_producto");
@@ -50,13 +65,12 @@ botonProducto.addEventListener("click", function () {
 });
 
 {
-  const formStock = document.getElementById('form-stock');
-  const mensajeStock = document.getElementById('mensaje_stock');
-
+  const formStock = document.getElementById("form-stock");
+  const mensajeStock = document.getElementById("mensaje_stock");
 
   function actualizarEstado(campo) {
-    const fila = campo.closest('tr');
-    const estado = fila.querySelector('.estado');
+    const fila = campo.closest("tr");
+    const estado = fila.querySelector(".estado");
     let cantidad = parseInt(campo.value, 10);
 
     if (isNaN(cantidad) || cantidad < 0) cantidad = 0;
@@ -64,120 +78,126 @@ botonProducto.addEventListener("click", function () {
     campo.value = cantidad;
 
     if (cantidad === 0) {
-      estado.textContent = 'Agotado';
-      estado.className = 'estado estado--agotado';
+      estado.textContent = "Agotado";
+      estado.className = "estado estado--agotado";
     } else if (cantidad <= 3) {
-      estado.textContent = 'Últimas unidades';
-      estado.className = 'estado estado--pocas';
+      estado.textContent = "Últimas unidades";
+      estado.className = "estado estado--pocas";
     } else {
-      estado.textContent = 'Disponible';
-      estado.className = 'estado estado--disponible';
+      estado.textContent = "Disponible";
+      estado.className = "estado estado--disponible";
     }
 
-
-    fila.classList.toggle('fila--modificada', campo.value !== campo.defaultValue);
-    mensajeStock.textContent = '';
+    fila.classList.toggle(
+      "fila--modificada",
+      campo.value !== campo.defaultValue,
+    );
+    mensajeStock.textContent = "";
   }
 
-  formStock.addEventListener('click', function (evento) {
-    const boton = evento.target.closest('.cantidad__boton');
+  formStock.addEventListener("click", function (evento) {
+    const boton = evento.target.closest(".cantidad__boton");
     if (!boton) return;
-    const campo = boton.parentElement.querySelector('.cantidad__campo');
-    const paso = boton.dataset.accion === 'sumar' ? 1 : -1;
+    const campo = boton.parentElement.querySelector(".cantidad__campo");
+    const paso = boton.dataset.accion === "sumar" ? 1 : -1;
     campo.value = (parseInt(campo.value, 10) || 0) + paso;
     actualizarEstado(campo);
   });
 
-
-  formStock.addEventListener('change', function (evento) {
-    if (evento.target.classList.contains('cantidad__campo')) {
+  formStock.addEventListener("change", function (evento) {
+    if (evento.target.classList.contains("cantidad__campo")) {
       actualizarEstado(evento.target);
     }
   });
 
-
-  formStock.addEventListener('submit', function (evento) {
+  formStock.addEventListener("submit", function (evento) {
     evento.preventDefault();
-    const modificadas = formStock.querySelectorAll('.fila--modificada').length;
+    const modificadas = formStock.querySelectorAll(".fila--modificada").length;
 
     if (modificadas === 0) {
-      mensajeStock.textContent = 'No hay cambios para guardar.';
+      mensajeStock.textContent = "No hay cambios para guardar.";
       return;
     }
 
-    mensajeStock.textContent = '✔ Stock actualizado (simulación): ' + modificadas +
-      (modificadas === 1 ? ' producto modificado.' : ' productos modificados.');
+    mensajeStock.textContent =
+      "✔ Stock actualizado (simulación): " +
+      modificadas +
+      (modificadas === 1 ? " producto modificado." : " productos modificados.");
 
-
-    formStock.querySelectorAll('.cantidad__campo').forEach(function (campo) {
+    formStock.querySelectorAll(".cantidad__campo").forEach(function (campo) {
       campo.defaultValue = campo.value;
-      campo.closest('tr').classList.remove('fila--modificada');
+      campo.closest("tr").classList.remove("fila--modificada");
     });
   });
 
-  formStock.addEventListener('reset', function () {
+  formStock.addEventListener("reset", function () {
     setTimeout(function () {
-      formStock.querySelectorAll('.cantidad__campo').forEach(actualizarEstado);
+      formStock.querySelectorAll(".cantidad__campo").forEach(actualizarEstado);
     }, 0);
   });
 }
 {
   const MAXIMO_DESTACADOS = 4;
-  const formDestacados = document.getElementById('form-destacados');
-  const contadorDestacados = document.getElementById('contador_destacados');
-  const mensajeDestacados = document.getElementById('mensaje_destacados');
+  const formDestacados = document.getElementById("form-destacados");
+  const contadorDestacados = document.getElementById("contador_destacados");
+  const mensajeDestacados = document.getElementById("mensaje_destacados");
   const casillas = formDestacados.querySelectorAll('input[name="destacado"]');
 
-
   function actualizarSeleccion() {
-    const marcadas = formDestacados.querySelectorAll('input[name="destacado"]:checked').length;
+    const marcadas = formDestacados.querySelectorAll(
+      'input[name="destacado"]:checked',
+    ).length;
 
     casillas.forEach(function (casilla) {
-      const opcion = casilla.closest('.destacado-opcion');
+      const opcion = casilla.closest(".destacado-opcion");
 
-      opcion.classList.toggle('destacado-opcion--marcada', casilla.checked);
+      opcion.classList.toggle("destacado-opcion--marcada", casilla.checked);
 
       const bloquear = !casilla.checked && marcadas >= MAXIMO_DESTACADOS;
       casilla.disabled = bloquear;
-      opcion.classList.toggle('destacado-opcion--bloqueada', bloquear);
+      opcion.classList.toggle("destacado-opcion--bloqueada", bloquear);
     });
 
-    contadorDestacados.textContent = marcadas + ' de ' + MAXIMO_DESTACADOS + ' seleccionados';
-    mensajeDestacados.textContent = '';
-    mensajeDestacados.className = '';
+    contadorDestacados.textContent =
+      marcadas + " de " + MAXIMO_DESTACADOS + " seleccionados";
+    mensajeDestacados.textContent = "";
+    mensajeDestacados.className = "";
   }
 
+  formDestacados.addEventListener("change", actualizarSeleccion);
 
-  formDestacados.addEventListener('change', actualizarSeleccion);
-
-
-  formDestacados.addEventListener('submit', function (evento) {
+  formDestacados.addEventListener("submit", function (evento) {
     evento.preventDefault();
     const nombres = [];
-    formDestacados.querySelectorAll('input[name="destacado"]:checked').forEach(function (casilla) {
-      nombres.push(casilla.closest('.destacado-opcion').querySelector('.destacado-opcion__nombre').textContent);
-    });
+    formDestacados
+      .querySelectorAll('input[name="destacado"]:checked')
+      .forEach(function (casilla) {
+        nombres.push(
+          casilla
+            .closest(".destacado-opcion")
+            .querySelector(".destacado-opcion__nombre").textContent,
+        );
+      });
 
     if (nombres.length === 0) {
-      mensajeDestacados.textContent = 'Selecciona al menos un producto para destacar.';
-      mensajeDestacados.className = 'mensaje--error';
+      mensajeDestacados.textContent =
+        "Selecciona al menos un producto para destacar.";
+      mensajeDestacados.className = "mensaje--error";
       return;
     }
 
-    mensajeDestacados.textContent = '✔ Destacados actualizados (simulación): ' + nombres.join(', ') + '.';
-    mensajeDestacados.className = 'mensaje--exito';
-
+    mensajeDestacados.textContent =
+      "✔ Destacados actualizados (simulación): " + nombres.join(", ") + ".";
+    mensajeDestacados.className = "mensaje--exito";
 
     casillas.forEach(function (casilla) {
       casilla.defaultChecked = casilla.checked;
     });
   });
 
-
-  formDestacados.addEventListener('reset', function () {
+  formDestacados.addEventListener("reset", function () {
     setTimeout(actualizarSeleccion, 0);
   });
-
 
   actualizarSeleccion();
 }
@@ -187,9 +207,7 @@ const porcentajeDescuento = document.querySelector("#porcentaje_descuento");
 const botonDescuento = document.querySelector("#boton_descuento");
 const parrafoDescuento = document.querySelector("#mensaje_descuento");
 
-
 botonDescuento.addEventListener("click", function () {
-
   const codigo = codigoDescuento.value.trim().toUpperCase();
 
   const porcentaje = Number(porcentajeDescuento.value);
