@@ -1125,3 +1125,35 @@ header {
 .tarjeta-producto__imagen--arriba img {
   object-position: top;
 }
+
+.galeria img {
+  cursor: zoom-in;
+}
+
+.visor {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.visor--abierto {
+  display: flex;
+}
+
+.visor__imagen {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.visor__cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
