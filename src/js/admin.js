@@ -323,4 +323,80 @@ botonProducto.addEventListener("click", function () {
 
 
   cargarProducto(productoActual);
+
+{
+  const campoNombre = document.getElementById("nombre_color");
+  const campoColor = document.getElementById("valor_color");
+  const campoParte = document.getElementById("parte_color");
+  const muestra = document.getElementById("muestra_color");
+  const etiqueta = document.getElementById("etiqueta_color");
+  const botonColor = document.getElementById("boton_color");
+  const mensajeColor = document.getElementById("mensaje_color");
+  const listaColores = document.getElementById("lista_colores");
+
+
+  function actualizarVista() {
+    const nombre = campoNombre.value.trim() || "Nuevo tono";
+    muestra.style.backgroundColor = campoColor.value;
+
+    etiqueta.textContent = nombre;
+    const detalle = document.createElement("small");
+    detalle.textContent = campoParte.value + " · " + campoColor.value.toUpperCase();
+    etiqueta.appendChild(detalle);
+  }
+
+  function mostrarMensaje(texto, tipo) {
+    mensajeColor.textContent = texto;
+    mensajeColor.className = tipo ? "mensaje--" + tipo : "";
+  }
+
+  campoNombre.addEventListener("input", function () {
+    campoNombre.classList.remove("campo--error");
+    mostrarMensaje("", "");
+    actualizarVista();
+  });
+  campoColor.addEventListener("input", actualizarVista);
+  campoParte.addEventListener("change", actualizarVista);
+
+
+  botonColor.addEventListener("click", function () {
+    const nombre = campoNombre.value.trim();
+
+
+    if (nombre === "") {
+      campoNombre.classList.add("campo--error");
+      campoNombre.focus();
+      mostrarMensaje("Escribe el nombre del nuevo tono.", "error");
+      return;
+    }
+
+
+    const repetido = Array.from(listaColores.querySelectorAll("li")).some(function (item) {
+      return item.dataset.nombre.toLowerCase() === nombre.toLowerCase();
+    });
+    if (repetido) {
+      campoNombre.classList.add("campo--error");
+      mostrarMensaje("Ya agregaste un tono llamado " + nombre + ".", "error");
+      return;
+    }
+
+  
+    const item = document.createElement("li");
+    item.dataset.nombre = nombre;
+    const punto = document.createElement("span");
+    punto.className = "agregar-color__muestra";
+    punto.style.backgroundColor = campoColor.value;
+    item.appendChild(punto);
+    item.appendChild(document.createTextNode(nombre + " · " + campoParte.value));
+    listaColores.appendChild(item);
+
+    mostrarMensaje("✔ Color " + nombre + " agregado (simulación).", "exito");
+
+   
+    campoNombre.value = "";
+    actualizarVista();
+  });
+
+  // Estado inicial
+  actualizarVista();
 }
