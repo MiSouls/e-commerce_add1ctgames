@@ -1892,3 +1892,225 @@ header {
     max-width: none;
   }
 }
+
+.nosotros-historia h1,
+.nosotros-titulo,
+.nosotros-historia h3,
+.nosotros-enfoque__tarjeta h3,
+.nosotros-valores h3 {
+  font-weight: 400;
+}
+
+/* --- Historia --- */
+.nosotros-historia__intro {
+  max-width: 760px;
+}
+
+.nosotros-historia__intro .acento {
+  margin: 0;
+}
+
+.nosotros-historia h1 {
+  margin-bottom: var(--esp-4);
+  font-size: var(--texto-h1);
+  line-height: 1.1;
+}
+
+.nosotros-historia__lead {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: 1.125rem;
+}
+
+
+.linea-tiempo {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin: var(--esp-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.linea-tiempo__paso {
+  position: relative;
+  padding-top: 28px;
+  border-top: 3px solid var(--color-amarillo);
+}
+
+
+.linea-tiempo__paso::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  border: 3px solid var(--color-amarillo);
+  border-radius: 50%;
+  background-color: var(--color-fondo);
+}
+
+.linea-tiempo__marca {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background-color: #fff6e8;
+  color: var(--color-acento-texto);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.linea-tiempo__paso h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.linea-tiempo__paso p {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: 0.9375rem;
+}
+
+/* --- Frase de marca (franja café) --- */
+.nosotros-frase {
+  padding: var(--esp-7) 0;
+  background-color: var(--color-cafe);
+  text-align: center;
+}
+
+.nosotros-frase__club {
+  margin: 0 0 8px;
+  color: var(--color-amarillo);
+  font-family: var(--fuente-acento);
+  font-size: 1.75rem;
+}
+
+.nosotros-frase__cita {
+  margin: 0 auto 12px;
+  max-width: 820px;
+}
+
+.nosotros-frase__cita p {
+  margin: 0;
+  color: var(--color-texto-claro);
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.nosotros-frase__texto {
+  margin: 0;
+  color: var(--color-texto-claro-suave);
+}
+
+/* --- Misión y visión --- */
+.nosotros-titulo {
+  margin: 0 0 var(--esp-5);
+  font-size: var(--texto-h2);
+}
+
+.nosotros-enfoque {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.nosotros-enfoque__tarjeta {
+  padding: 32px;
+  border: 1px solid var(--color-borde);
+  border-left: 6px solid var(--color-amarillo);
+  border-radius: 20px;
+  background-color: var(--color-superficie);
+}
+
+.nosotros-enfoque__tarjeta h3 {
+  margin: 0 0 12px;
+  font-size: var(--texto-h3);
+  color: var(--color-acento-texto);
+}
+
+.nosotros-enfoque__tarjeta p {
+  margin: 0;
+  color: var(--color-texto-suave);
+}
+
+/* --- Valores --- */
+.nosotros-valores-seccion {
+  padding-top: 0;
+}
+
+.nosotros-valores {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nosotros-valores li {
+  padding: 24px 20px;
+  border: 1px solid var(--color-borde);
+  border-radius: 20px;
+  background-color: var(--color-superficie);
+  text-align: center;
+}
+
+.nosotros-valores__icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  background-color: #fff6e8;
+  color: var(--color-acento-texto);
+  font-size: 1.5rem;
+}
+
+.nosotros-valores h3 {
+  margin: 0 0 6px;
+  font-size: 1.0625rem;
+}
+
+.nosotros-valores p {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: 0.875rem;
+}
+
+/* --- Tablet --- */
+@media (max-width: 1024px) {
+  .linea-tiempo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 40px;
+  }
+
+  .nosotros-valores {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* --- Celular --- */
+@media (max-width: 768px) {
+  .linea-tiempo {
+    grid-template-columns: 1fr;
+  }
+
+  .nosotros-frase__cita p {
+    font-size: 1.5rem;
+  }
+
+  .nosotros-enfoque {
+    grid-template-columns: 1fr;
+  }
+
+  .nosotros-valores {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
