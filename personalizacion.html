@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,5 +43,143 @@
         </div>
       </nav>
     </header>
+
+    <main>
+     
+      <section class="seccion colores" aria-labelledby="titulo-colores">
+        <div class="contenedor">
+          <div class="seccion__encabezado">
+            <div>
+              <p class="acento">Hazla tuya</p>
+              <h2 id="titulo-colores">Elige los colores de tu arcade</h2>
+            </div>
+          </div>
+
+          <div class="colores__contenido">
+
+            <fieldset class="colores__paletas">
+              <legend class="colores__leyenda">Paletas disponibles</legend>
+
+          
+              <label class="paleta">
+                <input type="radio" name="paleta" value="clasica"
+                       data-gabinete="#4D352B" data-laterales="#F7B32B" data-botones="#E8892B" checked />
+                <span class="paleta__nombre">Clásica Add1ct</span>
+                <span class="paleta__muestras">
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #4D352B;"></span>
+                    <span class="muestra__texto"><strong>Café</strong> Gabinete</span>
+                  </span>
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #F7B32B;"></span>
+                    <span class="muestra__texto"><strong>Amarillo</strong> Laterales</span>
+                  </span>
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #E8892B;"></span>
+                    <span class="muestra__texto"><strong>Naranja</strong> Botones</span>
+                  </span>
+                </span>
+              </label>
+
+          
+              <label class="paleta">
+                <input type="radio" name="paleta" value="retro"
+                       data-gabinete="#1F1F1F" data-laterales="#C0392B" data-botones="#F2F2F2" />
+                <span class="paleta__nombre">Retro rojo</span>
+                <span class="paleta__muestras">
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #1F1F1F;"></span>
+                    <span class="muestra__texto"><strong>Negro</strong> Gabinete</span>
+                  </span>
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #C0392B;"></span>
+                    <span class="muestra__texto"><strong>Rojo</strong> Laterales</span>
+                  </span>
+                  <span class="muestra">
+                    <span class="muestra__color muestra__color--claro" style="background-color: #F2F2F2;"></span>
+                    <span class="muestra__texto"><strong>Blanco</strong> Botones</span>
+                  </span>
+                </span>
+              </label>
+
+   
+              <label class="paleta">
+                <input type="radio" name="paleta" value="neon"
+                       data-gabinete="#1B1B3A" data-laterales="#1F6FA8" data-botones="#E84393" />
+                <span class="paleta__nombre">Neón</span>
+                <span class="paleta__muestras">
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #1B1B3A;"></span>
+                    <span class="muestra__texto"><strong>Azul noche</strong> Gabinete</span>
+                  </span>
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #1F6FA8;"></span>
+                    <span class="muestra__texto"><strong>Azul</strong> Laterales</span>
+                  </span>
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #E84393;"></span>
+                    <span class="muestra__texto"><strong>Rosa</strong> Botones</span>
+                  </span>
+                </span>
+              </label>
+
+      
+              <label class="paleta">
+                <input type="radio" name="paleta" value="madera"
+                       data-gabinete="#8B5A2B" data-laterales="#2F7D3A" data-botones="#F7B32B" />
+                <span class="paleta__nombre">Madera natural</span>
+                <span class="paleta__muestras">
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #8B5A2B;"></span>
+                    <span class="muestra__texto"><strong>Madera</strong> Gabinete</span>
+                  </span>
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #2F7D3A;"></span>
+                    <span class="muestra__texto"><strong>Verde</strong> Laterales</span>
+                  </span>
+                  <span class="muestra">
+                    <span class="muestra__color" style="background-color: #F7B32B;"></span>
+                    <span class="muestra__texto"><strong>Amarillo</strong> Botones</span>
+                  </span>
+                </span>
+              </label>
+            </fieldset>
+
+         
+            <figure class="colores__vista">
+              <svg class="maquina" viewBox="0 0 200 300" role="img" aria-labelledby="texto-vista">
+            
+                <path class="maquina__laterales" d="M40 20 h120 l10 40 v220 h-140 v-220 z" />
+             
+                <path class="maquina__gabinete" d="M55 35 h90 v245 h-90 z" />
+           
+                <rect class="maquina__laterales" x="62" y="42" width="76" height="22" rx="3" />
+         
+                <rect x="65" y="75" width="70" height="60" rx="4" fill="#111" />
+                <rect x="70" y="80" width="60" height="50" rx="2" fill="#2b3a4a" />
+  
+                <path class="maquina__laterales" d="M50 150 h100 l8 25 h-116 z" />
+  
+                <rect x="72" y="140" width="4" height="18" fill="#222" />
+                <circle class="maquina__botones" cx="74" cy="140" r="6" />
+            
+                <circle class="maquina__botones" cx="100" cy="162" r="5" />
+                <circle class="maquina__botones" cx="114" cy="162" r="5" />
+                <circle class="maquina__botones" cx="128" cy="162" r="5" />
+            
+                <rect x="88" y="215" width="24" height="30" rx="2" fill="#222" opacity="0.5" />
+              </svg>
+              <figcaption id="texto-vista" class="colores__texto" aria-live="polite">
+                Paleta elegida: <strong>Clásica Add1ct</strong>
+              </figcaption>
+            </figure>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+  
+    <script src="src/js/personalizacion.js"></script>
   </body>
 </html>
