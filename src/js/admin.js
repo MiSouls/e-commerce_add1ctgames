@@ -181,3 +181,146 @@ botonProducto.addEventListener("click", function () {
  
   actualizarSeleccion();
 }
+
+  const POR_CONFIRMAR = 'Por confirmar con el cliente';
+  const fichas = {
+    'arcade-vertical': {
+      nombre: 'Arcade vertical clásica',
+      descripcion: 'Gabinete de pie con controles para dos jugadores.',
+      pantalla: POR_CONFIRMAR,
+      controles: POR_CONFIRMAR,
+      sistema: POR_CONFIRMAR
+    },
+    'bartop': {
+      nombre: 'Bartop',
+      descripcion: 'Versión compacta de mesa, ideal para espacios pequeños.',
+      pantalla: POR_CONFIRMAR,
+      controles: POR_CONFIRMAR,
+      sistema: POR_CONFIRMAR
+    },
+    'mesa-arcade': {
+      nombre: 'Mesa arcade',
+      descripcion: 'Modelo horizontal para jugar frente a frente.',
+      pantalla: POR_CONFIRMAR,
+      controles: POR_CONFIRMAR,
+      sistema: POR_CONFIRMAR
+    },
+    'arcade-eventos': {
+      nombre: 'Arcade para eventos',
+      descripcion: 'Carcasa adaptable de tu marca para activaciones.',
+      pantalla: POR_CONFIRMAR,
+      controles: POR_CONFIRMAR,
+      sistema: POR_CONFIRMAR
+    }
+  };
+
+  const CAMPOS = ['descripcion', 'pantalla', 'controles', 'sistema'];
+
+  const formTecnica = document.getElementById('form-tecnica');
+  const selector = document.getElementById('tecnica-producto');
+  const estado = document.getElementById('estado-tecnica');
+  const mensaje = document.getElementById('mensaje_tecnica');
+  const contador = document.getElementById('contador-descripcion');
+  const botonDescartar = document.getElementById('descartar_tecnica');
+
+  let productoActual = selector.value;
+  let hayCambios = false;
+
+  function campo(nombre) {
+    return document.getElementById('tecnica-' + nombre);
+  }
+
+
+  function actualizarVista() {
+    document.getElementById('vista-nombre').textContent = fichas[productoActual].nombre;
+    CAMPOS.forEach(function (nombre) {
+      const texto = campo(nombre).value.trim();
+      const destino = document.getElementById('vista-' + nombre);
+      destino.textContent = texto || '—';
+    });
+    contador.textContent = campo('descripcion').value.length + ' / 200 caracteres';
+  }
+
+  function marcarCambios(valor) {
+    hayCambios = valor;
+    estado.textContent = valor ? '● Cambios sin guardar' : 'Sin cambios';
+    estado.classList.toggle('edicion-estado--pendiente', valor);
+  }
+
+
+  function cargarProducto(id) {
+    productoActual = id;
+    CAMPOS.forEach(function (nombre) {
+      campo(nombre).value = fichas[id][nombre];
+      campo(nombre).classList.remove('edicion-campo--error');
+    });
+    actualizarVista();
+    marcarCambios(false);
+  }
+
+  function mostrarMensaje(texto, tipo) {
+    mensaje.textContent = texto;
+    mensaje.className = tipo ? 'mensaje--' + tipo : '';
+  }
+
+  formTecnica.addEventListener('input', function (evento) {
+    if (evento.target === selector) return;
+    evento.target.classList.remove('edicion-campo--error');
+    actualizarVista();
+    marcarCambios(true);
+    mostrarMensaje('', '');
+  });
+
+
+  selector.addEventListener('change', function () {
+    const anterior = fichas[productoActual].nombre;
+    const habiaCambios = hayCambios;
+    cargarProducto(selector.value);
+    if (habiaCambios) {
+      mostrarMensaje('Se descartaron los cambios sin guardar de ' + anterior + '.', 'aviso');
+    } else {
+      mostrarMensaje('', '');
+    }
+  });
+
+
+  formTecnica.addEventListener('submit', function (evento) {
+    evento.preventDefault(); // evita que la página se recargue
+
+
+    const vacios = CAMPOS.filter(function (nombre) {
+      const vacio = campo(nombre).value.trim() === '';
+      campo(nombre).classList.toggle('edicion-campo--error', vacio);
+      return vacio;
+    });
+
+    if (vacios.length > 0) {
+      mostrarMensaje('Completa todos los campos antes de guardar.', 'error');
+      campo(vacios[0]).focus();
+      return;
+    }
+
+    if (!hayCambios) {
+      mostrarMensaje('No hay cambios para guardar.', '');
+      return;
+    }
+
+
+    CAMPOS.forEach(function (nombre) {
+      fichas[productoActual][nombre] = campo(nombre).value.trim();
+    });
+    marcarCambios(false);
+
+    const hora = new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
+    mostrarMensaje('✔ Ficha de ' + fichas[productoActual].nombre + ' actualizada (simulación). Hora: ' + hora, 'exito');
+  });
+
+
+  botonDescartar.addEventListener('click', function () {
+    cargarProducto(productoActual);
+    mostrarMensaje('Se descartaron los cambios.', 'aviso');
+  });
+
+
+  cargarProducto(productoActual);
+}
