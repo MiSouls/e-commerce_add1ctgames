@@ -60,6 +60,55 @@
         </button>
         <p id="mensaje_producto"></p>
       </div>
+      <div class="agregar_producto">
+        <h2 class="titulo_actualizacion">Agregar accesorio</h2>
+        <label for="foto_accesorio">Foto del accesorio</label>
+        <input id="foto_accesorio" type="file" accept="image/*" />
+        <label for="descripcion_accesorio">Descripción</label>
+        <textarea id="descripcion_accesorio" rows="4"
+          placeholder="Ej: Palanca arcade de 8 direcciones, color rojo"></textarea>
+        <button class="boton--primario boton" id="boton_accesorio" type="button">
+          Guardar
+        </button>
+        <p id="mensaje_accesorio"></p>
+      </div>
+      <!-- HU-05.04 · Agregar color (simulado) -->
+      <div class="agregar_producto agregar-color">
+        <h2 class="titulo_actualizacion">Agregar color</h2>
+
+       
+        <label for="nombre_color">Nombre del tono</label>
+        <input
+          id="nombre_color"
+          type="text"
+          maxlength="30"
+          placeholder="Ej: Verde neón"
+        />
+
+        <label for="valor_color">Color</label>
+        <input id="valor_color" type="color" value="#2f7d3a" />
+
+        <label for="parte_color">¿Para qué parte de la máquina?</label>
+        <select id="parte_color">
+          <option value="Gabinete">Gabinete</option>
+          <option value="Laterales">Laterales</option>
+          <option value="Botones">Botones</option>
+        </select>
+
+     
+        <div class="agregar-color__vista" aria-hidden="true">
+          <span class="agregar-color__muestra" id="muestra_color"></span>
+          <span class="agregar-color__etiqueta" id="etiqueta_color">Nuevo tono</span>
+        </div>
+
+        <button class="boton--primario boton" id="boton_color" type="button">
+          Guardar
+        </button>
+        <p id="mensaje_color" role="status"></p>
+
+      
+        <ul class="agregar-color__lista" id="lista_colores" aria-label="Colores agregados"></ul>
+      </div>
       <form class="actualizacion-stock" id="form-stock" aria-labelledby="titulo-stock">
         <div class="actualizacion-stock__encabezado">
           <h2 id="titulo-stock">Actualizar stock</h2>
@@ -256,6 +305,135 @@
         </div>
         <p id="mensaje_destacados" role="status"></p>
       </form>
+
+      <form class="edicion-tecnica" id="form-tecnica" aria-labelledby="titulo-tecnica" novalidate>
+        <div class="edicion-tecnica__encabezado">
+          <h2 id="titulo-tecnica">Editar características técnicas</h2>
+          <span class="edicion-tecnica__aviso">Stock</span>
+        </div>
+        <p class="texto-suave">
+          Elige una máquina, corrige sus textos y revisa cómo se verán en la ficha técnica antes de guardar.
+        </p>
+
+        <!-- Selector de máquina -->
+        <div class="edicion-campo edicion-campo--selector">
+          <label for="tecnica-producto">Máquina</label>
+          <select id="tecnica-producto">
+            <option value="arcade-vertical">Arcade vertical clásica</option>
+            <option value="bartop">Bartop</option>
+            <option value="mesa-arcade">Mesa arcade</option>
+            <option value="arcade-eventos">Arcade para eventos</option>
+          </select>
+        </div>
+
+        <div class="edicion-tecnica__columnas">
+
+
+          <fieldset class="edicion-tecnica__formulario">
+            <legend>Textos de la máquina</legend>
+
+            <div class="edicion-campo">
+              <label for="tecnica-descripcion">Descripción</label>
+              <textarea id="tecnica-descripcion" rows="4" maxlength="200" required></textarea>
+              <span class="edicion-campo__ayuda" id="contador-descripcion">0 / 200 caracteres</span>
+            </div>
+
+            <div class="edicion-campo">
+              <label for="tecnica-pantalla">Pantalla</label>
+              <input id="tecnica-pantalla" type="text" maxlength="60" required />
+            </div>
+
+            <div class="edicion-campo">
+              <label for="tecnica-controles">Controles</label>
+              <input id="tecnica-controles" type="text" maxlength="60" required />
+            </div>
+
+            <div class="edicion-campo">
+              <label for="tecnica-sistema">Sistema</label>
+              <input id="tecnica-sistema" type="text" maxlength="60" required />
+            </div>
+
+          </fieldset>
+
+
+          <div class="edicion-tecnica__vista">
+            <p class="edicion-tecnica__etiqueta">Vista previa en la ficha</p>
+            <section class="especificaciones-producto" aria-label="Vista previa de la ficha técnica">
+              <p class="edicion-tecnica__producto" id="vista-nombre">Arcade vertical clásica</p>
+              <h3 class="especificaciones-producto__titulo">Especificaciones técnicas</h3>
+              <p class="texto-suave" id="vista-descripcion"></p>
+              <dl class="especificaciones-producto__lista">
+                <div class="especificaciones-producto__fila">
+                  <dt class="especificaciones-producto__nombre">Pantalla</dt>
+                  <dd class="especificaciones-producto__valor" id="vista-pantalla"></dd>
+                </div>
+                <div class="especificaciones-producto__fila">
+                  <dt class="especificaciones-producto__nombre">Controles</dt>
+                  <dd class="especificaciones-producto__valor" id="vista-controles"></dd>
+                </div>
+                <div class="especificaciones-producto__fila">
+                  <dt class="especificaciones-producto__nombre">Sistema</dt>
+                  <dd class="especificaciones-producto__valor" id="vista-sistema"></dd>
+                </div>
+              </dl>
+            </section>
+          </div>
+        </div>
+
+        <div class="edicion-acciones">
+          <span class="edicion-estado" id="estado-tecnica">Sin cambios</span>
+          <button type="button" class="boton boton--secundario" id="descartar_tecnica">Descartar cambios</button>
+          <button type="submit" class="boton boton--primario" id="boton_tecnica">Guardar</button>
+        </div>
+        <p id="mensaje_tecnica" role="status"></p>
+      </form>
+
+      <!-- HU-10.04 · Bandeja de cotizaciones (simulado) -->
+      <section class="bandeja" aria-labelledby="titulo-bandeja">
+        <div class="bandeja__encabezado">
+          <h2 id="titulo-bandeja">Bandeja de cotizaciones</h2>
+          <span class="bandeja__aviso">Simulación · sin base de datos</span>
+        </div>
+        <p class="texto-suave">
+          Solicitudes recibidas desde el formulario de cotización. Las marcadas como
+          "Ejemplo" son de muestra.
+        </p>
+
+       
+        <div class="bandeja__resumen">
+          <p><strong id="total_solicitudes">0</strong> solicitudes</p>
+          <p><strong id="total_b2c">0</strong> B2C</p>
+          <p><strong id="total_b2b">0</strong> B2B</p>
+        </div>
+
+      
+        <div class="bandeja__filtro">
+          <label for="filtro_perfil">Mostrar</label>
+          <select id="filtro_perfil">
+            <option value="todas">Todas</option>
+            <option value="B2C">Solo B2C (hogar)</option>
+            <option value="B2B">Solo B2B (empresa)</option>
+          </select>
+        </div>
+
+       
+        <table class="bandeja-tabla">
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">Perfil</th>
+              <th scope="col">Requerimiento</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          
+          <tbody id="filas_bandeja"></tbody>
+        </table>
+
+        <p class="bandeja__vacia" id="bandeja_vacia" hidden>No hay solicitudes para este filtro.</p>
+      </section>
+
       <div class="actualizacion_banner codigos_descuento">
         <h2 class="titulo_actualizacion">Códigos de descuento</h2>
         <label for="codigo_descuento">Código:</label>
