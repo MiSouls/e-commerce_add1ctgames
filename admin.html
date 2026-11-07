@@ -72,6 +72,43 @@
         </button>
         <p id="mensaje_accesorio"></p>
       </div>
+      <!-- HU-05.04 · Agregar color (simulado) -->
+      <div class="agregar_producto agregar-color">
+        <h2 class="titulo_actualizacion">Agregar color</h2>
+
+       
+        <label for="nombre_color">Nombre del tono</label>
+        <input
+          id="nombre_color"
+          type="text"
+          maxlength="30"
+          placeholder="Ej: Verde neón"
+        />
+
+        <label for="valor_color">Color</label>
+        <input id="valor_color" type="color" value="#2f7d3a" />
+
+        <label for="parte_color">¿Para qué parte de la máquina?</label>
+        <select id="parte_color">
+          <option value="Gabinete">Gabinete</option>
+          <option value="Laterales">Laterales</option>
+          <option value="Botones">Botones</option>
+        </select>
+
+     
+        <div class="agregar-color__vista" aria-hidden="true">
+          <span class="agregar-color__muestra" id="muestra_color"></span>
+          <span class="agregar-color__etiqueta" id="etiqueta_color">Nuevo tono</span>
+        </div>
+
+        <button class="boton--primario boton" id="boton_color" type="button">
+          Guardar
+        </button>
+        <p id="mensaje_color" role="status"></p>
+
+      
+        <ul class="agregar-color__lista" id="lista_colores" aria-label="Colores agregados"></ul>
+      </div>
       <form class="actualizacion-stock" id="form-stock" aria-labelledby="titulo-stock">
         <div class="actualizacion-stock__encabezado">
           <h2 id="titulo-stock">Actualizar stock</h2>
