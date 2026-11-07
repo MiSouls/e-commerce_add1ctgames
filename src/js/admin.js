@@ -225,3 +225,136 @@ botonDescuento.addEventListener("click", function () {
       "Código " + codigo + " creado con " + porcentaje + "% de descuento";
   }
 });
+
+{
+
+  const EJEMPLOS = [
+    {
+      fecha: "2026-11-03T10:15:00",
+      nombre: "Laura Gómez",
+      email: "laura@ejemplo.com",
+      telefono: "3001234567",
+      perfil: "B2C",
+      requerimientos: "Quiero una bartop para el cumpleaños de mi hijo, con colores azul y negro.",
+      ejemplo: true
+    },
+    {
+      fecha: "2026-11-04T16:40:00",
+      nombre: "Bar El Retro",
+      email: "contacto@ejemplo.com",
+      telefono: "3109876543",
+      perfil: "B2B",
+      requerimientos: "Necesitamos dos máquinas verticales con nuestro logo para el local.",
+      ejemplo: true
+    },
+    {
+      fecha: "2026-11-05T09:05:00",
+      nombre: "Andrés Ruiz",
+      email: "andres@ejemplo.com",
+      telefono: "3205551234",
+      perfil: "B2C",
+      requerimientos: "",
+      ejemplo: true
+    }
+  ];
+
+  const filas = document.getElementById("filas_bandeja");
+  const filtro = document.getElementById("filtro_perfil");
+  const avisoVacio = document.getElementById("bandeja_vacia");
+
+
+  const guardadas = JSON.parse(localStorage.getItem("solicitudes")) || [];
+  const solicitudes = guardadas.concat(EJEMPLOS).sort(function (a, b) {
+    return new Date(b.fecha) - new Date(a.fecha);
+  });
+
+
+  function fechaCorta(texto) {
+    return new Date(texto).toLocaleDateString("es-CO");
+  }
+  function horaCorta(texto) {
+    return new Date(texto).toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit" });
+  }
+
+
+  function resumir(texto) {
+    if (!texto) return "Sin detalles";
+    return texto.length > 60 ? texto.slice(0, 60).trim() + "…" : texto;
+  }
+
+ 
+  function celda(fila, texto, etiqueta, clase) {
+    const td = document.createElement("td");
+    td.dataset.etiqueta = etiqueta; 
+    if (clase) td.className = clase;
+    if (texto !== undefined) td.textContent = texto;
+    fila.appendChild(td);
+    return td;
+  }
+
+  function dibujar() {
+    const valor = filtro.value;
+    filas.innerHTML = "";
+
+    const visibles = solicitudes.filter(function (s) {
+      return valor === "todas" || s.perfil === valor;
+    });
+
+    visibles.forEach(function (s) {
+      const fila = document.createElement("tr");
+
+      
+      const fecha = celda(fila, fechaCorta(s.fecha), "Fecha", "bandeja__fecha");
+      const hora = document.createElement("small");
+      hora.textContent = horaCorta(s.fecha);
+      fecha.appendChild(hora);
+
+      
+      const cliente = celda(fila, undefined, "Cliente");
+      const nombre = document.createElement("strong");
+      nombre.textContent = s.nombre;
+      cliente.appendChild(nombre);
+      if (s.ejemplo) {
+        const marca = document.createElement("span");
+        marca.className = "bandeja__ejemplo";
+        marca.textContent = "Ejemplo";
+        cliente.appendChild(marca);
+      }
+      const contacto = document.createElement("small");
+      contacto.textContent = s.email + " · " + s.telefono;
+      cliente.appendChild(contacto);
+
+      
+      const perfil = celda(fila, undefined, "Perfil");
+      const etiqueta = document.createElement("span");
+      etiqueta.className = "bandeja__perfil bandeja__perfil--" + s.perfil.toLowerCase();
+      etiqueta.textContent = s.perfil === "B2B" ? "B2B · Empresa" : "B2C · Hogar";
+      perfil.appendChild(etiqueta);
+
+      
+      const req = celda(fila, resumir(s.requerimientos), "Requerimiento", "bandeja__requerimiento");
+      if (s.requerimientos) req.title = s.requerimientos;
+
+      
+      const estado = celda(fila, undefined, "Estado");
+      const pendiente = document.createElement("span");
+      pendiente.className = "bandeja__estado";
+      pendiente.textContent = s.estado || "Pendiente";
+      estado.appendChild(pendiente);
+
+      filas.appendChild(fila);
+    });
+
+    avisoVacio.hidden = visibles.length > 0;
+  }
+
+
+  document.getElementById("total_solicitudes").textContent = solicitudes.length;
+  document.getElementById("total_b2c").textContent =
+    solicitudes.filter(function (s) { return s.perfil === "B2C"; }).length;
+  document.getElementById("total_b2b").textContent =
+    solicitudes.filter(function (s) { return s.perfil === "B2B"; }).length;
+
+  filtro.addEventListener("change", dibujar);
+  dibujar();
+}

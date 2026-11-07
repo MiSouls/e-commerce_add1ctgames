@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="src/variables.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
+     <script src="src/js/cotizacion.js"></script>
 
 <body>
   <header>
@@ -58,6 +59,27 @@
           </fieldset>
 
           <!-- HU-10.02: tipo de cliente (Caterine) -->
+         
+          <fieldset class="perfil-cliente">
+            <legend>¿Para quién es la máquina?</legend>
+
+            <div class="perfil-cliente__opciones">
+              
+              <label class="perfil-opcion">
+                <input type="radio" name="perfil" value="B2C" required />
+                <span class="perfil-opcion__titulo">Para mi hogar</span>
+                <span class="perfil-opcion__etiqueta">B2C · Persona</span>
+                <span class="perfil-opcion__texto">Uso personal o familiar.</span>
+              </label>
+
+              <label class="perfil-opcion">
+                <input type="radio" name="perfil" value="B2B" />
+                <span class="perfil-opcion__titulo">Para mi empresa o evento</span>
+                <span class="perfil-opcion__etiqueta">B2B · Empresa</span>
+                <span class="perfil-opcion__texto">Negocios, branding o alquiler para eventos.</span>
+              </label>
+            </div>
+          </fieldset>
 
           <!-- HU-10.03: requerimientos (Alexander) -->
           <fieldset>
