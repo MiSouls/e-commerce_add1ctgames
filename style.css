@@ -1674,3 +1674,221 @@ header {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   HU-10.04 · BANDEJA DE COTIZACIONES (panel administrador)
+   ========================================================================== */
+
+/* Tarjeta ancha, igual que stock y destacados */
+.bandeja {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  padding: 40px;
+  border: 3px solid var(--color-borde);
+  border-radius: 20px;
+  background-color: var(--color-superficie);
+}
+
+.bandeja__encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.bandeja__encabezado h2 {
+  margin: 0;
+}
+
+.bandeja__aviso {
+  padding: 4px 12px;
+  border: 1px dashed var(--color-acento-texto);
+  border-radius: 999px;
+  color: var(--color-acento-texto);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+/* Contadores */
+.bandeja__resumen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.bandeja__resumen p {
+  margin: 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background-color: #FFF6E8;
+  color: var(--color-texto-suave);
+  font-weight: 700;
+}
+
+.bandeja__resumen strong {
+  color: var(--color-texto);
+  font-family: var(--fuente-titulos);
+  font-size: 1.25rem;
+}
+
+/* Filtro */
+.bandeja__filtro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.bandeja__filtro label {
+  font-weight: 700;
+}
+
+.bandeja__filtro select {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.9375rem;
+}
+
+/* Tabla */
+.bandeja-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bandeja-tabla th {
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--color-borde);
+  color: var(--color-texto-suave);
+  font-size: 0.8125rem;
+  letter-spacing: 1px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.bandeja-tabla td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 0.9375rem;
+  vertical-align: top;
+}
+
+.bandeja-tabla tbody tr:hover td {
+  background-color: #FFF6E8;
+}
+
+/* Cliente: nombre y contacto */
+.bandeja-tabla td strong {
+  display: block;
+}
+
+.bandeja-tabla td small {
+  display: block;
+  color: var(--color-texto-suave);
+  font-size: 0.8125rem;
+}
+
+.bandeja__ejemplo {
+  display: inline-block;
+  margin: 2px 0;
+  padding: 0 8px;
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  color: var(--color-texto-suave);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.bandeja__fecha {
+  white-space: nowrap;
+}
+
+.bandeja__requerimiento {
+  max-width: 280px;
+  color: var(--color-texto-suave);
+}
+
+/* Etiquetas de perfil */
+.bandeja__perfil {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: var(--color-nocturno);
+  font-size: 0.75rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.bandeja__perfil--b2c { background-color: var(--color-amarillo); }
+.bandeja__perfil--b2b { background-color: #5BB0E8; }
+
+/* Estado (la HU-10.05 lo vuelve interactivo) */
+.bandeja__estado {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--color-acento-texto);
+  border-radius: 999px;
+  color: var(--color-acento-texto);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.bandeja__vacia {
+  margin: 16px 0 0;
+  color: var(--color-texto-suave);
+  text-align: center;
+}
+
+/* Celular: cada solicitud como tarjeta */
+@media (max-width: 768px) {
+  .bandeja {
+    padding: 20px;
+  }
+
+  .bandeja-tabla thead {
+    display: none;
+  }
+
+  .bandeja-tabla tr {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-borde);
+  }
+
+  .bandeja-tabla td {
+    display: block;
+    padding: 6px 4px;
+    border: none;
+  }
+
+  /* El título de cada dato, encima del valor */
+  .bandeja-tabla td::before {
+    content: attr(data-etiqueta);
+    display: block;
+    margin-bottom: 2px;
+    color: var(--color-texto-suave);
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* En celular, fecha y hora en la misma línea */
+  .bandeja__fecha small {
+    display: inline;
+    margin-left: 6px;
+  }
+
+  .bandeja__requerimiento {
+    max-width: none;
+  }
+}

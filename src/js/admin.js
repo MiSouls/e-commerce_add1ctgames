@@ -509,4 +509,4 @@ botonDescuento.addEventListener("click", function () {
   filtro.addEventListener("change", dibujar);
   dibujar();
 }
-});
+
