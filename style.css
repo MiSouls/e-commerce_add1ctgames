@@ -1296,7 +1296,6 @@ header {
   margin: 0 0 12px;
 }
 
-/* Botones y estado */
 .edicion-acciones {
   display: flex;
   flex-wrap: wrap;
@@ -1336,7 +1335,6 @@ header {
 #mensaje_tecnica.mensaje--error { color: #C0392B; }
 #mensaje_tecnica.mensaje--aviso { color: var(--color-acento-texto); }
 
-/* Celular: una columna */
 @media (max-width: 768px) {
   .edicion-tecnica {
     padding: 20px;
