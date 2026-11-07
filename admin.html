@@ -409,6 +409,52 @@
           </div>
           <p id="mensaje_destacados" role="status"></p>
         </form>
+       
+        <section class="bandeja" aria-labelledby="titulo-bandeja">
+          <div class="bandeja__encabezado">
+            <h2 id="titulo-bandeja">Bandeja de cotizaciones</h2>
+            <span class="bandeja__aviso"></span>
+          </div>
+          <p class="texto-suave">
+            Solicitudes recibidas desde el formulario de cotización. Las marcadas como
+            "Ejemplo" son de muestra.
+          </p>
+
+         
+          <div class="bandeja__resumen">
+            <p><strong id="total_solicitudes">0</strong> solicitudes</p>
+            <p><strong id="total_b2c">0</strong> B2C</p>
+            <p><strong id="total_b2b">0</strong> B2B</p>
+          </div>
+
+        
+          <div class="bandeja__filtro">
+            <label for="filtro_perfil">Mostrar</label>
+            <select id="filtro_perfil">
+              <option value="todas">Todas</option>
+              <option value="B2C">Solo B2C (hogar)</option>
+              <option value="B2B">Solo B2B (empresa)</option>
+            </select>
+          </div>
+
+         
+          <table class="bandeja-tabla">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Perfil</th>
+                <th scope="col">Requerimiento</th>
+                <th scope="col">Estado</th>
+              </tr>
+            </thead>
+            
+            <tbody id="filas_bandeja"></tbody>
+          </table>
+
+          <p class="bandeja__vacia" id="bandeja_vacia" hidden>No hay solicitudes para este filtro.</p>
+        </section>
+
         <div class="actualizacion_banner codigos_descuento">
           <h2 class="titulo_actualizacion">Códigos de descuento</h2>
           <label for="codigo_descuento">Código:</label>
