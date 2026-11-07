@@ -1,411 +1,345 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add1ctGames - Administración</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Nunito+Sans:wght@400;600;700;800&display=swap"
-    />
-    <link rel="stylesheet" href="src/variables.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <header>
-      <nav class="top_navegation">
-        <div class="logo">
-          <img
-            src="src/files/assets/logo-addict.png"
-            alt="Logo de la empresa Add1ctGames"
-          />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add1ctGames - Administración</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Yellowtail&family=Nunito+Sans:wght@400;600;700;800&display=swap" />
+  <link rel="stylesheet" href="src/variables.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="top_navegation">
+      <div class="logo">
+        <img src="src/files/assets/logo-addict.png" alt="Logo de la empresa Add1ctGames" />
+      </div>
+      <div>
+        <h1>PANEL ADMINISTRATIVO</h1>
+      </div>
+      <ul class="menu_navegacion">
+        <li><a href="index.html">Volver al sitio</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="panel_tarjetas">
+      <div class="actualizacion_banner">
+        <h2 class="titulo_actualizacion">Actualizar banner</h2>
+        <label for="foto_banner">Elige la imagen del banner</label>
+        <input id="foto_banner" type="file" accept="image/*" />
+        <button class="boton--primario boton" id="boton_banner" type="button">
+          Guardar
+        </button>
+        <p id="mensaje_banner"></p>
+      </div>
+      <div class="actualizacion-precio">
+        <h2>Actualizar precio</h2>
+        <label for="campo-precio">Precio de la Arcade vertical clásica</label>
+        <input id="campo-precio" type="text" inputmode="numeric" placeholder="Ej: 2500000" />
+        <button class="boton boton--primario" id="boton-precio" type="button">
+          Guardar
+        </button>
+        <p id="mensaje-precio"></p>
+      </div>
+      <div class="agregar_producto">
+        <h2 class="titulo_actualizacion">Agregar producto</h2>
+        <label for="nombre_producto">Nombre</label>
+        <input id="nombre_producto" type="text" placeholder="Ej: Arcade Bartop" />
+        <label for="precio_producto">Precio</label>
+        <input id="precio_producto" type="number" />
+        <label for="imagen_producto">Imagen</label>
+        <input id="imagen_producto" type="file" accept="image/*" />
+        <button class="boton--primario boton" id="boton_producto" type="button">
+          Guardar
+        </button>
+        <p id="mensaje_producto"></p>
+      </div>
+      <div class="agregar_producto">
+        <h2 class="titulo_actualizacion">Agregar accesorio</h2>
+        <label for="foto_accesorio">Foto del accesorio</label>
+        <input id="foto_accesorio" type="file" accept="image/*" />
+        <label for="descripcion_accesorio">Descripción</label>
+        <textarea id="descripcion_accesorio" rows="4"
+          placeholder="Ej: Palanca arcade de 8 direcciones, color rojo"></textarea>
+        <button class="boton--primario boton" id="boton_accesorio" type="button">
+          Guardar
+        </button>
+        <p id="mensaje_accesorio"></p>
+      </div>
+      <form class="actualizacion-stock" id="form-stock" aria-labelledby="titulo-stock">
+        <div class="actualizacion-stock__encabezado">
+          <h2 id="titulo-stock">Actualizar stock</h2>
+          <span class="actualizacion-stock__aviso"> Stock </span>
         </div>
-        <div>
-          <h1>PANEL ADMINISTRATIVO</h1>
-        </div>
-        <ul class="menu_navegacion">
-          <li><a href="index.html">Volver al sitio</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section class="panel_tarjetas">
-        <div class="actualizacion_banner">
-          <h2 class="titulo_actualizacion">Actualizar banner</h2>
-          <label for="foto_banner">Elige la imagen del banner</label>
-          <input id="foto_banner" type="file" accept="image/*" />
-          <button class="boton--primario boton" id="boton_banner" type="button">
+        <p class="texto-suave">
+          Modifica las unidades disponibles. El estado que ve el cliente en la
+          tienda cambia según la cantidad.
+        </p>
+
+        <table class="stock-tabla">
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Estado en tienda</th>
+              <th scope="col">Unidades</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="stock-producto">
+                  <img src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp"
+                    alt="" />
+                  <strong>Arcade vertical clásica</strong>
+                </div>
+              </td>
+              <td>
+                <span class="estado estado--disponible">Disponible</span>
+              </td>
+              <td>
+                <div class="cantidad">
+                  <button type="button" class="cantidad__boton" data-accion="restar"
+                    aria-label="Restar una unidad de Arcade vertical clásica">
+                    −
+                  </button>
+                  <label class="solo-lector" for="stock-1">Unidades de Arcade vertical clásica</label>
+                  <input class="cantidad__campo" id="stock-1" type="number" min="0" max="99" value="8" />
+                  <button type="button" class="cantidad__boton" data-accion="sumar"
+                    aria-label="Sumar una unidad de Arcade vertical clásica">
+                    +
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="stock-producto">
+                  <img src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg"
+                    alt="" />
+                  <strong>Bartop</strong>
+                </div>
+              </td>
+              <td>
+                <span class="estado estado--pocas">Últimas unidades</span>
+              </td>
+              <td>
+                <div class="cantidad">
+                  <button type="button" class="cantidad__boton" data-accion="restar"
+                    aria-label="Restar una unidad de Bartop">
+                    −
+                  </button>
+                  <label class="solo-lector" for="stock-2">Unidades de Bartop</label>
+                  <input class="cantidad__campo" id="stock-2" type="number" min="0" max="99" value="2" />
+                  <button type="button" class="cantidad__boton" data-accion="sumar"
+                    aria-label="Sumar una unidad de Bartop">
+                    +
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="stock-producto">
+                  <img src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp"
+                    alt="" />
+                  <strong>Mesa arcade</strong>
+                </div>
+              </td>
+              <td><span class="estado estado--agotado">Agotado</span></td>
+              <td>
+                <div class="cantidad">
+                  <button type="button" class="cantidad__boton" data-accion="restar"
+                    aria-label="Restar una unidad de Mesa arcade">
+                    −
+                  </button>
+                  <label class="solo-lector" for="stock-3">Unidades de Mesa arcade</label>
+                  <input class="cantidad__campo" id="stock-3" type="number" min="0" max="99" value="0" />
+                  <button type="button" class="cantidad__boton" data-accion="sumar"
+                    aria-label="Sumar una unidad de Mesa arcade">
+                    +
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="stock-producto">
+                  <img src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg" alt="" />
+                  <strong>Arcade para eventos</strong>
+                </div>
+              </td>
+              <td>
+                <span class="estado estado--disponible">Disponible</span>
+              </td>
+              <td>
+                <div class="cantidad">
+                  <button type="button" class="cantidad__boton" data-accion="restar"
+                    aria-label="Restar una unidad de Arcade para eventos">
+                    −
+                  </button>
+                  <label class="solo-lector" for="stock-4">Unidades de Arcade para eventos</label>
+                  <input class="cantidad__campo" id="stock-4" type="number" min="0" max="99" value="5" />
+                  <button type="button" class="cantidad__boton" data-accion="sumar"
+                    aria-label="Sumar una unidad de Arcade para eventos">
+                    +
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="texto-suave stock-leyenda">
+          <strong>Estados:</strong> 0 = Agotado · 1 a 3 = Últimas unidades · 4
+          o más = Disponible
+        </p>
+
+        <div class="stock-acciones">
+          <button type="reset" class="boton boton--secundario">
+            Deshacer
+          </button>
+          <button type="submit" class="boton boton--primario" id="boton_stock">
             Guardar
           </button>
-          <p id="mensaje_banner"></p>
         </div>
-        <div class="actualizacion-precio">
-          <h2>Actualizar precio</h2>
-          <label for="campo-precio">Precio de la Arcade vertical clásica</label>
-          <input
-            id="campo-precio"
-            type="text"
-            inputmode="numeric"
-            placeholder="Ej: 2500000"
-          />
-          <button class="boton boton--primario" id="boton-precio" type="button">
+        <p id="mensaje_stock" role="status"></p>
+      </form>
+      <form class="seleccion-destacados" id="form-destacados" aria-labelledby="titulo-destacados">
+        <div class="seleccion-destacados__encabezado">
+          <h2 id="titulo-destacados">Productos destacados</h2>
+          <span class="seleccion-destacados__aviso">Stock</span>
+        </div>
+        <p class="texto-suave">
+          Marca las máquinas que quieres promocionar en la página de inicio
+          (máximo 4).
+        </p>
+
+        <fieldset class="destacados-lista">
+          <legend class="solo-lector">
+            Máquinas disponibles para destacar
+          </legend>
+
+          <label class="destacado-opcion">
+            <input type="checkbox" name="destacado" value="arcade-vertical" checked />
+            <img src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp" alt="" />
+            <span class="destacado-opcion__nombre">Arcade vertical clásica</span>
+            <span class="destacado-opcion__marca">★ Destacado</span>
+          </label>
+
+          <label class="destacado-opcion">
+            <input type="checkbox" name="destacado" value="bartop" checked />
+            <img src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg" alt="" />
+            <span class="destacado-opcion__nombre">Bartop</span>
+            <span class="destacado-opcion__marca">★ Destacado</span>
+          </label>
+
+          <label class="destacado-opcion">
+            <input type="checkbox" name="destacado" value="mesa-arcade" checked />
+            <img src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp" alt="" />
+            <span class="destacado-opcion__nombre">Mesa arcade</span>
+            <span class="destacado-opcion__marca">★ Destacado</span>
+          </label>
+
+          <label class="destacado-opcion">
+            <input type="checkbox" name="destacado" value="arcade-eventos" />
+            <img src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg" alt="" />
+            <span class="destacado-opcion__nombre">Arcade para eventos</span>
+            <span class="destacado-opcion__marca">★ Destacado</span>
+          </label>
+        </fieldset>
+
+        <p class="destacados-contador" id="contador_destacados">
+          3 de 4 seleccionados
+        </p>
+
+        <div class="destacados-acciones">
+          <button type="reset" class="boton boton--secundario">
+            Deshacer
+          </button>
+          <button type="submit" class="boton boton--primario" id="boton_destacados">
             Guardar
           </button>
-          <p id="mensaje-precio"></p>
         </div>
-        <div class="agregar_producto">
-          <h2 class="titulo_actualizacion">Agregar producto</h2>
-          <label for="nombre_producto">Nombre</label>
-          <input
-            id="nombre_producto"
-            type="text"
-            placeholder="Ej: Arcade Bartop"
-          />
-          <label for="precio_producto">Precio</label>
-          <input id="precio_producto" type="number" />
-          <label for="imagen_producto">Imagen</label>
-          <input id="imagen_producto" type="file" accept="image/*" />
-          <button
-            class="boton--primario boton"
-            id="boton_producto"
-            type="button"
-          >
-            Guardar
-          </button>
-          <p id="mensaje_producto"></p>
+        <p id="mensaje_destacados" role="status"></p>
+      </form>
+
+      <form class="edicion-tecnica" id="form-tecnica" aria-labelledby="titulo-tecnica" novalidate>
+        <div class="edicion-tecnica__encabezado">
+          <h2 id="titulo-tecnica">Editar características técnicas</h2>
+          <span class="edicion-tecnica__aviso">Stock</span>
         </div>
-        <div class="agregar_producto">
-          <h2 class="titulo_actualizacion">Agregar accesorio</h2>
-          <label for="foto_accesorio">Foto del accesorio</label>
-          <input id="foto_accesorio" type="file" accept="image/*" />
-          <label for="descripcion_accesorio">Descripción</label>
-          <textarea
-            id="descripcion_accesorio"
-            rows="4"
-            placeholder="Ej: Palanca arcade de 8 direcciones, color rojo"
-          ></textarea>
-          <button
-            class="boton--primario boton"
-            id="boton_accesorio"
-            type="button"
-          >
-            Guardar
-          </button>
-          <p id="mensaje_accesorio"></p>
+        <p class="texto-suave">
+          Elige una máquina, corrige sus textos y revisa cómo se verán en la ficha técnica antes de guardar.
+        </p>
+
+        <!-- Selector de máquina -->
+        <div class="edicion-campo edicion-campo--selector">
+          <label for="tecnica-producto">Máquina</label>
+          <select id="tecnica-producto">
+            <option value="arcade-vertical">Arcade vertical clásica</option>
+            <option value="bartop">Bartop</option>
+            <option value="mesa-arcade">Mesa arcade</option>
+            <option value="arcade-eventos">Arcade para eventos</option>
+          </select>
         </div>
-        <form
-          class="actualizacion-stock"
-          id="form-stock"
-          aria-labelledby="titulo-stock"
-        >
-          <div class="actualizacion-stock__encabezado">
-            <h2 id="titulo-stock">Actualizar stock</h2>
-            <span class="actualizacion-stock__aviso"> Stock </span>
-          </div>
-          <p class="texto-suave">
-            Modifica las unidades disponibles. El estado que ve el cliente en la
-            tienda cambia según la cantidad.
-          </p>
 
-          <table class="stock-tabla">
-            <thead>
-              <tr>
-                <th scope="col">Producto</th>
-                <th scope="col">Estado en tienda</th>
-                <th scope="col">Unidades</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="stock-producto">
-                    <img
-                      src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp"
-                      alt=""
-                    />
-                    <strong>Arcade vertical clásica</strong>
-                  </div>
-                </td>
-                <td>
-                  <span class="estado estado--disponible">Disponible</span>
-                </td>
-                <td>
-                  <div class="cantidad">
-                    <button
-                      type="button"
-                      class="cantidad__boton"
-                      data-accion="restar"
-                      aria-label="Restar una unidad de Arcade vertical clásica"
-                    >
-                      −
-                    </button>
-                    <label class="solo-lector" for="stock-1"
-                      >Unidades de Arcade vertical clásica</label
-                    >
-                    <input
-                      class="cantidad__campo"
-                      id="stock-1"
-                      type="number"
-                      min="0"
-                      max="99"
-                      value="8"
-                    />
-                    <button
-                      type="button"
-                      class="cantidad__boton"
-                      data-accion="sumar"
-                      aria-label="Sumar una unidad de Arcade vertical clásica"
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="stock-producto">
-                    <img
-                      src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg"
-                      alt=""
-                    />
-                    <strong>Bartop</strong>
-                  </div>
-                </td>
-                <td>
-                  <span class="estado estado--pocas">Últimas unidades</span>
-                </td>
-                <td>
-                  <div class="cantidad">
-                    <button
-                      type="button"
-                      class="cantidad__boton"
-                      data-accion="restar"
-                      aria-label="Restar una unidad de Bartop"
-                    >
-                      −
-                    </button>
-                    <label class="solo-lector" for="stock-2"
-                      >Unidades de Bartop</label
-                    >
-                    <input
-                      class="cantidad__campo"
-                      id="stock-2"
-                      type="number"
-                      min="0"
-                      max="99"
-                      value="2"
-                    />
-                    <button
-                      type="button"
-                      class="cantidad__boton"
-                      data-accion="sumar"
-                      aria-label="Sumar una unidad de Bartop"
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="stock-producto">
-                    <img
-                      src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp"
-                      alt=""
-                    />
-                    <strong>Mesa arcade</strong>
-                  </div>
-                </td>
-                <td><span class="estado estado--agotado">Agotado</span></td>
-                <td>
-                  <div class="cantidad">
-                    <button
-                      type="button"
-                      class="cantidad__boton"
-                      data-accion="restar"
-                      aria-label="Restar una unidad de Mesa arcade"
-                    >
-                      −
-                    </button>
-                    <label class="solo-lector" for="stock-3"
-                      >Unidades de Mesa arcade</label
-                    >
-                    <input
-                      class="cantidad__campo"
-                      id="stock-3"
-                      type="number"
-                      min="0"
-                      max="99"
-                      value="0"
-                    />
-                    <button
-                      type="button"
-                      class="cantidad__boton"
-                      data-accion="sumar"
-                      aria-label="Sumar una unidad de Mesa arcade"
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="stock-producto">
-                    <img
-                      src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg"
-                      alt=""
-                    />
-                    <strong>Arcade para eventos</strong>
-                  </div>
-                </td>
-                <td>
-                  <span class="estado estado--disponible">Disponible</span>
-                </td>
-                <td>
-                  <div class="cantidad">
-                    <button
-                      type="button"
-                      class="cantidad__boton"
-                      data-accion="restar"
-                      aria-label="Restar una unidad de Arcade para eventos"
-                    >
-                      −
-                    </button>
-                    <label class="solo-lector" for="stock-4"
-                      >Unidades de Arcade para eventos</label
-                    >
-                    <input
-                      class="cantidad__campo"
-                      id="stock-4"
-                      type="number"
-                      min="0"
-                      max="99"
-                      value="5"
-                    />
-                    <button
-                      type="button"
-                      class="cantidad__boton"
-                      data-accion="sumar"
-                      aria-label="Sumar una unidad de Arcade para eventos"
-                    >
-                      +
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="edicion-tecnica__columnas">
 
-          <p class="texto-suave stock-leyenda">
-            <strong>Estados:</strong> 0 = Agotado · 1 a 3 = Últimas unidades · 4
-            o más = Disponible
-          </p>
 
-          <div class="stock-acciones">
-            <button type="reset" class="boton boton--secundario">
-              Deshacer
-            </button>
-            <button
-              type="submit"
-              class="boton boton--primario"
-              id="boton_stock"
-            >
-              Guardar
-            </button>
-          </div>
-          <p id="mensaje_stock" role="status"></p>
-        </form>
-        <form
-          class="seleccion-destacados"
-          id="form-destacados"
-          aria-labelledby="titulo-destacados"
-        >
-          <div class="seleccion-destacados__encabezado">
-            <h2 id="titulo-destacados">Productos destacados</h2>
-            <span class="seleccion-destacados__aviso">Stock</span>
-          </div>
-          <p class="texto-suave">
-            Marca las máquinas que quieres promocionar en la página de inicio
-            (máximo 4).
-          </p>
+          <fieldset class="edicion-tecnica__formulario">
+            <legend>Textos de la máquina</legend>
 
-          <fieldset class="destacados-lista">
-            <legend class="solo-lector">
-              Máquinas disponibles para destacar
-            </legend>
+            <div class="edicion-campo">
+              <label for="tecnica-descripcion">Descripción</label>
+              <textarea id="tecnica-descripcion" rows="4" maxlength="200" required></textarea>
+              <span class="edicion-campo__ayuda" id="contador-descripcion">0 / 200 caracteres</span>
+            </div>
 
-            <label class="destacado-opcion">
-              <input
-                type="checkbox"
-                name="destacado"
-                value="arcade-vertical"
-                checked
-              />
-              <img
-                src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp"
-                alt=""
-              />
-              <span class="destacado-opcion__nombre"
-                >Arcade vertical clásica</span
-              >
-              <span class="destacado-opcion__marca">★ Destacado</span>
-            </label>
+            <div class="edicion-campo">
+              <label for="tecnica-pantalla">Pantalla</label>
+              <input id="tecnica-pantalla" type="text" maxlength="60" required />
+            </div>
 
-            <label class="destacado-opcion">
-              <input type="checkbox" name="destacado" value="bartop" checked />
-              <img
-                src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg"
-                alt=""
-              />
-              <span class="destacado-opcion__nombre">Bartop</span>
-              <span class="destacado-opcion__marca">★ Destacado</span>
-            </label>
+            <div class="edicion-campo">
+              <label for="tecnica-controles">Controles</label>
+              <input id="tecnica-controles" type="text" maxlength="60" required />
+            </div>
 
-            <label class="destacado-opcion">
-              <input
-                type="checkbox"
-                name="destacado"
-                value="mesa-arcade"
-                checked
-              />
-              <img
-                src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp"
-                alt=""
-              />
-              <span class="destacado-opcion__nombre">Mesa arcade</span>
-              <span class="destacado-opcion__marca">★ Destacado</span>
-            </label>
+            <div class="edicion-campo">
+              <label for="tecnica-sistema">Sistema</label>
+              <input id="tecnica-sistema" type="text" maxlength="60" required />
+            </div>
 
-            <label class="destacado-opcion">
-              <input type="checkbox" name="destacado" value="arcade-eventos" />
-              <img
-                src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg"
-                alt=""
-              />
-              <span class="destacado-opcion__nombre">Arcade para eventos</span>
-              <span class="destacado-opcion__marca">★ Destacado</span>
-            </label>
           </fieldset>
 
-          <p class="destacados-contador" id="contador_destacados">
-            3 de 4 seleccionados
-          </p>
 
-          <div class="destacados-acciones">
-            <button type="reset" class="boton boton--secundario">
-              Deshacer
-            </button>
-            <button
-              type="submit"
-              class="boton boton--primario"
-              id="boton_destacados"
-            >
-              Guardar
-            </button>
+          <div class="edicion-tecnica__vista">
+            <p class="edicion-tecnica__etiqueta">Vista previa en la ficha</p>
+            <section class="especificaciones-producto" aria-label="Vista previa de la ficha técnica">
+              <p class="edicion-tecnica__producto" id="vista-nombre">Arcade vertical clásica</p>
+              <h3 class="especificaciones-producto__titulo">Especificaciones técnicas</h3>
+              <p class="texto-suave" id="vista-descripcion"></p>
+              <dl class="especificaciones-producto__lista">
+                <div class="especificaciones-producto__fila">
+                  <dt class="especificaciones-producto__nombre">Pantalla</dt>
+                  <dd class="especificaciones-producto__valor" id="vista-pantalla"></dd>
+                </div>
+                <div class="especificaciones-producto__fila">
+                  <dt class="especificaciones-producto__nombre">Controles</dt>
+                  <dd class="especificaciones-producto__valor" id="vista-controles"></dd>
+                </div>
+                <div class="especificaciones-producto__fila">
+                  <dt class="especificaciones-producto__nombre">Sistema</dt>
+                  <dd class="especificaciones-producto__valor" id="vista-sistema"></dd>
+                </div>
+              </dl>
+            </section>
           </div>
           <p id="mensaje_destacados" role="status"></p>
         </form>
@@ -482,8 +416,30 @@
           </button>
           <p id="mensaje_descuento"></p>
         </div>
-      </section>
-    </main>
-    <script src="src/js/admin.js"></script>
-  </body>
+
+
+        <div class="edicion-acciones">
+          <span class="edicion-estado" id="estado-tecnica">Sin cambios</span>
+          <button type="button" class="boton boton--secundario" id="descartar_tecnica">Descartar cambios</button>
+          <button type="submit" class="boton boton--primario" id="boton_tecnica">Guardar</button>
+        </div>
+        <p id="mensaje_tecnica" role="status"></p>
+      </form>
+
+      <div class="actualizacion_banner codigos_descuento">
+        <h2 class="titulo_actualizacion">Códigos de descuento</h2>
+        <label for="codigo_descuento">Código:</label>
+        <input type="text" name="codigo" id="codigo_descuento" placeholder="Ej: ARCADE10" />
+        <label for="porcentaje_descuento">Porcentaje (%)</label>
+        <input type="number" min="1" max="100" name="porcentaje" id="porcentaje_descuento" placeholder="Ej: 10" />
+        <button class="boton boton--primario" id="boton_descuento" type="button">
+          Crear código
+        </button>
+        <p id="mensaje_descuento"></p>
+      </div>
+    </section>
+  </main>
+  <script src="src/js/admin.js"></script>
+</body>
+
 </html>

@@ -9,15 +9,39 @@ const seleccion = JSON.parse(localStorage.getItem("seleccion")) || [];
 if (seleccion.length === 0) {
   mensajeCarrito.textContent = "Aún no has seleccionado productos";
 } else {
+  // HU-04.02: contar cuántas veces se eligió cada producto
+  const cantidades = {};
   seleccion.forEach(function (producto) {
-    // Crear un <li> con una clase, para poder darle estilo en el CSS
+    const nombre = producto.trim(); // quita espacios sobrantes
+    cantidades[nombre] = (cantidades[nombre] || 0) + 1;
+  });
+
+  // Dibujar UN <li> por producto, con su cantidad al lado
+  Object.keys(cantidades).forEach(function (producto) {
     const item = document.createElement("li");
     item.className = "carrito__item";
-    item.textContent = producto;
 
-    // Pegarlo dentro de la lista
+    const nombre = document.createElement("span");
+    nombre.className = "carrito__nombre";
+    nombre.textContent = producto;
+
+    const cantidad = document.createElement("span");
+    cantidad.className = "carrito__cantidad";
+    cantidad.textContent = "× " + cantidades[producto];
+    // Para lectores de pantalla: "2 unidades" en vez de "por 2"
+    cantidad.setAttribute(
+      "aria-label",
+      cantidades[producto] + (cantidades[producto] === 1 ? " unidad" : " unidades")
+    );
+
+    item.appendChild(nombre);
+    item.appendChild(cantidad);
     listaCarrito.appendChild(item);
   });
+
+  // Total de unidades (HU-04.02)
+  mensajeCarrito.textContent =
+    "Total: " + seleccion.length + (seleccion.length === 1 ? " unidad" : " unidades");
 }
 
 // 4. Valor estimado de la selección (HU-04.03)
