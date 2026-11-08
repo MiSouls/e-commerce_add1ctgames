@@ -72,6 +72,32 @@
         </button>
         <p id="mensaje_accesorio"></p>
       </div>
+            <!-- HU-08.04 · Editar guía de compra (simulado) -->
+      <div class="agregar_producto guia-compra">
+        <h2 class="titulo_actualizacion">Guía de compra</h2>
+        <p class="texto-suave">
+          Agrega o quita los pasos que leen los consumidores.
+        </p>
+        <ol
+          class="guia-compra__lista"
+          id="lista_pasos"
+          aria-label="Pasos de la guía de compra"
+        ></ol>
+        <label for="nuevo_paso">Nuevo paso</label>
+        <input
+          id="nuevo_paso"
+          type="text"
+          maxlength="80"
+          placeholder="Ej: Confirma tu pedido por WhatsApp"
+        />
+        <button class="boton boton--secundario" id="boton_agregar_paso" type="button">
+          Agregar paso
+        </button>
+        <button class="boton--primario boton" id="boton_guardar_guia" type="button">
+          Guardar
+        </button>
+        <p id="mensaje_guia" role="status"></p>
+      </div>
       <!-- HU-05.04 · Agregar color (simulado) -->
       <div class="agregar_producto agregar-color">
         <h2 class="titulo_actualizacion">Agregar color</h2>
