@@ -46,6 +46,83 @@ botonAccesorio.addEventListener("click", function () {
   }
 });
 
+{
+  // Pasos de ejemplo: ajustar a los que escriba la guía de compra (HU-08.02).
+  const pasos = [
+    "Elige tu máquina en el catálogo",
+    "Personalízala con tus colores, logo y diseño",
+    "Agrégala a tu selección y revisa el valor estimado",
+    "Envía tu solicitud de cotización",
+  ];
+
+  const listaPasos = document.getElementById("lista_pasos");
+  const campoPaso = document.getElementById("nuevo_paso");
+  const botonAgregarPaso = document.getElementById("boton_agregar_paso");
+  const botonGuardarGuia = document.getElementById("boton_guardar_guia");
+  const mensajeGuia = document.getElementById("mensaje_guia");
+
+  function dibujarPasos() {
+    listaPasos.innerHTML = "";
+
+    pasos.forEach(function (texto, indice) {
+      const item = document.createElement("li");
+      item.appendChild(document.createTextNode(texto));
+
+      const quitar = document.createElement("button");
+      quitar.type = "button";
+      quitar.className = "guia-compra__quitar";
+      quitar.textContent = "Quitar";
+      quitar.setAttribute(
+        "aria-label",
+        "Quitar el paso " + (indice + 1) + ": " + texto,
+      );
+      quitar.addEventListener("click", function () {
+        pasos.splice(indice, 1);
+        dibujarPasos();
+        mensajeGuia.textContent = "Paso quitado.";
+      });
+
+      item.appendChild(quitar);
+      listaPasos.appendChild(item);
+    });
+  }
+
+  botonAgregarPaso.addEventListener("click", function () {
+    const texto = campoPaso.value.trim();
+
+    if (texto === "") {
+      mensajeGuia.textContent = "Escribe el texto del nuevo paso.";
+      campoPaso.focus();
+      return;
+    }
+
+    pasos.push(texto);
+    campoPaso.value = "";
+    dibujarPasos();
+    mensajeGuia.textContent = "Paso agregado.";
+  });
+
+  campoPaso.addEventListener("keydown", function (evento) {
+    if (evento.key === "Enter") {
+      botonAgregarPaso.click();
+    }
+  });
+
+  botonGuardarGuia.addEventListener("click", function () {
+    if (pasos.length === 0) {
+      mensajeGuia.textContent = "La guía necesita al menos un paso.";
+      return;
+    }
+
+    mensajeGuia.textContent =
+      "✔ Guía de compra actualizada (simulación): " +
+      pasos.length +
+      (pasos.length === 1 ? " paso." : " pasos.");
+  });
+
+  dibujarPasos();
+}
+
 const nombreProducto = document.querySelector("#nombre_producto");
 const precioProducto = document.querySelector("#precio_producto");
 const imagenProducto = document.querySelector("#imagen_producto");
