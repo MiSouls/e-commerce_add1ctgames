@@ -569,10 +569,30 @@ botonDescuento.addEventListener("click", function () {
 
       
       const estado = celda(fila, undefined, "Estado");
-      const pendiente = document.createElement("span");
-      pendiente.className = "bandeja__estado";
-      pendiente.textContent = s.estado || "Pendiente";
-      estado.appendChild(pendiente);
+      const selector = document.createElement("select");
+      selector.setAttribute("aria-label", "Estado de la solicitud de " + s.nombre);
+
+      ["Pendiente", "Contactado"].forEach(function (opcion) {
+        const o = document.createElement("option");
+        o.value = opcion;
+        o.textContent = opcion;
+        selector.appendChild(o);
+      });
+
+      function pintarEstado() {
+        selector.className =
+          "bandeja__estado bandeja__estado--" + selector.value.toLowerCase();
+      }
+
+      selector.value = s.estado || "Pendiente";
+      pintarEstado();
+
+      selector.addEventListener("change", function () {
+        s.estado = selector.value;
+        pintarEstado();
+      });
+
+      estado.appendChild(selector);
 
       filas.appendChild(fila);
     });
