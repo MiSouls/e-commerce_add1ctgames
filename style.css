@@ -493,6 +493,14 @@ header {
   display: block;
 }
 
+.galeria__item {
+  margin: 0;
+}
+
+.galeria .galeria-producto__imagen {
+  aspect-ratio: 3 / 4;
+}
+
 .especificaciones-producto {
   margin-top: var(--esp-7);
   padding: var(--esp-5);
