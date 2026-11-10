@@ -823,4 +823,50 @@ botonDescuento.addEventListener("click", function () {
 
   // Estado inicial
   actualizarVistaContacto();
+
+  // HU-07.04: subir foto a la galería (simulado)
+
+const fotoGaleria = document.querySelector("#foto_galeria");
+const vistaPrevia = document.querySelector("#vista_previa_galeria");
+const barraCarga = document.querySelector("#barra_carga");
+const avanceCarga = document.querySelector("#avance_carga");
+const botonGaleria = document.querySelector("#boton_galeria");
+const parrafoGaleria = document.querySelector("#mensaje_galeria");
+
+// Al elegir una foto, se muestra una vista previa
+fotoGaleria.addEventListener("change", function () {
+  if (fotoGaleria.files.length === 0) {
+    vistaPrevia.classList.remove("vista_previa--visible");
+    return;
+  }
+  vistaPrevia.src = URL.createObjectURL(fotoGaleria.files[0]);
+  vistaPrevia.classList.add("vista_previa--visible");
+  parrafoGaleria.textContent = "";
+});
+
+// Al pulsar "Subir foto", se simula una carga con una barra
+botonGaleria.addEventListener("click", function () {
+  if (fotoGaleria.files.length === 0) {
+    parrafoGaleria.textContent = "Elige una foto primero";
+    return;
+  }
+
+  botonGaleria.disabled = true;
+  parrafoGaleria.textContent = "Subiendo...";
+  barraCarga.classList.add("barra_carga--visible");
+  avanceCarga.style.width = "0%";
+
+  let progreso = 0;
+  // setInterval repite esta función cada 200 milisegundos
+  const reloj = setInterval(function () {
+    progreso = progreso + 10;
+    avanceCarga.style.width = progreso + "%";
+
+    if (progreso >= 100) {
+      clearInterval(reloj);
+      parrafoGaleria.textContent = "Foto subida (simulación)";
+      botonGaleria.disabled = false;
+    }
+  }, 200);
+});
 }
