@@ -2440,3 +2440,23 @@ header {
 .oferta_destacada::after {
   content: " · Destacado para hogares";
 }
+
+.editor_barra {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.editor_texto {
+  min-height: 120px;
+  padding: 0.75rem;
+  border: 1px solid #e5d3b0;
+  border-radius: 10px;
+  background: #fff;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.editor_texto:focus {
+  outline: 2px solid #f5b52a;
+}
