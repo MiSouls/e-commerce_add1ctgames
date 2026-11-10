@@ -2166,3 +2166,219 @@ header {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+.edicion-contacto {
+  grid-column: 1 / -1;         
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  padding: 40px;
+  border: 3px solid var(--color-borde);
+  border-radius: 20px;
+  background-color: var(--color-superficie);
+}
+
+.edicion-contacto__encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.edicion-contacto__encabezado h2 {
+  margin: 0;
+}
+
+.edicion-contacto__aviso {
+  padding: 4px 12px;
+  border: 1px dashed var(--color-acento-texto);
+  border-radius: 999px;
+  color: var(--color-acento-texto);
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+
+.edicion-contacto__columnas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.edicion-contacto__campos {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.edicion-contacto__campos legend {
+  margin-bottom: 4px;
+  padding: 0;
+  font-weight: 800;
+}
+
+/* Cada campo */
+.contacto-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contacto-campo label {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.contacto-campo input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  background-color: var(--color-superficie);
+  color: var(--color-texto);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contacto-campo input:focus {
+  outline: none;
+  border-color: var(--color-acento-texto);
+  box-shadow: 0 0 0 3px rgba(163, 79, 14, 0.18);
+}
+
+
+.contacto-campo input.contacto-campo--cambiado {
+  border-color: var(--color-amarillo);
+  background-color: #fff6e8;
+}
+
+/* Campo con error */
+.contacto-campo input.contacto-campo--error {
+  border: 2px solid #c0392b;
+}
+
+.contacto-campo__ayuda {
+  color: var(--color-texto-suave);
+  font-size: 0.8125rem;
+}
+
+/* Vista previa */
+.edicion-contacto__etiqueta {
+  margin: 0 0 6px;
+  color: var(--color-texto-suave);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contacto-vista {
+  margin: 0;
+  padding: 8px 20px;
+  border: 1px solid var(--color-borde);
+  border-radius: 20px;
+  background-color: #fff6e8;
+  list-style: none;
+}
+
+.contacto-vista li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.contacto-vista li:last-child {
+  border-bottom: none;
+}
+
+.contacto-vista__nombre {
+  font-weight: 800;
+}
+
+.contacto-vista__valor {
+  color: var(--color-texto-suave);
+  text-align: right;
+  overflow-wrap: anywhere;    
+}
+
+
+.contacto-vista__valor--cambiado {
+  color: var(--color-acento-texto);
+  font-weight: 800;
+}
+
+.edicion-contacto__ultima {
+  margin: 12px 0 0;
+  color: var(--color-texto-suave);
+  font-size: 0.8125rem;
+}
+
+
+.edicion-contacto__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.edicion-contacto__acciones .boton {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.edicion-contacto__acciones .boton--secundario {
+  background-color: transparent;
+}
+
+.edicion-contacto__estado {
+  margin-right: auto;
+  color: var(--color-texto-suave);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.edicion-contacto__estado--pendiente {
+  color: var(--color-acento-texto);
+}
+
+#mensaje_contacto {
+  margin: 12px 0 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+#mensaje_contacto.mensaje--exito { color: #2f7d3a; }
+#mensaje_contacto.mensaje--error { color: #c0392b; }
+
+@media (max-width: 768px) {
+  .edicion-contacto {
+    padding: 20px;
+  }
+
+  .edicion-contacto__columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .edicion-contacto__acciones .boton {
+    width: 100%;
+  }
+
+  .edicion-contacto__estado {
+    width: 100%;
+  }
+
+  #mensaje_contacto {
+    text-align: left;
+  }
+}

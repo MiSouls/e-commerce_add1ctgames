@@ -688,3 +688,139 @@ botonDescuento.addEventListener("click", function () {
   dibujar();
 }
 
+{
+  const formContacto = document.getElementById("form-contacto");
+  const estadoContacto = document.getElementById("estado_contacto");
+  const mensajeContacto = document.getElementById("mensaje_contacto");
+  const ultimaContacto = document.getElementById("ultima_contacto");
+
+  const CAMPOS_CONTACTO = ["telefono", "whatsapp", "correo", "instagram", "facebook"];
+
+  function campoContacto(nombre) {
+    return document.getElementById("contacto_" + nombre);
+  }
+
+  // 312 606 0313: así se lee mejor el número en la vista previa
+  function formatoTelefono(numero) {
+    if (numero.length !== 10) return numero;
+    return numero.slice(0, 3) + " " + numero.slice(3, 6) + " " + numero.slice(6);
+  }
+
+  // Actualiza la vista previa y marca los campos que cambiaron
+  function actualizarVistaContacto() {
+    let cambios = 0;
+
+    CAMPOS_CONTACTO.forEach(function (nombre) {
+      const campo = campoContacto(nombre);
+      const valor = campo.value.trim();
+      const destino = document.getElementById("vista_" + nombre);
+      const cambio = campo.value !== campo.defaultValue;
+
+      if (nombre === "telefono" || nombre === "whatsapp") {
+        destino.textContent = valor ? formatoTelefono(valor) : "—";
+      } else {
+        destino.textContent = valor || "Por confirmar";
+      }
+
+      campo.classList.toggle("contacto-campo--cambiado", cambio);
+      destino.classList.toggle("contacto-vista__valor--cambiado", cambio);
+      if (cambio) cambios++;
+    });
+
+    estadoContacto.textContent = cambios === 0
+      ? "Sin cambios"
+      : "● " + cambios + (cambios === 1 ? " cambio sin guardar" : " cambios sin guardar");
+    estadoContacto.classList.toggle("edicion-contacto__estado--pendiente", cambios > 0);
+    return cambios;
+  }
+
+  function mostrarMensajeContacto(texto, tipo) {
+    mensajeContacto.textContent = texto;
+    mensajeContacto.className = tipo ? "mensaje--" + tipo : "";
+  }
+
+  
+  function validarContacto() {
+    const errores = [];
+    const telefono = campoContacto("telefono");
+    const whatsapp = campoContacto("whatsapp");
+    const correo = campoContacto("correo");
+
+    [telefono, whatsapp, correo].forEach(function (campo) {
+      campo.classList.remove("contacto-campo--error");
+    });
+
+    [telefono, whatsapp].forEach(function (campo) {
+      if (!/^\d{10}$/.test(campo.value.trim())) {
+        campo.classList.add("contacto-campo--error");
+        errores.push(campo);
+      }
+    });
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim())) {
+      correo.classList.add("contacto-campo--error");
+      errores.push(correo);
+    }
+
+    return errores;
+  }
+
+  
+  formContacto.addEventListener("input", function (evento) {
+    const campo = evento.target;
+    if (campo.id === "contacto_telefono" || campo.id === "contacto_whatsapp") {
+      campo.value = campo.value.replace(/\D/g, "");
+    }
+    campo.classList.remove("contacto-campo--error");
+    mostrarMensajeContacto("", "");
+    actualizarVistaContacto();
+  });
+
+ 
+  formContacto.addEventListener("submit", function (evento) {
+    evento.preventDefault(); 
+
+    const errores = validarContacto();
+    if (errores.length > 0) {
+      mostrarMensajeContacto("Revisa los campos en rojo: teléfonos de 10 dígitos y un correo válido.", "error");
+      errores[0].focus();
+      return;
+    }
+
+    const cambios = actualizarVistaContacto();
+    if (cambios === 0) {
+      mostrarMensajeContacto("No hay cambios para guardar.", "");
+      return;
+    }
+
+    
+    CAMPOS_CONTACTO.forEach(function (nombre) {
+      const campo = campoContacto(nombre);
+      campo.value = campo.value.trim();
+      campo.defaultValue = campo.value;
+    });
+    actualizarVistaContacto();
+
+    const hora = new Date().toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit" });
+    ultimaContacto.textContent = "Última actualización: hoy a las " + hora;
+    mostrarMensajeContacto(
+      "✔ Datos de contacto actualizados (simulación): " + cambios +
+      (cambios === 1 ? " campo modificado." : " campos modificados."),
+      "exito"
+    );
+  });
+
+ 
+  formContacto.addEventListener("reset", function () {
+    setTimeout(function () {
+      CAMPOS_CONTACTO.forEach(function (nombre) {
+        campoContacto(nombre).classList.remove("contacto-campo--error");
+      });
+      actualizarVistaContacto();
+      mostrarMensajeContacto("", "");
+    }, 0);
+  });
+
+  // Estado inicial
+  actualizarVistaContacto();
+}
