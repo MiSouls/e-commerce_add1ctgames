@@ -72,18 +72,47 @@
         </button>
         <p id="mensaje_accesorio"></p>
       </div>
-      
+
+      <!-- HU-08.04 · Editar guía de compra (simulado) -->
+      <div class="agregar_producto guia-compra">
+        <h2 class="titulo_actualizacion">Guía de compra</h2>
+        <p class="texto-suave">
+          Agrega o quita los pasos que leen los consumidores.
+        </p>
+        <ol class="guia-compra__lista" id="lista_pasos" aria-label="Pasos de la guía de compra"></ol>
+        <label for="nuevo_paso">Nuevo paso</label>
+        <input id="nuevo_paso" type="text" maxlength="80" placeholder="Ej: Confirma tu pedido por WhatsApp" />
+        <button class="boton boton--secundario" id="boton_agregar_paso" type="button">
+          Agregar paso
+        </button>
+        <button class="boton--primario boton" id="boton_guardar_guia" type="button">
+          Guardar
+        </button>
+        <p id="mensaje_guia" role="status"></p>
+      </div>
+
+      <!-- HU-09.05 · Registrar caso de éxito (simulado) -->
+      <div class="agregar_producto casos-exito">
+        <h2 class="titulo_actualizacion">Caso de éxito</h2>
+        <label for="empresa_caso">Empresa cliente</label>
+        <input id="empresa_caso" type="text" maxlength="60" placeholder="Ej: Bar El Retro" />
+        <label for="logo_caso">Logotipo de la empresa</label>
+        <input id="logo_caso" type="file" accept="image/*" />
+        <label for="testimonio_caso">Testimonio</label>
+        <textarea id="testimonio_caso" rows="4" maxlength="250"
+          placeholder="Ej: Nos entregaron la máquina con nuestro logo y a nuestros clientes les encantó"></textarea>
+        <button class="boton--primario boton" id="boton_caso" type="button">
+          Guardar
+        </button>
+        <p id="mensaje_caso" role="status"></p>
+      </div>
+
       <div class="agregar_producto agregar-color">
         <h2 class="titulo_actualizacion">Agregar color</h2>
 
-       
+
         <label for="nombre_color">Nombre del tono</label>
-        <input
-          id="nombre_color"
-          type="text"
-          maxlength="30"
-          placeholder="Ej: Verde neón"
-        />
+        <input id="nombre_color" type="text" maxlength="30" placeholder="Ej: Verde neón" />
 
         <label for="valor_color">Color</label>
         <input id="valor_color" type="color" value="#2f7d3a" />
@@ -95,7 +124,7 @@
           <option value="Botones">Botones</option>
         </select>
 
-     
+
         <div class="agregar-color__vista" aria-hidden="true">
           <span class="agregar-color__muestra" id="muestra_color"></span>
           <span class="agregar-color__etiqueta" id="etiqueta_color">Nuevo tono</span>
@@ -106,7 +135,7 @@
         </button>
         <p id="mensaje_color" role="status"></p>
 
-      
+
         <ul class="agregar-color__lista" id="lista_colores" aria-label="Colores agregados"></ul>
       </div>
       <form class="actualizacion-stock" id="form-stock" aria-labelledby="titulo-stock">
@@ -143,7 +172,7 @@
                 <div class="cantidad">
                   <button type="button" class="cantidad__boton" data-accion="restar"
                     aria-label="Restar una unidad de Arcade vertical clásica">
-                    
+
                   </button>
                   <label class="solo-lector" for="stock-1">Unidades de Arcade vertical clásica</label>
                   <input class="cantidad__campo" id="stock-1" type="number" min="0" max="99" value="8" />
@@ -169,7 +198,7 @@
                 <div class="cantidad">
                   <button type="button" class="cantidad__boton" data-accion="restar"
                     aria-label="Restar una unidad de Bartop">
-                    
+
                   </button>
                   <label class="solo-lector" for="stock-2">Unidades de Bartop</label>
                   <input class="cantidad__campo" id="stock-2" type="number" min="0" max="99" value="2" />
@@ -379,88 +408,72 @@
             </section>
           </div>
           <p id="mensaje_destacados" role="status"></p>
-        </form>
-       
-        <section class="bandeja" aria-labelledby="titulo-bandeja">
-          <div class="bandeja__encabezado">
-            <h2 id="titulo-bandeja">Bandeja de cotizaciones</h2>
-            <span class="bandeja__aviso"></span>
-          </div>
-          <p class="texto-suave">
-            Solicitudes recibidas desde el formulario de cotización. Las marcadas como
-            "Ejemplo" son de muestra.
-          </p>
+      </form>
 
-         
-          <div class="bandeja__resumen">
-            <p><strong id="total_solicitudes">0</strong> solicitudes</p>
-            <p><strong id="total_b2c">0</strong> B2C</p>
-            <p><strong id="total_b2b">0</strong> B2B</p>
-          </div>
+      <section class="bandeja" aria-labelledby="titulo-bandeja">
+        <div class="bandeja__encabezado">
+          <h2 id="titulo-bandeja">Bandeja de cotizaciones</h2>
+          <span class="bandeja__aviso"></span>
+        </div>
+        <p class="texto-suave">
+          Solicitudes recibidas desde el formulario de cotización. Las marcadas como
+          "Ejemplo" son de muestra.
+        </p>
 
-        
-          <div class="bandeja__filtro">
-            <label for="filtro_perfil">Mostrar</label>
-            <select id="filtro_perfil">
-              <option value="todas">Todas</option>
-              <option value="B2C">Solo B2C (hogar)</option>
-              <option value="B2B">Solo B2B (empresa)</option>
-            </select>
-          </div>
 
-         
-          <table class="bandeja-tabla">
-            <thead>
-              <tr>
-                <th scope="col">Fecha</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Perfil</th>
-                <th scope="col">Requerimiento</th>
-                <th scope="col">Estado</th>
-              </tr>
-            </thead>
-            
-            <tbody id="filas_bandeja"></tbody>
-          </table>
-
-          <p class="bandeja__vacia" id="bandeja_vacia" hidden>No hay solicitudes para este filtro.</p>
-        </section>
-
-        <div class="actualizacion_banner codigos_descuento">
-          <h2 class="titulo_actualizacion">Códigos de descuento</h2>
-          <label for="codigo_descuento">Código:</label>
-          <input
-            type="text"
-            name="codigo"
-            id="codigo_descuento"
-            placeholder="Ej: ARCADE10"
-          />
-          <label for="porcentaje_descuento">Porcentaje (%)</label>
-          <input
-            type="number"
-            min="1"
-            max="100"
-            name="porcentaje"
-            id="porcentaje_descuento"
-            placeholder="Ej: 10"
-          />
-          <button
-            class="boton boton--primario"
-            id="boton_descuento"
-            type="button"
-          >
-            Crear código
-          </button>
-          <p id="mensaje_descuento"></p>
+        <div class="bandeja__resumen">
+          <p><strong id="total_solicitudes">0</strong> solicitudes</p>
+          <p><strong id="total_b2c">0</strong> B2C</p>
+          <p><strong id="total_b2b">0</strong> B2B</p>
         </div>
 
 
-        <div class="edicion-acciones">
-          <span class="edicion-estado" id="estado-tecnica">Sin cambios</span>
-          <button type="button" class="boton boton--secundario" id="descartar_tecnica">Descartar cambios</button>
-          <button type="submit" class="boton boton--primario" id="boton_tecnica">Guardar</button>
+        <div class="bandeja__filtro">
+          <label for="filtro_perfil">Mostrar</label>
+          <select id="filtro_perfil">
+            <option value="todas">Todas</option>
+            <option value="B2C">Solo B2C (hogar)</option>
+            <option value="B2B">Solo B2B (empresa)</option>
+          </select>
         </div>
-        <p id="mensaje_tecnica" role="status"></p>
+
+
+        <table class="bandeja-tabla">
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">Perfil</th>
+              <th scope="col">Requerimiento</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+
+          <tbody id="filas_bandeja"></tbody>
+        </table>
+
+        <p class="bandeja__vacia" id="bandeja_vacia" hidden>No hay solicitudes para este filtro.</p>
+      </section>
+
+      <div class="actualizacion_banner codigos_descuento">
+        <h2 class="titulo_actualizacion">Códigos de descuento</h2>
+        <label for="codigo_descuento">Código:</label>
+        <input type="text" name="codigo" id="codigo_descuento" placeholder="Ej: ARCADE10" />
+        <label for="porcentaje_descuento">Porcentaje (%)</label>
+        <input type="number" min="1" max="100" name="porcentaje" id="porcentaje_descuento" placeholder="Ej: 10" />
+        <button class="boton boton--primario" id="boton_descuento" type="button">
+          Crear código
+        </button>
+        <p id="mensaje_descuento"></p>
+      </div>
+
+
+      <div class="edicion-acciones">
+        <span class="edicion-estado" id="estado-tecnica">Sin cambios</span>
+        <button type="button" class="boton boton--secundario" id="descartar_tecnica">Descartar cambios</button>
+        <button type="submit" class="boton boton--primario" id="boton_tecnica">Guardar</button>
+      </div>
+      <p id="mensaje_tecnica" role="status"></p>
       </form>
 
       <div class="actualizacion_banner codigos_descuento">
@@ -486,21 +499,19 @@
         </p>
 
         <div class="edicion-contacto__columnas">
-     
+
           <fieldset class="edicion-contacto__campos">
             <legend>Canales de atención</legend>
 
             <div class="contacto-campo">
               <label for="contacto_telefono">Teléfono</label>
-              <input id="contacto_telefono" type="tel" inputmode="numeric" maxlength="10"
-                value="3126060313" required />
+              <input id="contacto_telefono" type="tel" inputmode="numeric" maxlength="10" value="3126060313" required />
               <span class="contacto-campo__ayuda">10 dígitos, sin espacios</span>
             </div>
 
             <div class="contacto-campo">
               <label for="contacto_whatsapp">WhatsApp</label>
-              <input id="contacto_whatsapp" type="tel" inputmode="numeric" maxlength="10"
-                value="3126060313" required />
+              <input id="contacto_whatsapp" type="tel" inputmode="numeric" maxlength="10" value="3126060313" required />
               <span class="contacto-campo__ayuda">10 dígitos, sin espacios</span>
             </div>
 
@@ -520,7 +531,7 @@
             </div>
           </fieldset>
 
-        
+
           <div class="edicion-contacto__vista">
             <p class="edicion-contacto__etiqueta">Vista previa en Nosotros</p>
             <ul class="contacto-vista">
@@ -559,48 +570,48 @@
 
     </section>
     <div class="actualizacion_banner subida_galeria">
-  <h2 class="titulo_actualizacion">Subir foto a la galería</h2>
-  <label for="foto_galeria">Foto del proyecto</label>
-  <input type="file" id="foto_galeria" accept="image/*" />
-  <img class="vista_previa" id="vista_previa_galeria" alt="Vista previa de la foto seleccionada" />
-  <div class="barra_carga" id="barra_carga">
-    <div class="barra_carga__avance" id="avance_carga"></div>
-  </div>
-  <button class="boton boton--primario" id="boton_galeria" type="button">Subir foto</button>
-  <p id="mensaje_galeria"></p>
-</div>
-<div class="actualizacion_banner oferta_residencial">
-  <h2 class="titulo_actualizacion">Oferta residencial</h2>
-  <label for="producto_oferta">Producto para hogares</label>
-  <select id="producto_oferta">
-    <option value="">Elige un producto</option>
-    <option value="Arcade vertical clásica">Arcade vertical clásica</option>
-    <option value="Bartop">Bartop</option>
-    <option value="Mesa arcade">Mesa arcade</option>
-    <option value="Arcade para eventos">Arcade para eventos</option>
-  </select>
-  <ul class="lista_oferta" id="lista_oferta">
-    <li data-producto="Arcade vertical clásica">Arcade vertical clásica</li>
-    <li data-producto="Bartop">Bartop</li>
-    <li data-producto="Mesa arcade">Mesa arcade</li>
-    <li data-producto="Arcade para eventos">Arcade para eventos</li>
-  </ul>
-  <button class="boton boton--primario" id="boton_oferta" type="button">Destacar para hogares</button>
-  <p id="mensaje_oferta"></p>
-</div>
-<div class="actualizacion_banner editor_historia">
-  <h2 class="titulo_actualizacion">Historia corporativa</h2>
-  <div class="editor_barra">
-    <button type="button" class="boton boton--secundario" data-formato="bold">Negrita</button>
-    <button type="button" class="boton boton--secundario" data-formato="italic">Cursiva</button>
-    <button type="button" class="boton boton--secundario" data-formato="underline">Subrayado</button>
-  </div>
-  <div class="editor_texto" id="editor_historia" contenteditable="true">
-    Add1ctGames es una empresa colombiana que diseña, fabrica y personaliza máquinas arcade.
-  </div>
-  <button class="boton boton--primario" id="boton_historia" type="button">Guardar historia</button>
-  <p id="mensaje_historia"></p>
-</div>
+      <h2 class="titulo_actualizacion">Subir foto a la galería</h2>
+      <label for="foto_galeria">Foto del proyecto</label>
+      <input type="file" id="foto_galeria" accept="image/*" />
+      <img class="vista_previa" id="vista_previa_galeria" alt="Vista previa de la foto seleccionada" />
+      <div class="barra_carga" id="barra_carga">
+        <div class="barra_carga__avance" id="avance_carga"></div>
+      </div>
+      <button class="boton boton--primario" id="boton_galeria" type="button">Subir foto</button>
+      <p id="mensaje_galeria"></p>
+    </div>
+    <div class="actualizacion_banner oferta_residencial">
+      <h2 class="titulo_actualizacion">Oferta residencial</h2>
+      <label for="producto_oferta">Producto para hogares</label>
+      <select id="producto_oferta">
+        <option value="">Elige un producto</option>
+        <option value="Arcade vertical clásica">Arcade vertical clásica</option>
+        <option value="Bartop">Bartop</option>
+        <option value="Mesa arcade">Mesa arcade</option>
+        <option value="Arcade para eventos">Arcade para eventos</option>
+      </select>
+      <ul class="lista_oferta" id="lista_oferta">
+        <li data-producto="Arcade vertical clásica">Arcade vertical clásica</li>
+        <li data-producto="Bartop">Bartop</li>
+        <li data-producto="Mesa arcade">Mesa arcade</li>
+        <li data-producto="Arcade para eventos">Arcade para eventos</li>
+      </ul>
+      <button class="boton boton--primario" id="boton_oferta" type="button">Destacar para hogares</button>
+      <p id="mensaje_oferta"></p>
+    </div>
+    <div class="actualizacion_banner editor_historia">
+      <h2 class="titulo_actualizacion">Historia corporativa</h2>
+      <div class="editor_barra">
+        <button type="button" class="boton boton--secundario" data-formato="bold">Negrita</button>
+        <button type="button" class="boton boton--secundario" data-formato="italic">Cursiva</button>
+        <button type="button" class="boton boton--secundario" data-formato="underline">Subrayado</button>
+      </div>
+      <div class="editor_texto" id="editor_historia" contenteditable="true">
+        Add1ctGames es una empresa colombiana que diseña, fabrica y personaliza máquinas arcade.
+      </div>
+      <button class="boton boton--primario" id="boton_historia" type="button">Guardar historia</button>
+      <p id="mensaje_historia"></p>
+    </div>
   </main>
   <script src="src/js/admin.js"></script>
 </body>
