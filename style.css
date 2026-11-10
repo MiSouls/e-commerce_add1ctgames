@@ -2460,3 +2460,53 @@ header {
 .editor_texto:focus {
   outline: 2px solid #f5b52a;
 }
+
+.editor_texto,
+.lista_oferta li,
+.subida_galeria input[type="file"],
+.oferta_residencial select {
+  transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.editor_texto:hover,
+.oferta_residencial select:hover,
+.subida_galeria input[type="file"]:hover {
+  border-color: #f5b52a;
+}
+
+.editor_texto:focus {
+  outline: none;
+  border-color: #f5b52a;
+  box-shadow: 0 0 0 3px rgba(245, 181, 42, 0.3);
+}
+
+.oferta_residencial select:focus {
+  outline: none;
+  border-color: #f5b52a;
+  box-shadow: 0 0 0 3px rgba(245, 181, 42, 0.3);
+}
+
+.lista_oferta li:hover {
+  border-color: #f5b52a;
+  background: #fffaf0;
+}
+
+.oferta_destacada:hover {
+  background: #fff4d6;
+}
+
+.editor_barra .boton {
+  transition: transform 0.15s;
+}
+
+.editor_barra .boton:hover {
+  transform: translateY(-2px);
+}
+
+.vista_previa {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.barra_carga__avance {
+  transition: width 0.2s linear;
+}
