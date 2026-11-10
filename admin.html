@@ -558,6 +558,17 @@
       </form>
 
     </section>
+    <div class="actualizacion_banner subida_galeria">
+  <h2 class="titulo_actualizacion">Subir foto a la galería</h2>
+  <label for="foto_galeria">Foto del proyecto</label>
+  <input type="file" id="foto_galeria" accept="image/*" />
+  <img class="vista_previa" id="vista_previa_galeria" alt="Vista previa de la foto seleccionada" />
+  <div class="barra_carga" id="barra_carga">
+    <div class="barra_carga__avance" id="avance_carga"></div>
+  </div>
+  <button class="boton boton--primario" id="boton_galeria" type="button">Subir foto</button>
+  <p id="mensaje_galeria"></p>
+</div>
   </main>
   <script src="src/js/admin.js"></script>
 </body>
