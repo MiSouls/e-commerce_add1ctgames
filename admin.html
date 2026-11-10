@@ -407,7 +407,14 @@
               </dl>
             </section>
           </div>
-          <p id="mensaje_destacados" role="status"></p>
+        </div>
+
+      <div class="edicion-acciones">
+        <span class="edicion-estado" id="estado-tecnica">Sin cambios</span>
+        <button type="button" class="boton boton--secundario" id="descartar_tecnica">Descartar cambios</button>
+        <button type="submit" class="boton boton--primario" id="boton_tecnica">Guardar</button>
+      </div>
+      <p id="mensaje_tecnica" role="status"></p>
       </form>
 
       <section class="bandeja" aria-labelledby="titulo-bandeja">
@@ -467,27 +474,6 @@
         <p id="mensaje_descuento"></p>
       </div>
 
-
-      <div class="edicion-acciones">
-        <span class="edicion-estado" id="estado-tecnica">Sin cambios</span>
-        <button type="button" class="boton boton--secundario" id="descartar_tecnica">Descartar cambios</button>
-        <button type="submit" class="boton boton--primario" id="boton_tecnica">Guardar</button>
-      </div>
-      <p id="mensaje_tecnica" role="status"></p>
-      </form>
-
-      <div class="actualizacion_banner codigos_descuento">
-        <h2 class="titulo_actualizacion">Códigos de descuento</h2>
-        <label for="codigo_descuento">Código:</label>
-        <input type="text" name="codigo" id="codigo_descuento" placeholder="Ej: ARCADE10" />
-        <label for="porcentaje_descuento">Porcentaje (%)</label>
-        <input type="number" min="1" max="100" name="porcentaje" id="porcentaje_descuento" placeholder="Ej: 10" />
-        <button class="boton boton--primario" id="boton_descuento" type="button">
-          Crear código
-        </button>
-        <p id="mensaje_descuento"></p>
-      </div>
-
       <form class="edicion-contacto" id="form-contacto" aria-labelledby="titulo-contacto" novalidate>
         <div class="edicion-contacto__encabezado">
           <h2 id="titulo-contacto">Datos de contacto</h2>
@@ -517,12 +503,12 @@
 
             <div class="contacto-campo">
               <label for="contacto_correo">Correo de atención</label>
-              <input id="contacto_correo" type="email" value="correo@dominio.com" required />
+              <input id="contacto_correo" type="email" value="Add1ctGames2018@gmail.com" required />
             </div>
 
             <div class="contacto-campo">
               <label for="contacto_instagram">Instagram (opcional)</label>
-              <input id="contacto_instagram" type="text" placeholder="Ej: @add1ctgames" />
+              <input id="contacto_instagram" type="text" value="add1ctgames" placeholder="Ej: @add1ctgames" />
             </div>
 
             <div class="contacto-campo">
@@ -568,7 +554,6 @@
         <p id="mensaje_contacto" role="status"></p>
       </form>
 
-    </section>
     <div class="actualizacion_banner subida_galeria">
       <h2 class="titulo_actualizacion">Subir foto a la galería</h2>
       <label for="foto_galeria">Foto del proyecto</label>
@@ -612,6 +597,7 @@
       <button class="boton boton--primario" id="boton_historia" type="button">Guardar historia</button>
       <p id="mensaje_historia"></p>
     </div>
+    </section>
   </main>
   <script src="src/js/admin.js"></script>
 </body>
