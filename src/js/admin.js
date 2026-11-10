@@ -123,6 +123,31 @@ botonAccesorio.addEventListener("click", function () {
   dibujarPasos();
 }
 
+{
+  const campoEmpresa = document.getElementById("empresa_caso");
+  const campoLogo = document.getElementById("logo_caso");
+  const campoTestimonio = document.getElementById("testimonio_caso");
+  const botonCaso = document.getElementById("boton_caso");
+  const mensajeCaso = document.getElementById("mensaje_caso");
+
+  botonCaso.addEventListener("click", function () {
+    const empresa = campoEmpresa.value.trim();
+
+    if (empresa === "") {
+      mensajeCaso.textContent = "Escribe el nombre de la empresa cliente.";
+      campoEmpresa.focus();
+    } else if (campoLogo.files.length === 0) {
+      mensajeCaso.textContent = "Elige el logotipo de la empresa.";
+    } else if (campoTestimonio.value.trim() === "") {
+      mensajeCaso.textContent = "Escribe el testimonio del cliente.";
+      campoTestimonio.focus();
+    } else {
+      mensajeCaso.textContent =
+        "✔ Caso de éxito de " + empresa + " registrado (simulación).";
+    }
+  });
+}
+
 const nombreProducto = document.querySelector("#nombre_producto");
 const precioProducto = document.querySelector("#precio_producto");
 const imagenProducto = document.querySelector("#imagen_producto");
