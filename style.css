@@ -2415,3 +2415,28 @@ header {
   width: 0;
   background: #f5b52a;
 }
+
+.lista_oferta {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lista_oferta li {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5d3b0;
+  border-radius: 10px;
+}
+
+.oferta_destacada {
+  border-color: #f5b52a;
+  background: #fff4d6;
+  font-weight: 700;
+}
+
+.oferta_destacada::after {
+  content: " · Destacado para hogares";
+}

@@ -869,4 +869,29 @@ botonGaleria.addEventListener("click", function () {
     }
   }, 200);
 });
+
+// HU-08.05: oferta residencial (simulada)
+
+const productoOferta = document.querySelector("#producto_oferta");
+const itemsOferta = document.querySelectorAll("#lista_oferta li");
+const botonOferta = document.querySelector("#boton_oferta");
+const parrafoOferta = document.querySelector("#mensaje_oferta");
+
+botonOferta.addEventListener("click", function () {
+  if (productoOferta.value === "") {
+    parrafoOferta.textContent = "Elige un producto primero";
+    return;
+  }
+
+  // Solo un producto puede estar destacado: se marca el elegido y se quita de los demás
+  itemsOferta.forEach(function (item) {
+    if (item.dataset.producto === productoOferta.value) {
+      item.classList.add("oferta_destacada");
+    } else {
+      item.classList.remove("oferta_destacada");
+    }
+  });
+
+  parrafoOferta.textContent = productoOferta.value + " destacado para hogares";
+});
 }
