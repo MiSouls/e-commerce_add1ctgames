@@ -894,4 +894,28 @@ botonOferta.addEventListener("click", function () {
 
   parrafoOferta.textContent = productoOferta.value + " destacado para hogares";
 });
+
+// HU-06.04: editor de la historia corporativa (simulado)
+
+const botonesFormato = document.querySelectorAll(".editor_barra button");
+const editorHistoria = document.querySelector("#editor_historia");
+const botonHistoria = document.querySelector("#boton_historia");
+const parrafoHistoria = document.querySelector("#mensaje_historia");
+
+// Cada botón aplica su formato (negrita, cursiva o subrayado) al texto seleccionado
+botonesFormato.forEach(function (boton) {
+  boton.addEventListener("click", function () {
+    document.execCommand(boton.dataset.formato);
+    editorHistoria.focus();
+  });
+});
+
+// Al guardar, solo se simula: se comprueba que haya texto
+botonHistoria.addEventListener("click", function () {
+  if (editorHistoria.textContent.trim() === "") {
+    parrafoHistoria.textContent = "Escribe la historia antes de guardar";
+  } else {
+    parrafoHistoria.textContent = "Historia actualizada (simulación)";
+  }
+});
 }
