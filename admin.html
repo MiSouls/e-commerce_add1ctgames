@@ -107,6 +107,7 @@
         <p id="mensaje_caso" role="status"></p>
       </div>
 
+      <!-- HU-05.04 · Agregar color (simulado) -->
       <div class="agregar_producto agregar-color">
         <h2 class="titulo_actualizacion">Agregar color</h2>
 
@@ -160,7 +161,7 @@
             <tr>
               <td>
                 <div class="stock-producto">
-                  <img src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp"
+                  <img src="src/files/fotos maquinas/arcade-mariobros.jpg"
                     alt="" />
                   <strong>Arcade vertical clásica</strong>
                 </div>
@@ -172,7 +173,7 @@
                 <div class="cantidad">
                   <button type="button" class="cantidad__boton" data-accion="restar"
                     aria-label="Restar una unidad de Arcade vertical clásica">
-
+                    −
                   </button>
                   <label class="solo-lector" for="stock-1">Unidades de Arcade vertical clásica</label>
                   <input class="cantidad__campo" id="stock-1" type="number" min="0" max="99" value="8" />
@@ -186,7 +187,7 @@
             <tr>
               <td>
                 <div class="stock-producto">
-                  <img src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg"
+                  <img src="src/files/fotos maquinas/bartop.jpg"
                     alt="" />
                   <strong>Bartop</strong>
                 </div>
@@ -198,7 +199,7 @@
                 <div class="cantidad">
                   <button type="button" class="cantidad__boton" data-accion="restar"
                     aria-label="Restar una unidad de Bartop">
-
+                    −
                   </button>
                   <label class="solo-lector" for="stock-2">Unidades de Bartop</label>
                   <input class="cantidad__campo" id="stock-2" type="number" min="0" max="99" value="2" />
@@ -212,7 +213,7 @@
             <tr>
               <td>
                 <div class="stock-producto">
-                  <img src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp"
+                  <img src="src/files/fotos maquinas/mesa-arcade.jpg"
                     alt="" />
                   <strong>Mesa arcade</strong>
                 </div>
@@ -236,7 +237,7 @@
             <tr>
               <td>
                 <div class="stock-producto">
-                  <img src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg" alt="" />
+                  <img src="src/files/fotos maquinas/arcade-corporativa.jpg" alt="" />
                   <strong>Arcade para eventos</strong>
                 </div>
               </td>
@@ -293,28 +294,28 @@
 
           <label class="destacado-opcion">
             <input type="checkbox" name="destacado" value="arcade-vertical" checked />
-            <img src="src/files/fotos maquinas/add1ctgames_1684161991_3103298164216274248_8283092618.webp" alt="" />
+            <img src="src/files/fotos maquinas/arcade-mariobros.jpg" alt="" />
             <span class="destacado-opcion__nombre">Arcade vertical clásica</span>
             <span class="destacado-opcion__marca">★ Destacado</span>
           </label>
 
           <label class="destacado-opcion">
             <input type="checkbox" name="destacado" value="bartop" checked />
-            <img src="src/files/fotos maquinas/add1ctgames_1700178508_3237654452769238483_8283092618.jpg" alt="" />
+            <img src="src/files/fotos maquinas/bartop.jpg" alt="" />
             <span class="destacado-opcion__nombre">Bartop</span>
             <span class="destacado-opcion__marca">★ Destacado</span>
           </label>
 
           <label class="destacado-opcion">
             <input type="checkbox" name="destacado" value="mesa-arcade" checked />
-            <img src="src/files/fotos maquinas/add1ctgames_1697114325_3211950216500016073_8283092618.webp" alt="" />
+            <img src="src/files/fotos maquinas/mesa-arcade.jpg" alt="" />
             <span class="destacado-opcion__nombre">Mesa arcade</span>
             <span class="destacado-opcion__marca">★ Destacado</span>
           </label>
 
           <label class="destacado-opcion">
             <input type="checkbox" name="destacado" value="arcade-eventos" />
-            <img src="src/files/fotos maquinas/WhatsApp Image 2026-05-08 at 3.11.58 PM.jpeg" alt="" />
+            <img src="src/files/fotos maquinas/arcade-corporativa.jpg" alt="" />
             <span class="destacado-opcion__nombre">Arcade para eventos</span>
             <span class="destacado-opcion__marca">★ Destacado</span>
           </label>
@@ -409,18 +410,17 @@
           </div>
         </div>
 
-      <div class="edicion-acciones">
-        <span class="edicion-estado" id="estado-tecnica">Sin cambios</span>
-        <button type="button" class="boton boton--secundario" id="descartar_tecnica">Descartar cambios</button>
-        <button type="submit" class="boton boton--primario" id="boton_tecnica">Guardar</button>
-      </div>
-      <p id="mensaje_tecnica" role="status"></p>
+        <div class="edicion-acciones">
+          <span class="edicion-estado" id="estado-tecnica">Sin cambios</span>
+          <button type="button" class="boton boton--secundario" id="descartar_tecnica">Descartar cambios</button>
+          <button type="submit" class="boton boton--primario" id="boton_tecnica">Guardar</button>
+        </div>
+        <p id="mensaje_tecnica" role="status"></p>
       </form>
 
       <section class="bandeja" aria-labelledby="titulo-bandeja">
         <div class="bandeja__encabezado">
           <h2 id="titulo-bandeja">Bandeja de cotizaciones</h2>
-          <span class="bandeja__aviso"></span>
         </div>
         <p class="texto-suave">
           Solicitudes recibidas desde el formulario de cotización. Las marcadas como
@@ -474,10 +474,10 @@
         <p id="mensaje_descuento"></p>
       </div>
 
+      <!-- HU-06.05 · Datos de contacto (simulado) -->
       <form class="edicion-contacto" id="form-contacto" aria-labelledby="titulo-contacto" novalidate>
         <div class="edicion-contacto__encabezado">
           <h2 id="titulo-contacto">Datos de contacto</h2>
-          <span class="edicion-contacto__aviso">Simulación · sin base de datos</span>
         </div>
         <p class="texto-suave">
           Cambia los teléfonos, el correo o las redes de atención al cliente y revisa
@@ -554,49 +554,192 @@
         <p id="mensaje_contacto" role="status"></p>
       </form>
 
-    <div class="actualizacion_banner subida_galeria">
-      <h2 class="titulo_actualizacion">Subir foto a la galería</h2>
-      <label for="foto_galeria">Foto del proyecto</label>
-      <input type="file" id="foto_galeria" accept="image/*" />
-      <img class="vista_previa" id="vista_previa_galeria" alt="Vista previa de la foto seleccionada" />
-      <div class="barra_carga" id="barra_carga">
-        <div class="barra_carga__avance" id="avance_carga"></div>
+      <!-- HU-07.04 · Subir foto a la galería (simulado) -->
+      <div class="actualizacion_banner subida_galeria">
+        <h2 class="titulo_actualizacion">Subir foto a la galería</h2>
+        <label for="foto_galeria">Foto del proyecto</label>
+        <input type="file" id="foto_galeria" accept="image/*" />
+        <img class="vista_previa" id="vista_previa_galeria" alt="Vista previa de la foto seleccionada" />
+        <div class="barra_carga" id="barra_carga">
+          <div class="barra_carga__avance" id="avance_carga"></div>
+        </div>
+        <button class="boton boton--primario" id="boton_galeria" type="button">Subir foto</button>
+        <p id="mensaje_galeria"></p>
       </div>
-      <button class="boton boton--primario" id="boton_galeria" type="button">Subir foto</button>
-      <p id="mensaje_galeria"></p>
-    </div>
-    <div class="actualizacion_banner oferta_residencial">
-      <h2 class="titulo_actualizacion">Oferta residencial</h2>
-      <label for="producto_oferta">Producto para hogares</label>
-      <select id="producto_oferta">
-        <option value="">Elige un producto</option>
-        <option value="Arcade vertical clásica">Arcade vertical clásica</option>
-        <option value="Bartop">Bartop</option>
-        <option value="Mesa arcade">Mesa arcade</option>
-        <option value="Arcade para eventos">Arcade para eventos</option>
-      </select>
-      <ul class="lista_oferta" id="lista_oferta">
-        <li data-producto="Arcade vertical clásica">Arcade vertical clásica</li>
-        <li data-producto="Bartop">Bartop</li>
-        <li data-producto="Mesa arcade">Mesa arcade</li>
-        <li data-producto="Arcade para eventos">Arcade para eventos</li>
-      </ul>
-      <button class="boton boton--primario" id="boton_oferta" type="button">Destacar para hogares</button>
-      <p id="mensaje_oferta"></p>
-    </div>
-    <div class="actualizacion_banner editor_historia">
-      <h2 class="titulo_actualizacion">Historia corporativa</h2>
-      <div class="editor_barra">
-        <button type="button" class="boton boton--secundario" data-formato="bold">Negrita</button>
-        <button type="button" class="boton boton--secundario" data-formato="italic">Cursiva</button>
-        <button type="button" class="boton boton--secundario" data-formato="underline">Subrayado</button>
+
+      <!-- HU-07.05 · Eliminar fotos de la galería (simulado) -->
+      <section class="fotos-galeria" aria-labelledby="titulo-fotos-galeria">
+        <div class="fotos-galeria__encabezado">
+          <h2 id="titulo-fotos-galeria">Fotos de la galería</h2>
+        </div>
+        <p class="texto-suave">
+          Quita los trabajos antiguos o desactualizados. Hay
+          <strong id="contador_fotos">8</strong> fotos publicadas.
+        </p>
+
+        <ul class="fotos-galeria__lista" id="lista_fotos_admin">
+          <li class="foto-admin" data-titulo="Arcade Tron">
+            <img src="src/files/fotos maquinas/arcade.tron.jpg" alt="" />
+            <div class="foto-admin__texto">
+              <span class="foto-admin__tipo">Diseño temático</span>
+              <strong>Arcade Tron</strong>
+            </div>
+            <button type="button" class="foto-admin__eliminar" aria-label="Eliminar la foto Arcade Tron">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+
+          <li class="foto-admin" data-titulo="Arcade Ruta N">
+            <img src="src/files/fotos maquinas/arcade-corporativa.jpg" alt="" />
+            <div class="foto-admin__texto">
+              <span class="foto-admin__tipo">Marca corporativa</span>
+              <strong>Arcade Ruta N</strong>
+            </div>
+            <button type="button" class="foto-admin__eliminar" aria-label="Eliminar la foto Arcade Ruta N">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+
+          <li class="foto-admin" data-titulo="Arcade Super Mario">
+            <img src="src/files/fotos maquinas/arcade-mariobros.jpg" alt="" />
+            <div class="foto-admin__texto">
+              <span class="foto-admin__tipo">Diseño temático</span>
+              <strong>Arcade Super Mario</strong>
+            </div>
+            <button type="button" class="foto-admin__eliminar" aria-label="Eliminar la foto Arcade Super Mario">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+
+          <li class="foto-admin" data-titulo="Arcade estilo Nintendo">
+            <img src="src/files/fotos maquinas/arcade-nintendo.jpg" alt="" />
+            <div class="foto-admin__texto">
+              <span class="foto-admin__tipo">Diseño de marca</span>
+              <strong>Arcade estilo Nintendo</strong>
+            </div>
+            <button type="button" class="foto-admin__eliminar" aria-label="Eliminar la foto Arcade estilo Nintendo">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+
+          <li class="foto-admin" data-titulo="Minibar Joker y Pac-Man">
+            <img src="src/files/fotos maquinas/arcade-minibar.jpg" alt="" />
+            <div class="foto-admin__texto">
+              <span class="foto-admin__tipo">Arcade + nevera</span>
+              <strong>Minibar Joker y Pac-Man</strong>
+            </div>
+            <button type="button" class="foto-admin__eliminar" aria-label="Eliminar la foto Minibar Joker y Pac-Man">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+
+          <li class="foto-admin" data-titulo="Arcade Donkey Kong">
+            <img src="src/files/fotos maquinas/arcade-dokeykong.jpg" alt="" />
+            <div class="foto-admin__texto">
+              <span class="foto-admin__tipo">Diseño temático</span>
+              <strong>Arcade Donkey Kong</strong>
+            </div>
+            <button type="button" class="foto-admin__eliminar" aria-label="Eliminar la foto Arcade Donkey Kong">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+
+          <li class="foto-admin" data-titulo="Arcade Killer Instinct">
+            <img src="src/files/fotos maquinas/arcade-killerinstintc.jpg" alt="" />
+            <div class="foto-admin__texto">
+              <span class="foto-admin__tipo">Diseño temático</span>
+              <strong>Arcade Killer Instinct</strong>
+            </div>
+            <button type="button" class="foto-admin__eliminar" aria-label="Eliminar la foto Arcade Killer Instinct">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+
+          <li class="foto-admin" data-titulo="Arcade Pac-Man">
+            <img src="src/files/fotos maquinas/Arcade-pacman.jpg" alt="" />
+            <div class="foto-admin__texto">
+              <span class="foto-admin__tipo">Diseño temático</span>
+              <strong>Arcade Pac-Man</strong>
+            </div>
+            <button type="button" class="foto-admin__eliminar" aria-label="Eliminar la foto Arcade Pac-Man">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill="currentColor"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+
+        <p class="fotos-galeria__vacia" id="fotos_vacia" hidden>No quedan fotos en la galería.</p>
+
+        <!-- Mensaje después de eliminar, con botón para deshacer -->
+        <div class="fotos-galeria__mensaje" id="mensaje_fotos" role="status" hidden>
+          <span id="texto_mensaje_fotos"></span>
+          <button type="button" class="fotos-galeria__deshacer" id="deshacer_foto">Deshacer</button>
+        </div>
+      </section>
+
+      <!-- Ventana de confirmación (se abre con JavaScript) -->
+      <dialog class="confirmar-borrado" id="confirmar_borrado" aria-labelledby="titulo-confirmar">
+        <span class="confirmar-borrado__icono" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
+                <path d="M9 3h6l1 2h4v2H4V5h4l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill="currentColor"/>
+              </svg>
+        </span>
+        <h3 id="titulo-confirmar">¿Eliminar esta foto?</h3>
+        <img class="confirmar-borrado__foto" id="foto_confirmar" alt="" />
+        <p id="texto_confirmar"></p>
+        <div class="confirmar-borrado__acciones">
+          <button type="button" class="boton boton--secundario" id="cancelar_borrado">Cancelar</button>
+          <button type="button" class="boton confirmar-borrado__si" id="aceptar_borrado">Sí, eliminar</button>
+        </div>
+      </dialog>
+
+      <div class="actualizacion_banner oferta_residencial">
+        <h2 class="titulo_actualizacion">Oferta residencial</h2>
+        <label for="producto_oferta">Producto para hogares</label>
+        <select id="producto_oferta">
+          <option value="">Elige un producto</option>
+          <option value="Arcade vertical clásica">Arcade vertical clásica</option>
+          <option value="Bartop">Bartop</option>
+          <option value="Mesa arcade">Mesa arcade</option>
+          <option value="Arcade para eventos">Arcade para eventos</option>
+        </select>
+        <ul class="lista_oferta" id="lista_oferta">
+          <li data-producto="Arcade vertical clásica">Arcade vertical clásica</li>
+          <li data-producto="Bartop">Bartop</li>
+          <li data-producto="Mesa arcade">Mesa arcade</li>
+          <li data-producto="Arcade para eventos">Arcade para eventos</li>
+        </ul>
+        <button class="boton boton--primario" id="boton_oferta" type="button">Destacar para hogares</button>
+        <p id="mensaje_oferta"></p>
       </div>
-      <div class="editor_texto" id="editor_historia" contenteditable="true">
-        Add1ctGames es una empresa colombiana que diseña, fabrica y personaliza máquinas arcade.
+      <div class="actualizacion_banner editor_historia">
+        <h2 class="titulo_actualizacion">Historia corporativa</h2>
+        <div class="editor_barra">
+          <button type="button" class="boton boton--secundario" data-formato="bold">Negrita</button>
+          <button type="button" class="boton boton--secundario" data-formato="italic">Cursiva</button>
+          <button type="button" class="boton boton--secundario" data-formato="underline">Subrayado</button>
+        </div>
+        <div class="editor_texto" id="editor_historia" contenteditable="true">
+          Add1ctGames es una empresa colombiana que diseña, fabrica y personaliza máquinas arcade.
+        </div>
+        <button class="boton boton--primario" id="boton_historia" type="button">Guardar historia</button>
+        <p id="mensaje_historia"></p>
       </div>
-      <button class="boton boton--primario" id="boton_historia" type="button">Guardar historia</button>
-      <p id="mensaje_historia"></p>
-    </div>
     </section>
   </main>
   <script src="src/js/admin.js"></script>
