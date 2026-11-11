@@ -554,6 +554,55 @@
         <p id="mensaje_contacto" role="status"></p>
       </form>
 
+      <!-- HU-09.04 · Editar condiciones B2B (simulado) -->
+      <form class="condiciones-b2b" id="form-condiciones" aria-labelledby="titulo-condiciones" novalidate>
+        <div class="condiciones-b2b__encabezado">
+          <h2 id="titulo-condiciones">Condiciones B2B</h2>
+        </div>
+        <p class="texto-suave">
+          Actualiza los términos de servicio que leen las empresas en la página Empresas.
+          Escribe una condición por línea.
+        </p>
+
+        <!-- Tipo de condiciones -->
+        <div class="condiciones-b2b__tipos" role="radiogroup" aria-label="Tipo de condiciones">
+          <label class="condiciones-tipo">
+            <input type="radio" name="tipo_condiciones" value="alquiler" checked />
+            <span>Alquiler para eventos</span>
+          </label>
+          <label class="condiciones-tipo">
+            <input type="radio" name="tipo_condiciones" value="corporativas" />
+            <span>Compra corporativa y branding</span>
+          </label>
+        </div>
+
+        <div class="condiciones-b2b__columnas">
+          <!-- Editor -->
+          <div class="condiciones-b2b__editor">
+            <label for="texto_condiciones">Condiciones</label>
+            <textarea id="texto_condiciones" rows="9" maxlength="800"></textarea>
+            <span class="condiciones-b2b__ayuda" id="contador_condiciones">0 / 800 caracteres</span>
+          </div>
+
+          <!-- Vista previa -->
+          <div class="condiciones-b2b__vista">
+            <p class="condiciones-b2b__etiqueta">Vista previa en Empresas</p>
+            <div class="condiciones-vista">
+              <h3 id="vista_titulo_condiciones">Condiciones de alquiler</h3>
+              <ol class="condiciones-vista__lista" id="vista_condiciones"></ol>
+              <p class="condiciones-vista__fecha" id="fecha_condiciones">Última actualización: sin cambios guardados</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="condiciones-b2b__acciones">
+          <span class="condiciones-b2b__estado" id="estado_condiciones">Sin cambios</span>
+          <button type="button" class="boton boton--secundario" id="descartar_condiciones">Descartar cambios</button>
+          <button type="submit" class="boton boton--primario" id="boton_condiciones">Guardar</button>
+        </div>
+        <p id="mensaje_condiciones" role="status"></p>
+      </form>
+
       <!-- HU-07.04 · Subir foto a la galería (simulado) -->
       <div class="actualizacion_banner subida_galeria">
         <h2 class="titulo_actualizacion">Subir foto a la galería</h2>

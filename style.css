@@ -2803,3 +2803,226 @@ header {
 .cta-b2c h2 {
   font-size: var(--texto-h2);
 }
+/* ==========================================================================
+   HU-09.04 · EDITAR CONDICIONES B2B (admin)
+   ========================================================================== */
+.condiciones-b2b {
+  grid-column: 1 / -1;          /* ocupa todo el ancho del panel */
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  padding: 40px;
+  border: 3px solid var(--color-borde);
+  border-radius: 20px;
+  background-color: var(--color-superficie);
+}
+
+.condiciones-b2b__encabezado h2 {
+  margin: 0 0 8px;
+}
+
+/* Botones para elegir el tipo de condiciones */
+.condiciones-b2b__tipos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.condiciones-tipo {
+  position: relative;
+  cursor: pointer;
+}
+
+/* El radio se oculta; se ve la "pastilla" */
+.condiciones-tipo input {
+  position: absolute;
+  opacity: 0;
+}
+
+.condiciones-tipo span {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 2px solid var(--color-borde);
+  border-radius: 999px;
+  color: var(--color-texto-suave);
+  font-weight: 800;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.condiciones-tipo:hover span {
+  border-color: var(--color-acento-texto);
+}
+
+.condiciones-tipo input:checked + span {
+  border-color: var(--color-amarillo);
+  background-color: var(--color-amarillo);
+  color: var(--color-nocturno);
+}
+
+.condiciones-tipo input:focus-visible + span {
+  outline: 3px solid var(--color-acento-texto);
+  outline-offset: 2px;
+}
+
+/* Editor y vista previa lado a lado */
+.condiciones-b2b__columnas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.condiciones-b2b__editor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.condiciones-b2b__editor label {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.condiciones-b2b__editor textarea {
+  width: 100%;
+  min-height: 240px;
+  padding: 12px;
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  background-color: var(--color-superficie);
+  color: var(--color-texto);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.condiciones-b2b__editor textarea:focus {
+  outline: none;
+  border-color: var(--color-acento-texto);
+  box-shadow: 0 0 0 3px rgba(163, 79, 14, 0.18);
+}
+
+/* Control visual: texto cambiado sin guardar */
+.condiciones-b2b__editor textarea.condiciones--cambiado {
+  border-color: var(--color-amarillo);
+  background-color: #fff6e8;
+}
+
+.condiciones-b2b__editor textarea.condiciones--error {
+  border: 2px solid #c0392b;
+}
+
+.condiciones-b2b__ayuda {
+  color: var(--color-texto-suave);
+  font-size: 0.8125rem;
+  text-align: right;
+}
+
+/* Vista previa */
+.condiciones-b2b__etiqueta {
+  margin: 0 0 6px;
+  color: var(--color-texto-suave);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.condiciones-vista {
+  padding: 20px 24px;
+  border: 1px solid var(--color-borde);
+  border-radius: 20px;
+  background-color: #fff6e8;
+}
+
+.condiciones-vista h3 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.condiciones-vista__lista {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.condiciones-vista__lista li {
+  margin-bottom: 8px;
+  color: var(--color-texto-suave);
+  font-size: 0.9375rem;
+}
+
+.condiciones-vista__lista li::marker {
+  color: var(--color-acento-texto);
+  font-weight: 800;
+}
+
+.condiciones-vista__fecha {
+  margin: 12px 0 0;
+  color: var(--color-texto-suave);
+  font-size: 0.8125rem;
+}
+
+/* Botones y estado */
+.condiciones-b2b__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.condiciones-b2b__acciones .boton {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.condiciones-b2b__acciones .boton--secundario {
+  background-color: transparent;
+}
+
+.condiciones-b2b__estado {
+  margin-right: auto;
+  color: var(--color-texto-suave);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.condiciones-b2b__estado--pendiente {
+  color: var(--color-acento-texto);
+}
+
+#mensaje_condiciones {
+  margin: 12px 0 0;
+  font-weight: 700;
+  text-align: right;
+}
+
+#mensaje_condiciones.mensaje--exito { color: #2f7d3a; }
+#mensaje_condiciones.mensaje--error { color: #c0392b; }
+#mensaje_condiciones.mensaje--aviso { color: var(--color-acento-texto); }
+
+@media (max-width: 768px) {
+  .condiciones-b2b {
+    padding: 20px;
+  }
+
+  .condiciones-b2b__columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .condiciones-b2b__acciones .boton {
+    width: 100%;
+  }
+
+  .condiciones-b2b__estado {
+    width: 100%;
+  }
+
+  #mensaje_condiciones {
+    text-align: left;
+  }
+}
