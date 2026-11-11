@@ -2703,3 +2703,99 @@ header {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   HU-08.03 · BOTÓN DESTACADO DE COTIZACIÓN B2C (catalogo.html)
+   ========================================================================== */
+.cta-b2c {
+  padding: 0 0 var(--esp-6);
+}
+
+/* Franja café: contrasta con el fondo claro y llama la atención */
+.cta-b2c__caja {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-radius: 24px;
+  background-color: var(--color-cafe);
+}
+
+.cta-b2c__texto {
+  max-width: 560px;
+}
+
+.cta-b2c__acento {
+  margin: 0 0 4px;
+  color: var(--color-amarillo);
+  font-family: var(--fuente-acento);
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.cta-b2c h2 {
+  margin: 0 0 8px;
+  color: var(--color-texto-claro);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.cta-b2c__texto p:last-child {
+  margin: 0;
+  color: var(--color-texto-claro-suave);
+}
+
+/* Botón grande y amarillo */
+.cta-b2c__boton {
+  flex-shrink: 0;
+  gap: 10px;
+  min-height: 60px;
+  padding: 0 32px;
+  font-family: var(--fuente-texto);
+  font-size: 1.125rem;
+  box-shadow: 0 6px 0 #241813;          /* sombra dura, estilo botón arcade */
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
+}
+
+.cta-b2c__boton:hover {
+  background-color: var(--color-amarillo-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #241813;
+}
+
+/* Al hacer clic se "hunde" como un botón de máquina */
+.cta-b2c__boton:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #241813;
+}
+
+.cta-b2c__boton:focus-visible {
+  outline: 3px solid var(--color-texto-claro);
+  outline-offset: 4px;
+}
+
+.cta-b2c__boton span {
+  transition: transform 0.2s ease;
+}
+
+.cta-b2c__boton:hover span {
+  transform: translateX(4px);
+}
+
+/* Celular: texto arriba, botón abajo a todo el ancho */
+@media (max-width: 768px) {
+  .cta-b2c__caja {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    border-radius: 0;
+  }
+
+  .cta-b2c__boton {
+    width: 100%;
+  }
+}
