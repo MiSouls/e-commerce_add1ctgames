@@ -2799,3 +2799,7 @@ header {
     width: 100%;
   }
 }
+
+.cta-b2c h2 {
+  font-size: var(--texto-h2);
+}
