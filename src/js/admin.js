@@ -1040,3 +1040,159 @@ botonHistoria.addEventListener("click", function () {
 
   actualizarContador();
 }
+
+/* ==========================================================================
+   HU-09.04 · EDITAR CONDICIONES B2B (simulado)
+   Va entre llaves { } para que sus variables no choquen con el resto.
+   ========================================================================== */
+{
+  // Textos iniciales (los de la página Empresas). Por confirmar con el cliente.
+  const condiciones = {
+    alquiler: {
+      titulo: "Condiciones de alquiler",
+      texto: [
+        "El alquiler puede ser por horas o por día, según la duración del evento.",
+        "Incluye entrega e instalación de la máquina en tu espacio.",
+        "Ofrecemos soporte durante el evento para que todo funcione sin problemas.",
+        "La reserva se confirma con la cotización aprobada."
+      ].join("\n"),
+      fecha: ""
+    },
+    corporativas: {
+      titulo: "Condiciones corporativas y de branding",
+      texto: [
+        "Personalizamos la máquina con el logo y los colores de tu empresa.",
+        "El diseño se aprueba con el cliente antes de fabricar.",
+        "El tiempo de entrega se acuerda en la propuesta comercial.",
+        "Incluye acompañamiento posventa."
+      ].join("\n"),
+      fecha: ""
+    }
+  };
+
+  const formCondiciones = document.getElementById("form-condiciones");
+  const areaTexto = document.getElementById("texto_condiciones");
+  const contador = document.getElementById("contador_condiciones");
+  const vistaTitulo = document.getElementById("vista_titulo_condiciones");
+  const vistaLista = document.getElementById("vista_condiciones");
+  const fechaVista = document.getElementById("fecha_condiciones");
+  const estado = document.getElementById("estado_condiciones");
+  const mensaje = document.getElementById("mensaje_condiciones");
+  const botonDescartar = document.getElementById("descartar_condiciones");
+  const radios = formCondiciones.querySelectorAll('input[name="tipo_condiciones"]');
+
+  let tipoActual = "alquiler";
+
+  // Convierte el texto en líneas, sin líneas vacías
+  function lineas(texto) {
+    return texto.split("\n").map(function (l) { return l.trim(); }).filter(Boolean);
+  }
+
+  function hayCambios() {
+    return areaTexto.value.trim() !== condiciones[tipoActual].texto;
+  }
+
+  function mostrarMensaje(texto, tipo) {
+    mensaje.textContent = texto;
+    mensaje.className = tipo ? "mensaje--" + tipo : "";
+  }
+
+  // Vista previa + contador + estado
+  function actualizarVista() {
+    vistaTitulo.textContent = condiciones[tipoActual].titulo;
+    vistaLista.innerHTML = "";
+    const items = lineas(areaTexto.value);
+    if (items.length === 0) {
+      const vacio = document.createElement("li");
+      vacio.textContent = "Escribe al menos una condición.";
+      vistaLista.appendChild(vacio);
+    }
+    items.forEach(function (texto) {
+      const li = document.createElement("li");
+      li.textContent = texto; // textContent: seguro con lo que escriba el usuario
+      vistaLista.appendChild(li);
+    });
+
+    contador.textContent = areaTexto.value.length + " / 800 caracteres";
+
+    const cambios = hayCambios();
+    areaTexto.classList.toggle("condiciones--cambiado", cambios);
+    estado.textContent = cambios ? "● Cambios sin guardar" : "Sin cambios";
+    estado.classList.toggle("condiciones-b2b__estado--pendiente", cambios);
+
+    const fecha = condiciones[tipoActual].fecha;
+    fechaVista.textContent = fecha
+      ? "Última actualización: " + fecha
+      : "Última actualización: sin cambios guardados";
+  }
+
+  function cargarTipo(tipo) {
+    tipoActual = tipo;
+    areaTexto.value = condiciones[tipo].texto;
+    areaTexto.classList.remove("condiciones--error");
+    actualizarVista();
+  }
+
+  // Escribir en el editor
+  areaTexto.addEventListener("input", function () {
+    areaTexto.classList.remove("condiciones--error");
+    mostrarMensaje("", "");
+    actualizarVista();
+  });
+
+  // Cambiar de tipo (si había cambios sin guardar, se avisa que se descartaron)
+  radios.forEach(function (radio) {
+    radio.addEventListener("change", function () {
+      const anterior = condiciones[tipoActual].titulo;
+      const habiaCambios = hayCambios();
+      cargarTipo(radio.value);
+      if (habiaCambios) {
+        mostrarMensaje("Se descartaron los cambios sin guardar de \"" + anterior + "\".", "aviso");
+      } else {
+        mostrarMensaje("", "");
+      }
+    });
+  });
+
+  // Guardar (simulado)
+  formCondiciones.addEventListener("submit", function (evento) {
+    evento.preventDefault(); // evita que la página se recargue
+
+    if (lineas(areaTexto.value).length === 0) {
+      areaTexto.classList.add("condiciones--error");
+      areaTexto.focus();
+      mostrarMensaje("Escribe al menos una condición antes de guardar.", "error");
+      return;
+    }
+
+    if (!hayCambios()) {
+      mostrarMensaje("No hay cambios para guardar.", "");
+      return;
+    }
+
+    // El texto limpio (sin líneas vacías) pasa a ser el "guardado"
+    condiciones[tipoActual].texto = lineas(areaTexto.value).join("\n");
+    areaTexto.value = condiciones[tipoActual].texto;
+
+    const ahora = new Date();
+    condiciones[tipoActual].fecha =
+      ahora.toLocaleDateString("es-CO") + " a las " +
+      ahora.toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit" });
+
+    actualizarVista();
+    mostrarMensaje("✔ " + condiciones[tipoActual].titulo + " actualizadas.", "exito");
+  });
+
+  // Descartar: vuelve al último texto guardado
+  botonDescartar.addEventListener("click", function () {
+    if (!hayCambios()) {
+      mostrarMensaje("No hay cambios para descartar.", "");
+      return;
+    }
+    cargarTipo(tipoActual);
+    mostrarMensaje("Se descartaron los cambios.", "aviso");
+  });
+
+  // Estado inicial
+  cargarTipo(tipoActual);
+}
