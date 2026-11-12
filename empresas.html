@@ -156,10 +156,28 @@
           </li>
         </ul>
 
-        <div class="mt-8">
-          <a class="boton boton--primario boton_cotizar" href="cotizacion.html">Solicita una cotización para tu
-            empresa</a>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         HU-09.03 · ACCEDER A LA COTIZACIÓN EMPRESARIAL (B2B)
+         ✔ Enlace directo al formulario B2B: cotizacion.html?perfil=b2b
+           (cotizacion.js marca solo la opción "Para mi empresa")
+         ✔ Visible en la sección corporativa (empresas.html)
+         Usa los mismos estilos de la franja de la HU-08.03 (.cta-b2c)
+         ================================================================== -->
+    <section class="cta-b2c" aria-labelledby="titulo-cta-b2b">
+      <div class="contenedor cta-b2c__caja">
+        <div class="cta-b2c__texto">
+          <p class="cta-b2c__acento">Para tu empresa</p>
+          <h2 id="titulo-cta-b2b">Solicita una propuesta comercial</h2>
+          <p>Cuéntanos qué necesita tu negocio: compra, alquiler para eventos o
+            máquinas con tu marca. Te enviamos una propuesta formal.</p>
         </div>
+        <a class="boton boton--primario cta-b2c__boton" href="cotizacion.html?perfil=b2b">
+          Cotizar para mi empresa
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
   </main>
