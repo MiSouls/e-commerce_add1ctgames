@@ -944,3 +944,99 @@ botonHistoria.addEventListener("click", function () {
   }
 });
 }
+
+/* ==========================================================================
+   HU-07.05 · ELIMINAR UNA FOTOGRAFÍA DE LA GALERÍA (simulado)
+   Va entre llaves { } para que sus variables no choquen con el resto.
+   ========================================================================== */
+{
+  const listaFotos = document.getElementById("lista_fotos_admin");
+  const contadorFotos = document.getElementById("contador_fotos");
+  const avisoSinFotos = document.getElementById("fotos_vacia");
+  const ventana = document.getElementById("confirmar_borrado");
+  const fotoConfirmar = document.getElementById("foto_confirmar");
+  const textoConfirmar = document.getElementById("texto_confirmar");
+  const botonCancelar = document.getElementById("cancelar_borrado");
+  const botonAceptar = document.getElementById("aceptar_borrado");
+  const mensajeFotos = document.getElementById("mensaje_fotos");
+  const textoMensaje = document.getElementById("texto_mensaje_fotos");
+  const botonDeshacer = document.getElementById("deshacer_foto");
+
+  let fotoElegida = null;      // la foto que se quiere borrar
+  let ultimaBorrada = null;    // para poder deshacer: { item, siguiente }
+
+  function actualizarContador() {
+    const total = listaFotos.querySelectorAll(".foto-admin").length;
+    contadorFotos.textContent = total;
+    avisoSinFotos.hidden = total > 0;
+  }
+
+  // 1. Clic en la papelera: se abre la confirmación
+  listaFotos.addEventListener("click", function (evento) {
+    const boton = evento.target.closest(".foto-admin__eliminar");
+    if (!boton) return;
+
+    fotoElegida = boton.closest(".foto-admin");
+    fotoElegida.classList.add("foto-admin--marcada");
+    fotoConfirmar.src = fotoElegida.querySelector("img").src;
+    textoConfirmar.textContent =
+      "Se quitará \"" + fotoElegida.dataset.titulo + "\" de la galería. Los visitantes ya no la verán.";
+    ventana.showModal();
+    botonCancelar.focus(); // el foco queda en la opción segura
+  });
+
+  // 2. Cerrar la ventana sin borrar
+  function cerrarVentana() {
+    if (fotoElegida) fotoElegida.classList.remove("foto-admin--marcada");
+    fotoElegida = null;
+    if (ventana.open) ventana.close();
+  }
+
+  botonCancelar.addEventListener("click", cerrarVentana);
+
+  // Tecla Escape: el navegador cierra la ventana; aquí se limpia la marca
+  ventana.addEventListener("close", function () {
+    if (fotoElegida) fotoElegida.classList.remove("foto-admin--marcada");
+    fotoElegida = null;
+  });
+
+  // Clic en el fondo oscuro también cancela
+  ventana.addEventListener("click", function (evento) {
+    if (evento.target === ventana) cerrarVentana();
+  });
+
+  // 3. Confirmar: la foto desaparece (simulado, no se borra ningún archivo)
+  botonAceptar.addEventListener("click", function () {
+    if (!fotoElegida) return;
+    const item = fotoElegida;
+    const titulo = item.dataset.titulo;
+
+    ultimaBorrada = { item: item, siguiente: item.nextElementSibling };
+    item.classList.remove("foto-admin--marcada");
+    fotoElegida = null;
+    ventana.close();
+
+    // Pequeña animación antes de quitarla
+    item.classList.add("foto-admin--saliendo");
+    setTimeout(function () {
+      item.remove();
+      actualizarContador();
+    }, 300);
+
+    textoMensaje.textContent = "✔ Foto \"" + titulo + "\" eliminada de la galería (simulación).";
+    mensajeFotos.hidden = false;
+  });
+
+  // 4. Deshacer: vuelve a poner la última foto borrada en su lugar
+  botonDeshacer.addEventListener("click", function () {
+    if (!ultimaBorrada) return;
+    const item = ultimaBorrada.item;
+    item.classList.remove("foto-admin--saliendo");
+    listaFotos.insertBefore(item, ultimaBorrada.siguiente);
+    ultimaBorrada = null;
+    actualizarContador();
+    mensajeFotos.hidden = true;
+  });
+
+  actualizarContador();
+}
