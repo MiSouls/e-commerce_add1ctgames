@@ -454,7 +454,27 @@ header {
 .panel_tarjetas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 20px;
+  align-items: start;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: var(--esp-5) var(--esp-4);
+}
+
+.panel_tarjetas h2 {
+  margin: 0;
+  font-size: var(--texto-h3);
+  line-height: 1.2;
+}
+
+/* las tarjetas pequeñas van arriba y los formularios anchos después */
+.actualizacion-stock,
+.seleccion-destacados,
+.edicion-tecnica,
+.bandeja,
+.edicion-contacto,
+.condiciones-b2b {
+  order: 1;
 }
 
 .actualizacion_banner,
@@ -463,12 +483,11 @@ header {
   display: flex;
   border: 3px solid var(--color-borde);
   border-radius: 20px;
-  max-width: 400px;
-  margin: 50px auto;
-  gap: 15px;
+  margin: 0;
+  gap: 10px;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
+  padding: 20px;
   background-color: var(--color-superficie);
   text-align: center;
 }
@@ -557,8 +576,8 @@ header {
   grid-column: 1 / -1;
   width: 100%;
   max-width: 900px;
-  margin: 0 auto 50px;
-  padding: 40px;
+  margin: 0 auto;
+  padding: 24px;
   border: 3px solid var(--color-borde);
   border-radius: 20px;
   background-color: var(--color-superficie);
@@ -848,8 +867,8 @@ header {
   grid-column: 1 / -1;
   width: 100%;
   max-width: 900px;
-  margin: 0 auto 50px;
-  padding: 40px;
+  margin: 0 auto;
+  padding: 24px;
   border: 3px solid var(--color-borde);
   border-radius: 20px;
   background-color: var(--color-superficie);
@@ -1276,8 +1295,8 @@ header {
   grid-column: 1 / -1;
   width: 100%;
   max-width: 900px;
-  margin: 0 auto 50px;
-  padding: 40px;
+  margin: 0 auto;
+  padding: 24px;
   border: 3px solid var(--color-borde);
   border-radius: 20px;
   background-color: var(--color-superficie);
@@ -1693,8 +1712,8 @@ header {
   grid-column: 1 / -1;
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto 50px;
-  padding: 40px;
+  margin: 0 auto;
+  padding: 24px;
   border: 3px solid var(--color-borde);
   border-radius: 20px;
   background-color: var(--color-superficie);
@@ -2171,8 +2190,8 @@ header {
   grid-column: 1 / -1;         
   width: 100%;
   max-width: 900px;
-  margin: 0 auto 50px;
-  padding: 40px;
+  margin: 0 auto;
+  padding: 24px;
   border: 3px solid var(--color-borde);
   border-radius: 20px;
   background-color: var(--color-superficie);
@@ -2810,8 +2829,8 @@ header {
   grid-column: 1 / -1;          /* ocupa todo el ancho del panel */
   width: 100%;
   max-width: 900px;
-  margin: 0 auto 50px;
-  padding: 40px;
+  margin: 0 auto;
+  padding: 24px;
   border: 3px solid var(--color-borde);
   border-radius: 20px;
   background-color: var(--color-superficie);
@@ -3024,5 +3043,193 @@ header {
 
   #mensaje_condiciones {
     text-align: left;
+  }
+}
+
+/* TARJETAS NUEVAS DEL PANEL */
+.vista_previa {
+  display: none;
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: var(--radio-md);
+}
+
+.vista_previa--visible {
+  display: block;
+}
+
+.barra_carga {
+  display: none;
+  width: 100%;
+  height: 10px;
+  border-radius: var(--radio-pill);
+  background-color: var(--color-relleno);
+  overflow: hidden;
+}
+
+.barra_carga--visible {
+  display: block;
+}
+
+.barra_carga__avance {
+  height: 100%;
+  width: 0;
+  background-color: var(--color-amarillo);
+  transition: width 0.2s linear;
+}
+
+.lista_oferta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-2);
+}
+
+.lista_oferta li {
+  padding: var(--esp-2) var(--esp-3);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+}
+
+.oferta_destacada {
+  border-color: var(--color-amarillo);
+  background-color: var(--color-fondo-seccion);
+  font-weight: 700;
+}
+
+.oferta_destacada::after {
+  content: " · Destacado para hogares";
+}
+
+.editor_barra {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--esp-2);
+}
+
+.editor_texto {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--esp-3);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  background-color: var(--color-superficie);
+  text-align: left;
+}
+
+/* TIPO DE CLIENTE (COTIZACION) */
+.perfil-cliente__opciones {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--esp-4);
+}
+
+.perfil-opcion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-1);
+  padding: var(--esp-4);
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  cursor: pointer;
+}
+
+#form_cotizacion .perfil-opcion input {
+  width: auto;
+  min-height: 0;
+  align-self: flex-start;
+}
+
+.perfil-opcion__titulo {
+  font-weight: 800;
+}
+
+.perfil-opcion__etiqueta {
+  font-size: var(--texto-mini);
+  color: var(--color-acento-texto);
+}
+
+/* HOVER Y FOCO */
+.boton:hover {
+  transform: translateY(-2px);
+}
+
+.tarjeta-producto:hover {
+  box-shadow: var(--sombra-md);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--color-amarillo);
+}
+
+/* RESPONSIVE */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .top_navegation {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--esp-3);
+    padding: var(--esp-3) var(--esp-4);
+  }
+
+  .menu_navegacion {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .franja {
+    flex-wrap: wrap;
+    gap: var(--esp-1) var(--esp-4);
+    text-align: center;
+  }
+
+  .perfil-cliente__opciones {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .contenedor {
+    padding: 0 var(--esp-4);
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .grilla--4,
+  .grilla--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .bandeja-tabla {
+    display: block;
+    overflow-x: auto;
   }
 }
