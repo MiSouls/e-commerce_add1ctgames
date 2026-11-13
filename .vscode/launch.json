@@ -9,6 +9,13 @@
             "name": "Main",
             "request": "launch",
             "mainClass": "consola.Main",
+            "projectName": "e-commerce_add1ctgames_7d9c198f"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "consola.Main",
             "projectName": "e-commerce_add1ctgames_1819a797"
         },
         {
